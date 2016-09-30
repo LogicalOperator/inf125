@@ -69,8 +69,10 @@
     <Compile Include="Assets\Scripts\controller.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />
     <Compile Include="Assets\Scripts\manager.cs" />
+    <Compile Include="Assets\Scripts\nextLevel.cs" />
     <Compile Include="Assets\Scripts\quit.cs" />
     <Compile Include="Assets\Scripts\scoreChanger.cs" />
+    <Compile Include="Assets\Scripts\waveIntChanger.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

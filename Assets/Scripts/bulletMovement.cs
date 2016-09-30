@@ -4,12 +4,14 @@ using System.Collections;
 public class bulletMovement : MonoBehaviour
 {
     float speed = 10f;
+    public int lifetimeBull = 10;
 
     // Use this for initialization
 
     void Awake()
     {
         this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
+        Destroy(gameObject, lifetimeBull);
     }
 
     void Update()

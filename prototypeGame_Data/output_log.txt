@@ -14,7 +14,7 @@ Platform assembly: C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\
 Loading C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  0.060 seconds
+- Completed reload, in  0.318 seconds
 Platform assembly: C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
@@ -27,13 +27,13 @@ Platform assembly: C:\Users\Derek\Documents\prototypeTopDown\prototypeGame_Data\
 <RI> Input initialized.
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.675587 ms
+UnloadTime: 0.875943 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.062442 ms
+UnloadTime: 5.504207 ms
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 255.
-Total: 0.189646 ms (FindLiveObjects: 0.015617 ms CreateObjectMapping: 0.015171 ms MarkObjects: 0.150378 ms  DeleteObjects: 0.008032 ms)
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 275.
+Total: 1.488612 ms (FindLiveObjects: 0.036590 ms CreateObjectMapping: 0.011155 ms MarkObjects: 0.198570 ms  DeleteObjects: 1.241849 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 4b14 -> priority: 1 
-  Thread -> id: 4dec -> priority: 1 
+  Thread -> id: 56e0 -> priority: 1 
+  Thread -> id: 2a5c -> priority: 1 
