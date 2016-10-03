@@ -3,6 +3,7 @@ using System.Collections;
 
 public class bulletMovement : MonoBehaviour
 {
+    public int damage = 10;
     float speed = 10f;
     public int lifetimeBull = 10;
 

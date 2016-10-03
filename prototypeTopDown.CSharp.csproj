@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\bullet.cs" />
     <Compile Include="Assets\Scripts\bulletMovement.cs" />
     <Compile Include="Assets\Scripts\controller.cs" />
+    <Compile Include="Assets\Scripts\enemyBase.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />
     <Compile Include="Assets\Scripts\manager.cs" />
     <Compile Include="Assets\Scripts\nextLevel.cs" />
