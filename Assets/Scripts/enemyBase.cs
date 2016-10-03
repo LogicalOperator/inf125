@@ -8,6 +8,7 @@ public class enemyBase : MonoBehaviour {
     AudioSource mainAudioS;
     public AudioClip eClip;
     public int currentHP;
+    public int speed;
     public int Health
     {
         get
@@ -49,7 +50,7 @@ public class enemyBase : MonoBehaviour {
         if (player)
         {
             Vector2 mainCharPos = player.transform.position;
-            gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), mainCharPos, 0.025f);
+            gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), mainCharPos, speed* Time.deltaTime);
         }
     }
 }

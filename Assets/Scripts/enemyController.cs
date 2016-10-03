@@ -7,6 +7,7 @@ public class enemyController : enemyBase {
     {
         maxHP = 10;
         currentHP = maxHP;
+        speed = 2;
     }
 
     void Update()

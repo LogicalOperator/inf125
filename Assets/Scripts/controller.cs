@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class controller : MonoBehaviour
 {
@@ -27,8 +28,10 @@ public class controller : MonoBehaviour
     {
         if (obj.gameObject.tag == "Enemy")
         {
-            AudioSource.PlayClipAtPoint(deathClip,Camera.main.transform.position, 10f);
+            
             Destroy(gameObject);
+            SceneManager.LoadScene(2);
+            
         }
     }
 }
