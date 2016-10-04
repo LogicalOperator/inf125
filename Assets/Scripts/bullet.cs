@@ -6,7 +6,7 @@ public class bullet : MonoBehaviour {
     GameObject go;
 	// Use this for initialization
 	void Start () {
-	
+	    
 	}
 	
 	// Update is called once per frame
@@ -14,11 +14,13 @@ public class bullet : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pos = Input.mousePosition;
-            pos.z = transform.position.z - Camera.main.transform.position.z;
             pos = Camera.main.ScreenToWorldPoint(pos);
+            pos.z = transform.position.z;
+            Vector3 coor = transform.position;
+            coor.z = 1;
 
             Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
-            go = Instantiate(prefab, transform.position, q) as GameObject;
+            go = Instantiate(prefab, coor, q) as GameObject;
         }
     }
 
