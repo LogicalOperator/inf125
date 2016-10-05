@@ -75,7 +75,6 @@
     <Compile Include="Assets\Scripts\scoreChanger.cs" />
     <Compile Include="Assets\Scripts\waveIntChanger.cs" />
     <Compile Include="Assets\backToMenu.cs" />
-    <Compile Include="Assets\cameraController.cs" />
     <Compile Include="Assets\gameOverScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

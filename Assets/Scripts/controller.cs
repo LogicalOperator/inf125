@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class controller : MonoBehaviour
 {
-    public float speed = 0.5f;
+    public float speed = 10f;
     public Rigidbody2D mainBody;
     public AudioSource mainAudioS;
     public AudioClip deathClip;
