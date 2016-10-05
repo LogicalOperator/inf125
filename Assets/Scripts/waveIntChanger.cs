@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class waveIntChanger : MonoBehaviour {
+    //script used to change UI on canvas
     public Text wave;
 	// Use this for initialization
 	void Start () {

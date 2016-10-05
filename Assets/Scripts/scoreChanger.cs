@@ -9,7 +9,7 @@ public class scoreChanger : MonoBehaviour {
     void Awake()
     {
         MainScore = GetComponent<Text>();
-        scoreint = 0;
+        scoreint = 0; //initialize score as 0
     }
 
     void Update()

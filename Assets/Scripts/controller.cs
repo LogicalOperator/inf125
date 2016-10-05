@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class controller : MonoBehaviour
 {
-    public float speed = 0.5f;
+    public TrailRenderer trail;
+    public float speed = 0.5f;//current speed, might lower later
     public Rigidbody2D mainBody;
-    public AudioSource mainAudioS;
     public AudioClip deathClip;
     // Use this for initialization
     void Start()
     {
-        mainAudioS = GetComponent<AudioSource>();
+        trail = GetComponent<TrailRenderer>();
+        trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
+        trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
     }
 
@@ -19,14 +21,14 @@ public class controller : MonoBehaviour
     void FixedUpdate()
     {
 
-        mainBody.velocity = new Vector2(
+        mainBody.velocity = new Vector2( //obtains horizontal and vertical calls default is wsad, can be changed manually later
         Input.GetAxis("Horizontal") * speed,
         Input.GetAxis("Vertical") * speed);
     }
 
-    void OnCollisionEnter2D(Collision2D obj)
+    void OnCollisionEnter2D(Collision2D obj)//detects collisions with obj as the obj it collided with
     {
-        if (obj.gameObject.tag == "Enemy")
+        if (obj.gameObject.tag == "Enemy") //if it crashes object with a tag enemy, kill itself move to Gameover scene
         {
             
             Destroy(gameObject);

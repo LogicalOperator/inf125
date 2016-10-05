@@ -6,14 +6,14 @@ public class nextLevel : MonoBehaviour {
 
     void Start()
     {
-        managerFinder = GameObject.Find("managerGameObject").GetComponent<manager>();
+        managerFinder = GameObject.Find("managerGameObject").GetComponent<manager>();//get Manager script
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
 
-        manager.waveRemaining = manager.waveInt[++manager.currentWave];
-        managerFinder.enemySpawner();
-        Destroy(gameObject);
+        manager.waveRemaining = manager.waveInt[++manager.currentWave];//switch wave to next wave number in manager list of wave numbers
+        managerFinder.enemySpawner();//invoke the enemy spawner function
+        Destroy(gameObject);//destory portal 
     }
 
 }

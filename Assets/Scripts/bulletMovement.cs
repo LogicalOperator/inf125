@@ -11,18 +11,18 @@ public class bulletMovement : MonoBehaviour
 
     void Awake()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
-        Destroy(gameObject, lifetimeBull);
+        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed); // add force to bullet to move forward
+        Destroy(gameObject, lifetimeBull); //destory gameobject if it passes x amount of time
     }
 
     void Update()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
+        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);// add force to bullet to move forward
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
-        Destroy(gameObject);
+        Destroy(gameObject);//destory itself if it touch anything
     }
 
 }

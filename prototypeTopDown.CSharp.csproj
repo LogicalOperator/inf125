@@ -64,19 +64,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\GoTo.cs" />
+    <Compile Include="Assets\Scripts\backToMenu.cs" />
     <Compile Include="Assets\Scripts\bullet.cs" />
     <Compile Include="Assets\Scripts\bulletMovement.cs" />
+    <Compile Include="Assets\Scripts\cameraController.cs" />
     <Compile Include="Assets\Scripts\controller.cs" />
     <Compile Include="Assets\Scripts\enemyBase.cs" />
     <Compile Include="Assets\Scripts\enemyController.cs" />
+    <Compile Include="Assets\Scripts\gameOverScript.cs" />
     <Compile Include="Assets\Scripts\manager.cs" />
     <Compile Include="Assets\Scripts\nextLevel.cs" />
     <Compile Include="Assets\Scripts\quit.cs" />
     <Compile Include="Assets\Scripts\scoreChanger.cs" />
     <Compile Include="Assets\Scripts\waveIntChanger.cs" />
-    <Compile Include="Assets\backToMenu.cs" />
-    <Compile Include="Assets\cameraController.cs" />
-    <Compile Include="Assets\gameOverScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
