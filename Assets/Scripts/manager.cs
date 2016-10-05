@@ -12,10 +12,12 @@ public class manager : MonoBehaviour {
     public static int waveRemaining;
     public static int currentWave = 0;
     public static List<int> waveInt;
+    private GameObject[] respawnLocs;
     // Use this for initialization
     void Start () {
+        respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc");
         Invoke("enemySpawner", maxSecsStartSpawner);
-        waveInt = new List<int> {10, 20, 25, 30, 35,};
+        waveInt = new List<int> {10, 20, 25, 30, 35};
         waveRemaining = waveInt[currentWave];
         portalSource = GetComponent<AudioSource>();
     }
@@ -38,11 +40,9 @@ public class manager : MonoBehaviour {
 
     public void enemySpawner()
     {
-        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 0.8f));
 
         GameObject anEnemy = (GameObject)Instantiate(enemy);
-        anEnemy.transform.position = new Vector2(Random.Range(min.x, max.x), max.y);
+        anEnemy.transform.position = respawnLocs[Random.Range(0,3)].transform.position;
         waveRemaining--;
         schedulerforEnemySpwn();
     }
@@ -63,11 +63,9 @@ public class manager : MonoBehaviour {
         if (waveRemaining == 0)
         {
             AudioSource.PlayClipAtPoint(portalSound, Camera.main.transform.position, 10f);
-            Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-            Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 0.8f));
 
             GameObject aDoor = (GameObject)Instantiate(door);
-            aDoor.transform.position = new Vector2(Random.Range(min.x, max.x), max.y);
+            aDoor.transform.position = respawnLocs[Random.Range(0, 3)].transform.position;
         }
 
         else

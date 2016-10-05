@@ -5,7 +5,6 @@ public class enemyBase : MonoBehaviour {
 
     public int maxHP;
     public GameObject player;
-    AudioSource mainAudioS;
     public AudioClip eClip;
     public int currentHP;
     public int speed;
@@ -28,7 +27,6 @@ public class enemyBase : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
-        mainAudioS = GetComponent<AudioSource>();
     }
 
     public void takeDamage(int damage)
