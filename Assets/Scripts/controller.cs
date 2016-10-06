@@ -32,7 +32,7 @@ public class controller : MonoBehaviour
         {
             
             Destroy(gameObject);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             
         }
     }
