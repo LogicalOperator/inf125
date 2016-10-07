@@ -1,0 +1,70 @@
+How to create new enemy files;
+
+1) Create new C# script (fakeEnemy.cs)
+
+2) Change the new enemy's inheritance to the base class
+
+public class fakeEnemy : enemyBase
+
+3) In the Start function change maxhp, and spd
+
+maxHP = 10;
+currentHP = maxHP;
+speed = 2;
+
+4) Override movement function or use base class movement on Update function
+
+public override void movement(){
+	//movement ai
+}
+
+Update(){
+	movement();
+}
+
+5) Duplicate the basic enemy prefab, and replace the sprite(img)
+
+
+
+How to create new bullet movement for bullet prefabs;
+
+1) Create new C# script (fakeGunBulletMovement.cs)
+
+2) Change the new gun's inheritance to the base class
+
+public class fakeGunBulletMovement : baseBullet
+
+3) use base class's start
+
+Start(){
+base.Start()
+
+}
+
+4)Override bulletMovement to change how bullet moves, or use base class's
+
+5)Duplicate bullet prefab and remove the bulletmovement and add your new bulletmovement class
+
+
+
+
+How to create new gun files;	
+
+1) Create new C# script (fakeGun.cs)
+
+2) Change the new gun's inheritance to the base class
+
+public class fakeGun : baseGunScript
+
+3)In start function change Gun Stats
+	String gunName = "Fake Gun;"
+	String gunType = "light";
+	int damageMod = 5;
+
+4)override summonBullet function to change how the gun shoot bullets
+
+5)Drag n Drop sound file, gun img into the inspector
+
+6)Duplicate bullet prefab, change sprite img, drag and drop new prefab into prefab section of file in inspector
+	to use a new bullet for the new gun
+
