@@ -3,7 +3,8 @@ using System.Collections;
 
 public class bulletMovement : MonoBehaviour
 {
-    public int damage = 10;
+    controller player;
+    public int damage;
     float speed = 10f;
     public int lifetimeBull = 10;
 
@@ -11,6 +12,8 @@ public class bulletMovement : MonoBehaviour
 
     void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+        damage = player.damage;
         this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed); // add force to bullet to move forward
         Destroy(gameObject, lifetimeBull); //destory gameobject if it passes x amount of time
     }

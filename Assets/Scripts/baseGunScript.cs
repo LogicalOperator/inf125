@@ -6,14 +6,9 @@ public class baseGunScript : MonoBehaviour {
     public AudioClip gunSound;
     public GameObject bulletPrefab;
     public string gunType;
-    public int dmgMod;
+    public int dmgMod = 0;
     public string gunName;
     public Sprite gunImage;
-
-    // Use this for initialization
-    void Start () {
-	
-	}
 	
 
     public virtual void summonBullet()
