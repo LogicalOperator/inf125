@@ -47,4 +47,13 @@ public class enemyBase : MonoBehaviour {
             gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), mainCharPos, speed* Time.deltaTime);
         }
     }
+
+    public virtual void OnCollisionEnter2D(Collision2D colli)
+    {
+        if (colli.gameObject.tag == "Bullet")
+        {
+            takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
+            AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);//play damage sound at audioListener position(on main camera)
+        }
+    }
 }
