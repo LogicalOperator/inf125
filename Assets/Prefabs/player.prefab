@@ -106,8 +106,8 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Time: 0.5
-  m_StartWidth: 0.1
-  m_EndWidth: 0.1
+  m_StartWidth: 0.2
+  m_EndWidth: 0.005
   m_Colors:
     m_Color[0]:
       serializedVersion: 2
@@ -155,10 +155,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4d1e89e82d3da4f8a52bb7ce38e70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   trail: {fileID: 0}
   speed: 10
   mainBody: {fileID: 0}
   deathClip: {fileID: 8300000, guid: a7dd8b0922fd5b2479f240ebedf5786b, type: 3}
+  currentGun: {fileID: 0}
+  hpBar: {fileID: 1000013032685594, guid: 09c151a229328514b832d79fd85cb6b4, type: 2}
+  maxHP: 100
+  hp: 0
 --- !u!212 &212000011635944512
 SpriteRenderer:
   m_ObjectHideFlags: 1

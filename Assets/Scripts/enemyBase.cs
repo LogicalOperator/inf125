@@ -3,12 +3,13 @@ using System.Collections;
 //Base class for all enemies 
 public class enemyBase : MonoBehaviour {
 
-    public int maxHP; //maxHP given to enemy in child
+    public float maxHP; //maxHP given to enemy in child
     public GameObject player; //player object, for ai purposes
     public AudioClip eClip;//random audioclip for death sounds//animation sounds etc.
-    public int currentHP;//current HP enemy has
-    public int speed;//current speed enemy has
-    public int Health//health function to quickly update hp and destory itself if it is 0;
+    public float currentHP;//current HP enemy has
+    public float speed;//current speed enemy has
+    public float dmg;
+    public float Health//health function to quickly update hp and destory itself if it is 0;
     {
         get
         {
