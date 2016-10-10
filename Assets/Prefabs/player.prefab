@@ -25,6 +25,7 @@ GameObject:
   - 50: {fileID: 50000011907004472}
   - 96: {fileID: 96000011461455708}
   - 114: {fileID: 114000013669520174}
+  - 114: {fileID: 114000010765208036}
   m_Layer: 9
   m_Name: player
   m_TagString: Player
@@ -126,6 +127,25 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114000010765208036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013354267006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3301285757b00af4fb16812a48f8c818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunSound: {fileID: 8300000, guid: decc5750854949c418cc3bb19c666fe9, type: 3}
+  bulletPrefab: {fileID: 1000012331428204, guid: 3f6cb00157b676d4ab2fadb39bf10f0d,
+    type: 2}
+  gunType: 
+  dmgMod: 0
+  gunName: 
+  gunImage: {fileID: 21300000, guid: f966a8697d6aa9d4697ea7c42e02028a, type: 3}
+  fireRate: 0
 --- !u!114 &114000013207246036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,12 +157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a4d1e89e82d3da4f8a52bb7ce38e70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseDamage: 10
   damage: 10
   trail: {fileID: 0}
   speed: 10
   mainBody: {fileID: 0}
   deathClip: {fileID: 8300000, guid: a7dd8b0922fd5b2479f240ebedf5786b, type: 3}
   currentGun: {fileID: 0}
+  secondaryGun: {fileID: 0}
   hpBar: {fileID: 1000013032685594, guid: 09c151a229328514b832d79fd85cb6b4, type: 2}
   gunSelector: {fileID: 1000013519182272, guid: 5a3fbc4d3951191428de9e1e52abf717,
     type: 2}

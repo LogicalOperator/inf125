@@ -21,6 +21,7 @@ public class baseBullet : MonoBehaviour {
 
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
+
         Destroy(gameObject);//destory itself if it touch anything
     }
 }

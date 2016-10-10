@@ -53,6 +53,7 @@ public class enemyBase : MonoBehaviour {
     {
         if (colli.gameObject.tag == "Bullet")
         {
+
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
             AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);//play damage sound at audioListener position(on main camera)
         }

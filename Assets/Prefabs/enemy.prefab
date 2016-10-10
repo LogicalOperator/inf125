@@ -52,14 +52,14 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012181121988}
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &58000012034434534
 CircleCollider2D:
@@ -165,6 +165,7 @@ MonoBehaviour:
   eClip: {fileID: 8300000, guid: 54c0cfceaee27c4418a75c117ee7af6c, type: 3}
   currentHP: 0
   speed: 0
+  dmg: 0
 --- !u!212 &212000013663611246
 SpriteRenderer:
   m_ObjectHideFlags: 1
