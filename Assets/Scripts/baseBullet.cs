@@ -3,7 +3,7 @@ using System.Collections;
 
 public class baseBullet : MonoBehaviour {
     controller player;
-    public int damage;
+    public float damage;
     float speed = 10f;
     public int lifetimeBull = 10;
     // Use this for initialization

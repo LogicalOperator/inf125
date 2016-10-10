@@ -7,7 +7,7 @@ public class baseGunScript : MonoBehaviour {
     public GameObject bulletPrefab;
 
     public string gunType;
-    public int dmgMod = 0;
+    public float dmgMod = 0;
     public string gunName;
     public Sprite gunImage;
     public float fireRate; // fire rate for the bullet

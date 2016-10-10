@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class controller : MonoBehaviour
 {
-    public int damage = 10;
+    public float damage = 10;
     public TrailRenderer trail;
     public float speed = 0.5f;//current speed, might lower later
     public Rigidbody2D mainBody;

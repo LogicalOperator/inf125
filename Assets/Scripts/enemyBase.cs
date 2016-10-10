@@ -26,7 +26,7 @@ public class enemyBase : MonoBehaviour {
             }
         }
     }
-    public void takeDamage(int damage)//damage function to minus their hp from damage taken
+    public void takeDamage(float damage)//damage function to minus their hp from damage taken
     {
         Health -= damage;
         AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);
