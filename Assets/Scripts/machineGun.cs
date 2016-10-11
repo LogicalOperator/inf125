@@ -6,7 +6,7 @@ public class machineGun : baseGunScript {
 	// Use this for initialization
 	void Start () {
         gunName = "Machine Gun";
-        fireRate = 0.15f;
+        fireRate = 0.3f;
         dmgMod = -5;
 	}
 	
@@ -14,4 +14,5 @@ public class machineGun : baseGunScript {
 	void Update () {
         summonBullet();
 	}
+
 }

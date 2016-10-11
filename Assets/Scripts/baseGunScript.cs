@@ -16,10 +16,11 @@ public class baseGunScript : MonoBehaviour {
 
     public virtual void summonBullet()
     {
+        
         if (Input.GetMouseButton(0) && Time.time > nextFire) // when ever mouse left mouse button is clicked down 
         {
             nextFire = Time.time + fireRate; // only displays new bullet when correct amount of time has passed
-
+            Debug.Log(fireRate);
             AudioSource.PlayClipAtPoint(gunSound, Camera.main.transform.position, 10f);
             Vector3 pos = Input.mousePosition; // obtain mousepostion
             pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen

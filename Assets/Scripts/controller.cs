@@ -13,7 +13,6 @@ public class controller : MonoBehaviour
     public AudioClip deathClip;
     public baseGunScript currentGun;
     public baseGunScript secondaryGun;
-    public List<baseGunScript> inventory;
     public GameObject hpBar;
     public GameObject gunSelector;
     public float maxHP = 100;
@@ -24,7 +23,7 @@ public class controller : MonoBehaviour
         currentGun = GetComponent<initialGun>();
         secondaryGun = GetComponent<machineGun>();
         updateDamage(currentGun);
-        inventory = new List<baseGunScript> { currentGun, secondaryGun }; 
+        secondaryGun.enabled = false;
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
         trail.sortingOrder = 4;
@@ -81,18 +80,22 @@ public class controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if(currentGun == inventory[0])
+            if(currentGun.enabled)
             {
-                currentGun = inventory[1];
-                gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage);
-                updateDamage(currentGun);
+                currentGun.enabled = false;
+                secondaryGun.enabled = true;
+                gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(secondaryGun.gunImage);
+                updateDamage(secondaryGun);
             }
             else
             {
-                currentGun = inventory[0];
+                currentGun.enabled = true;
+                secondaryGun.enabled = false;
                 gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage);
                 updateDamage(currentGun);
+
             }
+
         }
     }
 }

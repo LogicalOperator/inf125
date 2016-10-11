@@ -6,7 +6,7 @@ public class initialGun : baseGunScript {
     // Use this for initialization
     void Start () {
         gunName = "Pistol"; //update gunname, dmg mod, firing rate and other things here
-        fireRate = 0.3f;
+        fireRate =0.5f;
 	}
 	
 	// Update is called once per frame
