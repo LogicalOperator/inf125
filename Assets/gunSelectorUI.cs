@@ -11,6 +11,6 @@ public class gunSelectorUI : MonoBehaviour {
 
     public void UpdateGunImage(Sprite currentGunImage)
     {
-        gunImage.sprite = currentGunImage;
+        gunImage.sprite = currentGunImage;//update UI depending on gun equipped
     }
 }
