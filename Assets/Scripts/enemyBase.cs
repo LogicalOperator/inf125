@@ -9,6 +9,8 @@ public class enemyBase : MonoBehaviour {
     public float currentHP;//current HP enemy has
     public float speed;//current speed enemy has
     public float dmg;
+    //float timeIsUp = 50.0f;
+    //float timeNow = 1.0f;
     public float Health//health function to quickly update hp and destory itself if it is 0;
     {
         get
@@ -26,7 +28,7 @@ public class enemyBase : MonoBehaviour {
             }
         }
     }
-    public void takeDamage(int damage)//damage function to minus their hp from damage taken
+    public void takeDamage(float damage)//damage function to minus their hp from damage taken
     {
         Health -= damage;
         AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);
@@ -53,8 +55,28 @@ public class enemyBase : MonoBehaviour {
     {
         if (colli.gameObject.tag == "Bullet")
         {
+
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
             AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);//play damage sound at audioListener position(on main camera)
+            //fixedKnockBack();
         }
     }
+
+    //public virtual void fixedKnockBack()
+    //{
+    //    while (true)
+    //    {
+    //        if (timeNow >= timeIsUp)
+    //        {
+    //            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+    //            timeNow = 0;
+    //            Debug.Log("hi");
+    //            break;
+    //        }
+    //        if (timeNow < timeIsUp)
+    //        {
+    //            timeNow += Time.deltaTime;
+    //        }
+    //    }
+    //}
 }

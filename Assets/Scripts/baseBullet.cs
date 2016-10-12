@@ -3,7 +3,7 @@ using System.Collections;
 
 public class baseBullet : MonoBehaviour {
     controller player;
-    public int damage;
+    public float damage;
     float speed = 10f;
     public int lifetimeBull = 10;
     // Use this for initialization
@@ -21,6 +21,7 @@ public class baseBullet : MonoBehaviour {
 
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
+
         Destroy(gameObject);//destory itself if it touch anything
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 7fe5010e828f51c49a868d2be4f78f4e
-timeCreated: 1476095616
+guid: 3301285757b00af4fb16812a48f8c818
+timeCreated: 1476126801
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
@@ -8,7 +8,7 @@ MonoImporter:
   - gunSound: {fileID: 8300000, guid: decc5750854949c418cc3bb19c666fe9, type: 3}
   - bulletPrefab: {fileID: 1000012331428204, guid: 3f6cb00157b676d4ab2fadb39bf10f0d,
       type: 2}
-  - gunImage: {fileID: 21300000, guid: 5fbc9df5ffe0efa46b8c52eb682f387f, type: 3}
+  - gunImage: {fileID: 21300000, guid: f966a8697d6aa9d4697ea7c42e02028a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

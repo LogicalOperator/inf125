@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class nextLevel : MonoBehaviour {
     public manager managerFinder;
+    public static bool winCondition = false;
 
     void Start()
     {
@@ -10,10 +12,12 @@ public class nextLevel : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-
-        manager.waveRemaining = manager.waveInt[++manager.currentWave];//switch wave to next wave number in manager list of wave numbers
-        managerFinder.enemySpawner();//invoke the enemy spawner function
-        Destroy(gameObject);//destory portal 
+        if(coll.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);//destory portal 
+            winCondition = true;
+            SceneManager.LoadScene(3);
+        }
     }
 
 }
