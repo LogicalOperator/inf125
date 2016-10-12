@@ -9,15 +9,12 @@ public class manager : MonoBehaviour {
     public AudioClip portalSound;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
-    public static int currentWave = 0;
-    public static List<int> waveInt;
     private GameObject[] respawnLocs;
     // Use this for initialization
     void Start () {
         respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
-        waveInt = new List<int> {10, 20, 25, 30, 35}; //list of wave number
-        waveRemaining = waveInt[currentWave];
+        waveRemaining = 10;
     }
 	
 	// Update is called once per frame
@@ -59,7 +56,7 @@ public class manager : MonoBehaviour {
             spwnInNSeconds = 1f;
         }
 
-        if (waveRemaining == 0) //if wave == 0 create portal to enter next level
+        if (waveRemaining <= 0) //if wave <= 0 create portal to enter next level
         {
             AudioSource.PlayClipAtPoint(portalSound, Camera.main.transform.position, 10f);
 

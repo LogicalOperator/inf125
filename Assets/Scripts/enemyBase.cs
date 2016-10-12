@@ -9,8 +9,8 @@ public class enemyBase : MonoBehaviour {
     public float currentHP;//current HP enemy has
     public float speed;//current speed enemy has
     public float dmg;
-    float timeIsUp = 50.0f;
-    float timeNow = 1.0f;
+    //float timeIsUp = 50.0f;
+    //float timeNow = 1.0f;
     public float Health//health function to quickly update hp and destory itself if it is 0;
     {
         get
