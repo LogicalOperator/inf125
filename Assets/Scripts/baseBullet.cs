@@ -21,7 +21,10 @@ public class baseBullet : MonoBehaviour {
 
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
-
+        if(coll.gameObject.tag == "Enemy")
+        {
+           player.setResourceBar();//increase resource when bullet hit enemy
+        }
         Destroy(gameObject);//destory itself if it touch anything
     }
 }
