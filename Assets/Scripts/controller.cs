@@ -98,9 +98,13 @@ public class controller : MonoBehaviour
         {
             if(currentLight <= (maxLight - resourceValue)) // if resource is less than max
             {
-                if (currentDark > 50) //minuses opposite resource if that resource > half
+                if (currentDark > 1) //minuses opposite resource if that resource > 1
                 {
                     currentDark -= resourceValue;
+                    if(currentDark < 0)
+                    {
+                        currentDark = 0;
+                    }
                     float myDark = currentDark / maxDark;
                     darkBar.transform.localScale = new Vector3(myDark, darkBar.transform.localScale.y, darkBar.transform.localScale.z);
                 }
@@ -118,9 +122,13 @@ public class controller : MonoBehaviour
         {
             if (currentDark <= (maxDark - resourceValue)) // same as above but dark version
             {
-                if(currentLight > 50)
+                if(currentLight > 1)
                 {
                     currentLight -= resourceValue;
+                    if (currentLight < 0)
+                    {
+                        currentLight = 0;
+                    }
                     float myLight = currentLight / maxLight;
                     lightBar.transform.localScale = new Vector3(myLight, lightBar.transform.localScale.y, lightBar.transform.localScale.z);
                 }
