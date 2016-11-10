@@ -25,6 +25,7 @@ public class controller : MonoBehaviour
     public float currentDark;
     public float maxHP = 100;
     public float hp;
+
     // Use this for initialization
     void Start()
     {
@@ -48,6 +49,7 @@ public class controller : MonoBehaviour
     {
         //Debug.Log(gunType + " " + resourceValue + " " + damage);
         changeGun();
+        rotation();
         mainBody.velocity = new Vector2( //obtains horizontal and vertical calls default is wsad, can be changed manually later
         Input.GetAxis("Horizontal") * speed,
         Input.GetAxis("Vertical") * speed);
@@ -66,6 +68,19 @@ public class controller : MonoBehaviour
                 SceneManager.LoadScene(3);//gameOver Screen
             }
         }
+    }
+
+    public void rotation()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = 5.23f;
+
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
+
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     void updateGun(baseGunScript gun)
