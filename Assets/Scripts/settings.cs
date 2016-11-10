@@ -17,8 +17,8 @@ public class settings : MonoBehaviour {
     }
     public void _UpdateAll()
     {
-        masterVol.text = masterVolumeSlider.value.ToString() + " %";
-        musicVol.text = musicVolumeSlider.value.ToString() + " %";
+        masterVol.text = masterVolumeSlider.value + " %";
+        musicVol.text = musicVolumeSlider.value + " %";
     }
 
     public void OpenSettings()
@@ -33,5 +33,11 @@ public class settings : MonoBehaviour {
             settingsMenu.gameObject.SetActive(false);
             mainMenu.gameObject.SetActive(true);
         }
+    }
+
+    public void saveAllSettings()
+    {
+        PlayerPrefs.SetFloat("masterVol", masterVolumeSlider.value);
+        PlayerPrefs.SetFloat("music", musicVolumeSlider.value);
     }
 }

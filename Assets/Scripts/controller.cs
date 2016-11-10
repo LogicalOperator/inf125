@@ -28,16 +28,14 @@ public class controller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currentGun = GetComponent<initialGun>();
-        secondaryGun = GetComponent<machineGun>();
+        obtainGuns();
         updateGun(currentGun);
-        secondaryGun.enabled = false;//turn second gun off at the start
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
         trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
-        hp = maxHP;
         gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage); // update UI to display gun
+        hp = maxHP;
         currentLight = 0;
         currentDark = 0;
         lightBar.transform.localScale = new Vector3(currentLight, lightBar.transform.localScale.y, lightBar.transform.localScale.z);
@@ -148,20 +146,18 @@ public class controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) // if R is pressed
         {
-            if(currentGun.enabled)//check if current gun is active
+            foreach (Transform child in transform)
             {
-                currentGun.enabled = false; //if so deactivate it, and activate secondary gun
-                secondaryGun.enabled = true;
-                gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(secondaryGun.gunImage);//change UI
-                updateGun(secondaryGun);//change dmg depending on gun
-            }
-            else
-            {
-                currentGun.enabled = true;
-                secondaryGun.enabled = false;
-                gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage);
-                updateGun(currentGun);
-
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
             }
 
         }
@@ -173,5 +169,28 @@ public class controller : MonoBehaviour
         currentDark = 0;
         lightBar.transform.localScale = new Vector3(currentLight, lightBar.transform.localScale.y, lightBar.transform.localScale.z);
         darkBar.transform.localScale = new Vector3(currentDark, darkBar.transform.localScale.y, darkBar.transform.localScale.z);
+    }
+
+    public void obtainGuns() {
+        foreach(Transform child in transform)
+        {
+            getGun(child.GetComponent<baseGunScript>());
+            if (secondaryGun && currentGun)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void getGun(baseGunScript gun)
+    {
+        if (currentGun)
+        {
+            secondaryGun = gun;
+        }
+        else
+        {
+            currentGun = gun;
+        }
     }
 }
