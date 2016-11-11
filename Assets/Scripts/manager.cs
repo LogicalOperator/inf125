@@ -10,6 +10,8 @@ public class manager : MonoBehaviour {
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
     private GameObject[] respawnLocs;
+    public GameObject pauseMenu;
+
     // Use this for initialization
     void Start () {
         respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
@@ -24,13 +26,21 @@ public class manager : MonoBehaviour {
             if(Time.timeScale == 1)
             {
                 Time.timeScale = 0;
+                pauseMenu.SetActive(true);
             }
             else //if game already paused continue game
             {
                 Time.timeScale = 1;
+                pauseMenu.SetActive(false);
             }
         }
 
+    }
+
+    public void resumeGame()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
     public void enemySpawner()

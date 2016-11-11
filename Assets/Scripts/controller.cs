@@ -87,7 +87,6 @@ public class controller : MonoBehaviour
     {
         gunType = gun.gunType; //update guns type and resource value of the gun
         resourceValue = gun.gunTypeValue;
-
         //count the current gun dmg with self dmg
         if (gun.dmgMod == 0) //added base DMG in case the gun is weaker 
         {
@@ -202,6 +201,7 @@ public class controller : MonoBehaviour
         if (currentGun)
         {
             secondaryGun = gun;
+
         }
         else
         {

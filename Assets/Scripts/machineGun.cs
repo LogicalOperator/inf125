@@ -4,7 +4,7 @@ using System.Collections;
 public class machineGun : baseGunScript {
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         gunName = "Machine Gun";
         fireRate = 0.3f;
         dmgMod = -5;

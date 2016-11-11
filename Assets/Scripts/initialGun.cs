@@ -5,7 +5,7 @@ using System;
 public class initialGun : baseGunScript {
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         gunName = "Pistol"; //update gunname, dmg mod, firing rate and other things here
         fireRate =0.5f;
         gunType = "light";
