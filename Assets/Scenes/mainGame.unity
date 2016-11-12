@@ -351,7 +351,13 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 212000011452092030, guid: c1ec2e9d41aa0824eb236af41bb23a99,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000011370726816, guid: c1ec2e9d41aa0824eb236af41bb23a99, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c1ec2e9d41aa0824eb236af41bb23a99, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &253096699
@@ -1002,28 +1008,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000011479103180, guid: c1ec2e9d41aa0824eb236af41bb23a99,
     type: 2}
   m_PrefabInternal: {fileID: 894701718}
---- !u!114 &749886146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 749886144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3301285757b00af4fb16812a48f8c818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunSound: {fileID: 8300000, guid: decc5750854949c418cc3bb19c666fe9, type: 3}
-  emptyGunSound: {fileID: 8300000, guid: 8f311847c749f7b40af0109f8519974b, type: 3}
-  bulletPrefab: {fileID: 1000012331428204, guid: 3f6cb00157b676d4ab2fadb39bf10f0d,
-    type: 2}
-  player: {fileID: 168450938}
-  gunTypeValue: 0
-  gunType: 
-  dmgMod: 0
-  gunName: 
-  gunImage: {fileID: 21300000, guid: f966a8697d6aa9d4697ea7c42e02028a, type: 3}
-  fireRate: 0
 --- !u!1 &750015109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,8 +1585,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f966a8697d6aa9d4697ea7c42e02028a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 212000011452092030, guid: c1ec2e9d41aa0824eb236af41bb23a99,
         type: 2}
       propertyPath: m_Enabled
@@ -2286,12 +2269,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2573,6 +2556,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1361734173}
   - 114: {fileID: 1361734172}
+  - 114: {fileID: 1361734174}
   m_Layer: 0
   m_Name: managerGameObject
   m_TagString: Untagged
@@ -2609,6 +2593,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &1361734174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361734171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26568efbcdf5cc243b121aa2f8a392c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primary: {fileID: 1854664485}
+  secondary: {fileID: 749886144}
+  savedGun: {fileID: 0}
+  savedGunTwo: {fileID: 0}
+  primaryGun: {fileID: 0}
+  secondaryGun: {fileID: 0}
 --- !u!1 &1394323958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,6 +3167,11 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1854664485 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011479103180, guid: c1ec2e9d41aa0824eb236af41bb23a99,
+    type: 2}
+  m_PrefabInternal: {fileID: 185331091}
 --- !u!1 &1930820477 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013032685594, guid: 09c151a229328514b832d79fd85cb6b4,

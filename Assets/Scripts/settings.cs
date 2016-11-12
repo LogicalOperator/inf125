@@ -15,13 +15,13 @@ public class settings : MonoBehaviour {
     {
         _UpdateAll();
     }
-    public void _UpdateAll()
+    public void _UpdateAll() // update settings menu
     {
         masterVol.text = masterVolumeSlider.value + " %";
         musicVol.text = musicVolumeSlider.value + " %";
     }
 
-    public void OpenSettings()
+    public void OpenSettings() //toggle main menu/settings menus
     {
         if (mainMenu.activeSelf)
         {
@@ -35,7 +35,7 @@ public class settings : MonoBehaviour {
         }
     }
 
-    public void saveAllSettings()
+    public void saveAllSettings() // save settings for main game
     {
         PlayerPrefs.SetFloat("masterVol", masterVolumeSlider.value);
         PlayerPrefs.SetFloat("music", musicVolumeSlider.value);
