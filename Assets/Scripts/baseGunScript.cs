@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class baseGunScript : MonoBehaviour {
+public abstract class baseGunScript : MonoBehaviour {
     //base stuff needed for a gun
     public AudioClip gunSound;
+    public AudioClip emptyGunSound;
     public GameObject bulletPrefab;
-
+    public GameObject player;
+    public float gunTypeValue;
     public string gunType;
     public float dmgMod = 0;
     public string gunName;
@@ -29,4 +31,6 @@ public class baseGunScript : MonoBehaviour {
             GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
         }
     }
+
+    public abstract void specialFire(); // specialFire for secondaryfire
 }

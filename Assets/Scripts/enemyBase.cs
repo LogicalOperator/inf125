@@ -38,7 +38,6 @@ public class enemyBase : MonoBehaviour {
     {
         scoreChanger.scoreint += 20;
         Destroy(gameObject);
-
     }
 
     public virtual void movement() //default movement which chase player, can be overridden
