@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000011899131546}
   - 50: {fileID: 50000010847310384}
   - 82: {fileID: 82000011964858838}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   currentHP: 0
   speed: 0
   dmg: 0
+  money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
 --- !u!212 &212000013663611246
 SpriteRenderer:
   m_ObjectHideFlags: 1

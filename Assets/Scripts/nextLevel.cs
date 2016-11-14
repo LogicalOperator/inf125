@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class nextLevel : MonoBehaviour {
     public manager managerFinder;
-    public static bool winCondition = false;
 
     void Start()
     {
@@ -14,8 +13,10 @@ public class nextLevel : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player")
         {
+            PlayerPrefs.SetInt("score", scoreChanger.scoreint);
+            PlayerPrefs.SetInt("gold", goldChanger.gold);
+            PlayerPrefs.SetInt("winCondition", 1);
             Destroy(gameObject);//destory portal 
-            winCondition = true;
             SceneManager.LoadScene(3);
         }
     }
