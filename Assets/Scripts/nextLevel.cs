@@ -14,6 +14,7 @@ public class nextLevel : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Player")
         {
+			Debug.Log ("next level");
             Destroy(gameObject);//destory portal 
             winCondition = true;
             SceneManager.LoadScene(3);

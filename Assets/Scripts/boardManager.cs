@@ -26,7 +26,7 @@ public class boardManager : MonoBehaviour {
     public GameObject exit;                                         //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                 //Array of floor prefabs.
     public GameObject[] wallTiles;                                  //Array of wall prefabs.
-    public GameObject[] enemyTiles;                                 //Array of enemy prefabs.
+    //public GameObject[] enemyTiles;                                 //Array of enemy prefabs.
     public GameObject[] outerWallTiles;                             //Array of outer tile prefabs.
 
     private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object.
@@ -63,11 +63,10 @@ public class boardManager : MonoBehaviour {
 
                 //Check if we current position is at board edge, if so choose a random outer wall prefab from our array of outer wall tiles.
                 if (x == -1 || x == columns || y == -1 || y == rows)
-                    toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+                   toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
 
                 //Instantiate the GameObject instance using the prefab chosen for toInstantiate at the Vector3 corresponding to current grid position in loop, cast it to GameObject.
-                GameObject instance =
-                    Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
 
                 //Set the parent of our newly instantiated object instance to boardHolder, this is just organizational to avoid cluttering hierarchy.
                 instance.transform.SetParent(boardHolder);
@@ -123,12 +122,12 @@ public class boardManager : MonoBehaviour {
         layoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum);
 
         //Determine number of enemies based on current level number, based on a logarithmic progression
-        int enemyCount = (int)Mathf.Log(level, 2f);
+        //int enemyCount = (int)Mathf.Log(level, 2f);
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        layoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
+        //layoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
         //Instantiate the exit tile in the upper right hand corner of our game board
-        Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
+        //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
     }
 }
