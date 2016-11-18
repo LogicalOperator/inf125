@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 0
   player: {fileID: 0}
-  eClip: {fileID: 8300000, guid: 54c0cfceaee27c4418a75c117ee7af6c, type: 3}
+  eClip: {fileID: 8300000, guid: ead25856399308445953bc88fd0b4617, type: 3}
   currentHP: 0
   speed: 0
   dmg: 0

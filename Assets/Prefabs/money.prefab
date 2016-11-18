@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 0
   worth: 0
-  goldClip: {fileID: 8300000, guid: 325854143e1c4784fa91678c47f31d26, type: 3}
+  goldClip: {fileID: 8300000, guid: a108752d040c3fd4789efdd9639dbcf7, type: 3}
 --- !u!212 &212000011919217682
 SpriteRenderer:
   m_ObjectHideFlags: 1

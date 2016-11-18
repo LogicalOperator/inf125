@@ -16,7 +16,7 @@ public class goldDrops : MonoBehaviour {
     {
         if(colli.gameObject.tag == "Player")
         {
-            AudioSource.PlayClipAtPoint(goldClip, Camera.main.transform.position, 20f);
+            audioManager.instance.playSound(goldClip, transform.position);
             goldChanger.gold += worth;
             Destroy(gameObject);
         }

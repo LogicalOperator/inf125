@@ -32,7 +32,7 @@ public class enemyBase : MonoBehaviour {
     public void takeDamage(float damage)//damage function to minus their hp from damage taken
     {
         Health -= damage;
-        AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);
+        audioManager.instance.playSound(eClip, transform.position);
     }
 
     public virtual void destroySelf() //increment score and destory itself, can be overridden
@@ -59,7 +59,7 @@ public class enemyBase : MonoBehaviour {
         {
 
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
-            AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);//play damage sound at audioListener position(on main camera)
+            audioManager.instance.playSound("Impact", player.transform.position);//play damage sound at audioListener position
             //fixedKnockBack();
         }
     }

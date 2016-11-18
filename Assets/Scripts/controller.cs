@@ -10,7 +10,6 @@ public class controller : MonoBehaviour
     public TrailRenderer trail;
     public float speed = 0.5f;//current speed, might lower later
     public Rigidbody2D mainBody;
-    public AudioClip deathClip;
     public baseGunScript currentGun;
     public baseGunScript secondaryGun;
     public GameObject hpBar;

@@ -1,24 +1,43 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class settings : MonoBehaviour {
 
-    public Slider masterVolumeSlider;
-    public Slider musicVolumeSlider;
+    public Slider[] volumeSliders;
     public Text masterVol;
     public Text musicVol;
+    public Text sfxVol;
     public GameObject mainMenu;
     public GameObject settingsMenu;
+    public Toggle[] resolutionToggles;
+    public int[] screenWidth;
+    int activeScreenResolutionIndex;
 
     public void Start()
     {
+        activeScreenResolutionIndex = PlayerPrefs.GetInt("screenResIndex");
+        bool isFullscreen = (PlayerPrefs.GetInt("fullscreen") == 1) ? true : false;
         _UpdateAll();
+        volumeSliders[0].value = audioManager.instance.masterVolumePercent;
+        volumeSliders[1].value = audioManager.instance.sfxVolumePercent;
+        volumeSliders[2].value = audioManager.instance.musicVolumePercent;
+
+        for(int i = 0; i < resolutionToggles.Length; i++)
+        {
+            resolutionToggles[i].isOn = i == activeScreenResolutionIndex;
+        }
+
+        setFullScreen(isFullscreen);
+
     }
     public void _UpdateAll() // update settings menu
     {
-        masterVol.text = masterVolumeSlider.value + " %";
-        musicVol.text = musicVolumeSlider.value + " %";
+        masterVol.text = string.Format("{0:0%}", volumeSliders[0].value);
+        musicVol.text = string.Format("{0:0%}", volumeSliders[1].value);
+        sfxVol.text = string.Format("{0:0%}",volumeSliders[2].value);
+
     }
 
     public void OpenSettings() //toggle main menu/settings menus
@@ -35,9 +54,67 @@ public class settings : MonoBehaviour {
         }
     }
 
+    public void setScreenResolution(int i)
+    {
+        if (resolutionToggles[i].isOn)
+        {
+            activeScreenResolutionIndex = i;
+            float aspectRatio = 16 / 9f;
+            Screen.SetResolution(screenWidth[i], (int)(screenWidth[i] / aspectRatio), false);
+            PlayerPrefs.SetInt("screenResIndex", activeScreenResolutionIndex);
+            PlayerPrefs.Save();
+        }
+    }
+
+
+
+    public void setFullScreen(bool isFullScreen)
+    {
+        for(int i = 0; i<resolutionToggles.Length; i++)
+        {
+            resolutionToggles[i].interactable = !isFullScreen;
+        }
+
+        if (isFullScreen)
+        {
+            Resolution[] allResolution = Screen.resolutions;
+            Resolution maxResolution = allResolution[allResolution.Length - 1];
+            Screen.SetResolution(maxResolution.width, maxResolution.height, true);
+        }
+        else
+        {
+            setScreenResolution(activeScreenResolutionIndex);
+        }
+
+        PlayerPrefs.SetInt("fullscreen", ((isFullScreen) ? 1 : 0));
+        PlayerPrefs.Save();
+    }
+
     public void saveAllSettings() // save settings for main game
     {
-        PlayerPrefs.SetFloat("masterVol", masterVolumeSlider.value);
-        PlayerPrefs.SetFloat("music", musicVolumeSlider.value);
+
+        PlayerPrefs.SetFloat("masterVol", volumeSliders[0].value);
+        PlayerPrefs.SetFloat("music", volumeSliders[1].value);
+        PlayerPrefs.SetFloat("sfx", volumeSliders[2].value);
+        PlayerPrefs.Save();
+        OpenSettings();
+    }
+
+    public void setAudioMaster (float value)
+    {
+        audioManager.instance.setVolume(value, audioManager.AudioChannel.master);
+    }
+
+    public void setAudioMusic(float value)
+    {
+        audioManager.instance.setVolume(value, audioManager.AudioChannel.music);
+    }
+    public void setAudioSfx(float value)
+    {
+        audioManager.instance.setVolume(value, audioManager.AudioChannel.sfx);
+    }
+    public void playGame()
+    {
+        SceneManager.LoadScene(1);
     }
 }
