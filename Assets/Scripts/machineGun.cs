@@ -11,6 +11,7 @@ public class machineGun : baseGunScript {
         gunType = "dark";
         gunTypeValue = 2.8f;
         player = GameObject.FindGameObjectWithTag("Player");
+        libraryIndex = 1;
     }
 	
 	// Update is called once per frame

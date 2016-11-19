@@ -13,6 +13,7 @@ public abstract class baseGunScript : MonoBehaviour {
     public string gunName;
     public Sprite gunImage;
     public float fireRate; // fire rate for the bullet
+    public int libraryIndex;
 
     private float nextFire = 0.0f;
 

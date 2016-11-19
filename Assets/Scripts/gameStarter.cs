@@ -19,7 +19,7 @@ public class gameStarter : MonoBehaviour {
     {
         if (PlayerPrefs.HasKey("primaryGun") && PlayerPrefs.HasKey("secondaryGun")) //if new weapons exist from prev level get it
         {
-            
+            Debug.LogError("Im a error");
             primary.AddComponent(System.Type.GetType(PlayerPrefs.GetString("primaryGun")));
             savedGun = (baseGunScript) primary.GetComponent(System.Type.GetType(PlayerPrefs.GetString("primaryGun")));
             primaryGun.sprite = savedGun.gunImage;
@@ -30,10 +30,10 @@ public class gameStarter : MonoBehaviour {
         }
         else //else use the intro weapons
         {
-            primary.AddComponent<initialGun>();
+            primary.gameObject.AddComponent<initialGun>();
             primaryGun.sprite = primary.GetComponent<initialGun>().gunImage;
 
-            secondary.AddComponent<machineGun>();
+            secondary.gameObject.AddComponent<machineGun>();
             secondaryGun.sprite = secondary.GetComponent<machineGun>().gunImage;
         }
     }

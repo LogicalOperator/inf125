@@ -11,6 +11,7 @@ public class initialGun : baseGunScript {
         gunType = "light";
         gunTypeValue = 5.5f;
         player = GameObject.FindGameObjectWithTag("Player");
+        libraryIndex = 0;
     }
 	
 	// Update is called once per frame

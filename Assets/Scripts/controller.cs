@@ -10,8 +10,8 @@ public class controller : MonoBehaviour
     public TrailRenderer trail;
     public float speed = 0.5f;//current speed, might lower later
     public Rigidbody2D mainBody;
-    public baseGunScript currentGun;
-    public baseGunScript secondaryGun;
+    public GameObject currentGun;
+    public GameObject secondaryGun;
     public GameObject hpBar;
     public GameObject lightBar;
     public GameObject darkBar;
@@ -29,12 +29,12 @@ public class controller : MonoBehaviour
     void Start()
     {
         obtainGuns();
-        updateGun(currentGun);
+        updateGun(currentGun.GetComponent<baseGunScript>());
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
         trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
-        gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage); // update UI to display gun
+        gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.GetComponent<baseGunScript>().gunImage); // update UI to display gun
         hp = maxHP;
         currentLight = 0;
         currentDark = 0;
@@ -184,27 +184,15 @@ public class controller : MonoBehaviour
         darkBar.transform.localScale = new Vector3(currentDark, darkBar.transform.localScale.y, darkBar.transform.localScale.z);
     }
 
-    public void obtainGuns() {
-        foreach(Transform child in transform)
-        {
-            getGun(child.GetComponent<baseGunScript>());
-            if (secondaryGun && currentGun)
-            {
-                child.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void getGun(baseGunScript gun)
+    public void obtainGuns()
     {
-        if (currentGun)
-        {
-            secondaryGun = gun;
-
-        }
-        else
-        {
-            currentGun = gun;
-        }
+        secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1));
+        GameObject secondGun = Instantiate(secondaryGun);
+        secondGun.transform.position = gameObject.transform.position;
+        secondGun.transform.parent = gameObject.transform;
+        secondGun.SetActive(false);
+        currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
+        GameObject firstGun = Instantiate(currentGun);
+        firstGun.transform.parent = gameObject.transform;
     }
 }
