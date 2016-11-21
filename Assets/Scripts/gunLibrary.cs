@@ -6,12 +6,12 @@ public class gunLibrary : MonoBehaviour {
     public static gunLibrary instance;
     GameObject gun;
 
-    void Start()
+    void Awake()
     {
-        instance = this;
+        instance = this;  //static version of library
     }
     
-    public GameObject findGun(int gunIndex)
+    public GameObject findGun(int gunIndex) //return a gun depending on int given
     {
         switch (gunIndex)
         {

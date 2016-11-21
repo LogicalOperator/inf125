@@ -18,7 +18,7 @@ public class gameOverScript : MonoBehaviour {
     void getScore()
     {
 
-        if (PlayerPrefs.HasKey("winCondition"))
+        if (PlayerPrefs.GetInt("winCondition") == 1)
         {
             mainScore += 1000;
             gameOver.text = "You Win!";
@@ -30,7 +30,14 @@ public class gameOverScript : MonoBehaviour {
 
         if (PlayerPrefs.HasKey("score"))
         {
-            mainScore = PlayerPrefs.GetInt("score");
+            if(PlayerPrefs.GetInt("gold") > 0)
+            {
+                mainScore = PlayerPrefs.GetInt("score") + PlayerPrefs.GetInt("gold");
+            }
+            else
+            {
+                mainScore = PlayerPrefs.GetInt("score");
+            }
         }
         else
         {

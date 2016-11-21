@@ -64,6 +64,10 @@ public class controller : MonoBehaviour
             setHealthBar(calculateHP);
             if(hp <= 0)
             {
+                PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+                PlayerPrefs.SetInt("gold", goldChanger.gold);
+                PlayerPrefs.SetInt("winCondition", 0);
+                PlayerPrefs.Save();
                 SceneManager.LoadScene(3);//gameOver Screen
             }
         }
@@ -71,7 +75,7 @@ public class controller : MonoBehaviour
 
     public void rotation()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
         mousePos.z = 5.23f;
 
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -157,7 +161,7 @@ public class controller : MonoBehaviour
 
     public void changeGun()
     {
-        if (Input.GetKeyDown(KeyCode.R)) // if R is pressed
+        if (Input.GetKeyDown(KeyCode.R)) // if R is pressed change the gun by deactivating current and activating the non current gun
         {
             foreach (Transform child in transform)
             {
@@ -186,13 +190,14 @@ public class controller : MonoBehaviour
 
     public void obtainGuns()
     {
-        secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1));
-        GameObject secondGun = Instantiate(secondaryGun);
-        secondGun.transform.position = gameObject.transform.position;
+        secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
+        GameObject secondGun = Instantiate(secondaryGun); //create it
+        secondGun.transform.position = gameObject.transform.position; //move it to player
         secondGun.transform.parent = gameObject.transform;
-        secondGun.SetActive(false);
+        secondGun.SetActive(false);//set to inactive
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
+        firstGun.transform.position = gameObject.transform.position;
         firstGun.transform.parent = gameObject.transform;
     }
 }

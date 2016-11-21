@@ -5,7 +5,7 @@ public class soundLibrary : MonoBehaviour {
 
     public soundGroup[] soundGroups;
 
-    Dictionary<string, AudioClip[]> groupDictionary = new Dictionary<string, AudioClip[]>();
+    Dictionary<string, AudioClip[]> groupDictionary = new Dictionary<string, AudioClip[]>(); //dictionary of all sounds
 
 
     void Awake()
@@ -16,7 +16,7 @@ public class soundLibrary : MonoBehaviour {
         }
 
     }
-    public AudioClip getClipFromName(string name)
+    public AudioClip getClipFromName(string name) //return name of audioclip depending on sound, could be a grp of sounds
     {
         if (groupDictionary.ContainsKey(name))
         {

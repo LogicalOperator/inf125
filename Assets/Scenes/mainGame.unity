@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guns:
-  - {fileID: 1000011479103180, guid: c1ec2e9d41aa0824eb236af41bb23a99, type: 2}
+  - {fileID: 1000012655059864, guid: 9746ad85e4ffb0c43b60b5486ee08be8, type: 2}
   - {fileID: 1000012650519462, guid: 15d860db9f3c79a4e8db12c2f00e2ae5, type: 2}
 --- !u!1 &1394323958
 GameObject:
