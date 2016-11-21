@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections.Generic;       //Allows us to use Lists.
-using Random = UnityEngine.Random;      //Tells Random to use the Unity Engine random number generator.
+using System.Collections.Generic;       
+using Random = UnityEngine.Random;      
 
 
 public class boardManager : MonoBehaviour {
-    // Using Serializable allows us to embed a class with sub properties in the inspector.
     [Serializable]
     public class Count {
-        public int minimum;             //Minimum value for our Count class.
-        public int maximum;             //Maximum value for our Count class.
+        public int minimum;      
+        public int maximum;             
 
 
         //Assignment constructor.
@@ -19,18 +18,18 @@ public class boardManager : MonoBehaviour {
         }
     }
 
+    // columns and rows are public so we can change them via inspector
+    public int columns = 50;                                         
+    public int rows = 50;                                            
+    public Count wallCount = new Count(5, 9);                       //Lower and upper limit for our random number of walls per level
+    public GameObject exit;                                         //Prefab to spawn for exit
+    public GameObject[] floorTiles;                                 //Array of floor prefabs
+    public GameObject[] wallTiles;                                  //Array of wall prefabs
+    //public GameObject[] enemyTiles;                               //Array of enemy prefabs
+    public GameObject[] outerWallTiles;                             //Array of outer tile prefabs
 
-    public int columns = 8;                                         //Number of columns in our game board.
-    public int rows = 8;                                            //Number of rows in our game board.
-    public Count wallCount = new Count(5, 9);                      //Lower and upper limit for our random number of walls per level.
-    public GameObject exit;                                         //Prefab to spawn for exit.
-    public GameObject[] floorTiles;                                 //Array of floor prefabs.
-    public GameObject[] wallTiles;                                  //Array of wall prefabs.
-    //public GameObject[] enemyTiles;                                 //Array of enemy prefabs.
-    public GameObject[] outerWallTiles;                             //Array of outer tile prefabs.
-
-    private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object.
-    private List<Vector3> gridPositions = new List<Vector3>();   //A list of possible locations to place tiles.
+    private Transform boardHolder;                                  //A variable to store a reference to the transform of our Board object
+    private List<Vector3> gridPositions = new List<Vector3>();   //A list of possible locations to place tiles
 
 
     //Clears our list gridPositions and prepares it to generate a new board.

@@ -2472,7 +2472,7 @@ MonoBehaviour:
   wallTiles:
   - {fileID: 1000010359382034, guid: 8a45d4e9f8cd945a5bb8709cf0e3d3c6, type: 2}
   outerWallTiles:
-  - {fileID: 0}
+  - {fileID: 1000011457244650, guid: f498c61f20770994ba632981f4ec9f7f, type: 2}
 --- !u!1 &1488576915
 GameObject:
   m_ObjectHideFlags: 0
