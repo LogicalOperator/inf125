@@ -21,8 +21,8 @@ public class settings : MonoBehaviour {
         bool isFullscreen = (PlayerPrefs.GetInt("fullscreen") == 1) ? true : false;
         _UpdateAll();
         volumeSliders[0].value = audioManager.instance.masterVolumePercent;
-        volumeSliders[1].value = audioManager.instance.sfxVolumePercent;
-        volumeSliders[2].value = audioManager.instance.musicVolumePercent;
+        volumeSliders[1].value = audioManager.instance.musicVolumePercent;
+        volumeSliders[2].value = audioManager.instance.sfxVolumePercent;
 
         for(int i = 0; i < resolutionToggles.Length; i++)
         {
@@ -32,6 +32,7 @@ public class settings : MonoBehaviour {
         setFullScreen(isFullscreen);
 
     }
+
     public void _UpdateAll() // update settings menu
     {
         masterVol.text = string.Format("{0:0%}", volumeSliders[0].value);
@@ -88,16 +89,6 @@ public class settings : MonoBehaviour {
 
         PlayerPrefs.SetInt("fullscreen", ((isFullScreen) ? 1 : 0));
         PlayerPrefs.Save();
-    }
-
-    public void saveAllSettings() // save settings for main game
-    {
-
-        PlayerPrefs.SetFloat("masterVol", volumeSliders[0].value);
-        PlayerPrefs.SetFloat("music", volumeSliders[1].value);
-        PlayerPrefs.SetFloat("sfx", volumeSliders[2].value);
-        PlayerPrefs.Save();
-        OpenSettings();
     }
 
     public void setAudioMaster (float value)

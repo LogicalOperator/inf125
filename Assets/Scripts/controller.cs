@@ -29,7 +29,6 @@ public class controller : MonoBehaviour
     void Start()
     {
         obtainGuns();
-        updateGun(currentGun.GetComponent<baseGunScript>());
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
         trail.sortingOrder = 4;
@@ -68,7 +67,7 @@ public class controller : MonoBehaviour
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
-                SceneManager.LoadScene(3);//gameOver Screen
+                SceneManager.LoadScene(2);//gameOver Screen
             }
         }
     }
@@ -197,6 +196,7 @@ public class controller : MonoBehaviour
         secondGun.SetActive(false);//set to inactive
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
+        updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
         firstGun.transform.parent = gameObject.transform;
     }

@@ -10,6 +10,7 @@ public class nextLevel : MonoBehaviour {
     {
         gun1 = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>().currentGun.GetComponent<baseGunScript>();
         gun2 = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>().secondaryGun.GetComponent<baseGunScript>();
+
         if (coll.gameObject.tag == "Player")
         {
             if(gun1.libraryIndex != 0 && gun2.libraryIndex != 1)
@@ -23,7 +24,7 @@ public class nextLevel : MonoBehaviour {
             PlayerPrefs.SetInt("winCondition", 1);
             PlayerPrefs.Save();
             Destroy(gameObject);//destory portal 
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 

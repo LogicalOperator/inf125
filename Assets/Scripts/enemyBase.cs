@@ -38,7 +38,7 @@ public class enemyBase : MonoBehaviour {
     public virtual void destroySelf() //increment score and destory itself, can be overridden
     {
         scoreChanger.scoreint += 20;
-        GameObject aMoneyDrop = (GameObject)Instantiate(money);
+        GameObject aMoneyDrop = Instantiate(money);
         aMoneyDrop.transform.position = this.transform.position;
         Destroy(gameObject);
     }

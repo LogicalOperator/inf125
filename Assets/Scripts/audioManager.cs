@@ -23,9 +23,9 @@ public class audioManager : MonoBehaviour
         }
         else
         {
+            instance = this;
             DontDestroyOnLoad(gameObject);
             library = GetComponent<soundLibrary>();
-            instance = this;
             musicSources = new AudioSource[2];
             for (int i = 0; i < 2; i++)
             {

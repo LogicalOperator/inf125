@@ -9,7 +9,7 @@ public class goldDrops : MonoBehaviour {
 	void Start () {
         time = 15;
         worth = Random.Range(1, 10);
-        DestroyObject(this, time);
+        DestroyObject(gameObject, time);
 	}
 	
     public void OnCollisionEnter2D(Collision2D colli)
