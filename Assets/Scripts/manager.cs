@@ -43,7 +43,7 @@ public class manager : MonoBehaviour {
 
     }
 
-    public void resumeGame()
+    public void resumeGame() // resume button
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);

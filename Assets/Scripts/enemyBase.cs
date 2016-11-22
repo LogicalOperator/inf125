@@ -9,6 +9,7 @@ public class enemyBase : MonoBehaviour {
     public float currentHP;//current HP enemy has
     public float speed;//current speed enemy has
     public float dmg;
+    public GameObject money;
     //float timeIsUp = 50.0f;
     //float timeNow = 1.0f;
     public float Health//health function to quickly update hp and destory itself if it is 0;
@@ -31,12 +32,14 @@ public class enemyBase : MonoBehaviour {
     public void takeDamage(float damage)//damage function to minus their hp from damage taken
     {
         Health -= damage;
-        AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);
+        audioManager.instance.playSound(eClip, transform.position);
     }
 
     public virtual void destroySelf() //increment score and destory itself, can be overridden
     {
         scoreChanger.scoreint += 20;
+        GameObject aMoneyDrop = Instantiate(money);
+        aMoneyDrop.transform.position = this.transform.position;
         Destroy(gameObject);
     }
 
@@ -56,7 +59,7 @@ public class enemyBase : MonoBehaviour {
         {
 
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
-            AudioSource.PlayClipAtPoint(eClip, Camera.main.transform.position, 10f);//play damage sound at audioListener position(on main camera)
+            audioManager.instance.playSound("Impact", player.transform.position);//play damage sound at audioListener position
             //fixedKnockBack();
         }
     }

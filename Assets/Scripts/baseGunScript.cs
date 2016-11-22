@@ -13,6 +13,7 @@ public abstract class baseGunScript : MonoBehaviour {
     public string gunName;
     public Sprite gunImage;
     public float fireRate; // fire rate for the bullet
+    public int libraryIndex;
 
     private float nextFire = 0.0f;
 
@@ -22,7 +23,7 @@ public abstract class baseGunScript : MonoBehaviour {
         if (Input.GetMouseButton(0) && Time.time > nextFire) // when ever mouse left mouse button is clicked down 
         {
             nextFire = Time.time + fireRate; // only displays new bullet when correct amount of time has passed
-            AudioSource.PlayClipAtPoint(gunSound, Camera.main.transform.position, 10f);
+            audioManager.instance.playSound(gunSound, transform.position);
             Vector3 pos = Input.mousePosition; // obtain mousepostion
             pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen
             pos.z = transform.position.z;

@@ -11,6 +11,7 @@ public class initialGun : baseGunScript {
         gunType = "light";
         gunTypeValue = 5.5f;
         player = GameObject.FindGameObjectWithTag("Player");
+        libraryIndex = 0;
     }
 	
 	// Update is called once per frame
@@ -25,12 +26,12 @@ public class initialGun : baseGunScript {
         {
             if (player.GetComponent<controller>().currentLight < 100)//check if max light, if not play not full sound
             {
-                AudioSource.PlayClipAtPoint(emptyGunSound, Camera.main.transform.position, 10f);
+                audioManager.instance.playSound(emptyGunSound, transform.position);
             }
             else
             {
                 player.GetComponent<controller>().resetBars(); //reset both resources
-                AudioSource.PlayClipAtPoint(gunSound, Camera.main.transform.position, 10f);
+                audioManager.instance.playSound(gunSound, transform.position);
                 Vector3 pos = Input.mousePosition; // obtain mousepostion
                 pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen
                 pos.z = transform.position.z;

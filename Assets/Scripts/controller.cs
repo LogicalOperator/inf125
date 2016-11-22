@@ -10,9 +10,8 @@ public class controller : MonoBehaviour
     public TrailRenderer trail;
     public float speed = 0.5f;//current speed, might lower later
     public Rigidbody2D mainBody;
-    public AudioClip deathClip;
-    public baseGunScript currentGun;
-    public baseGunScript secondaryGun;
+    public GameObject currentGun;
+    public GameObject secondaryGun;
     public GameObject hpBar;
     public GameObject lightBar;
     public GameObject darkBar;
@@ -30,12 +29,11 @@ public class controller : MonoBehaviour
     void Start()
     {
         obtainGuns();
-        updateGun(currentGun);
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
         trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
-        gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.gunImage); // update UI to display gun
+        gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.GetComponent<baseGunScript>().gunImage); // update UI to display gun
         hp = maxHP;
         currentLight = 0;
         currentDark = 0;
@@ -65,14 +63,18 @@ public class controller : MonoBehaviour
             setHealthBar(calculateHP);
             if(hp <= 0)
             {
-                SceneManager.LoadScene(3);//gameOver Screen
+                PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+                PlayerPrefs.SetInt("gold", goldChanger.gold);
+                PlayerPrefs.SetInt("winCondition", 0);
+                PlayerPrefs.Save();
+                SceneManager.LoadScene(2);//gameOver Screen
             }
         }
     }
 
     public void rotation()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
         mousePos.z = 5.23f;
 
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -158,7 +160,7 @@ public class controller : MonoBehaviour
 
     public void changeGun()
     {
-        if (Input.GetKeyDown(KeyCode.R)) // if R is pressed
+        if (Input.GetKeyDown(KeyCode.R)) // if R is pressed change the gun by deactivating current and activating the non current gun
         {
             foreach (Transform child in transform)
             {
@@ -185,27 +187,17 @@ public class controller : MonoBehaviour
         darkBar.transform.localScale = new Vector3(currentDark, darkBar.transform.localScale.y, darkBar.transform.localScale.z);
     }
 
-    public void obtainGuns() {
-        foreach(Transform child in transform)
-        {
-            getGun(child.GetComponent<baseGunScript>());
-            if (secondaryGun && currentGun)
-            {
-                child.gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public void getGun(baseGunScript gun)
+    public void obtainGuns()
     {
-        if (currentGun)
-        {
-            secondaryGun = gun;
-
-        }
-        else
-        {
-            currentGun = gun;
-        }
+        secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
+        GameObject secondGun = Instantiate(secondaryGun); //create it
+        secondGun.transform.position = gameObject.transform.position; //move it to player
+        secondGun.transform.parent = gameObject.transform;
+        secondGun.SetActive(false);//set to inactive
+        currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
+        GameObject firstGun = Instantiate(currentGun);
+        updateGun(firstGun.GetComponent<baseGunScript>());
+        firstGun.transform.position = gameObject.transform.position;
+        firstGun.transform.parent = gameObject.transform;
     }
 }
