@@ -19,8 +19,8 @@ public class boardManager : MonoBehaviour {
     }
 
     // columns and rows are public so we can change them via inspector
-    public int columns = 50;                                         
-    public int rows = 50;                                            
+    public int columns = 20;                                         
+    public int rows = 20;                                            
     public Count wallCount = new Count(5, 9);                       // Lower and upper limit for our random number of walls per level
     public GameObject exit;                                         // Prefab to spawn for exit
     public GameObject[] floorTiles;                                 // Array of floor prefabs
