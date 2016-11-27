@@ -192,12 +192,14 @@ public class controller : MonoBehaviour
         secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
         GameObject secondGun = Instantiate(secondaryGun); //create it
         secondGun.transform.position = gameObject.transform.position; //move it to player
+        secondGun.transform.position += new Vector3(0.1f, 0, 0);
         secondGun.transform.parent = gameObject.transform;
         secondGun.SetActive(false);//set to inactive
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
         updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
+        firstGun.transform.position += new Vector3(0.1f, 0, 0);
         firstGun.transform.parent = gameObject.transform;
     }
 }

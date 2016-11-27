@@ -24,7 +24,7 @@ public class nextLevel : MonoBehaviour {
             PlayerPrefs.SetInt("winCondition", 1);
             PlayerPrefs.Save();
             Destroy(gameObject);//destory portal 
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
         }
     }
 
