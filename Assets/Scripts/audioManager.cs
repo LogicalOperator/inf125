@@ -88,6 +88,7 @@ public class audioManager : MonoBehaviour
 
     public void playMusic(AudioClip clip, float fadeDuration = 1) //play musicclip
     {
+        musicSources[activeMusicSourceIndex].Stop();
         activeMusicSourceIndex = 1 - activeMusicSourceIndex;
         musicSources[activeMusicSourceIndex].clip = clip;
         musicSources[activeMusicSourceIndex].Play();
