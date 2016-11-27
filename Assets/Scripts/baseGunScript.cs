@@ -19,18 +19,39 @@ public abstract class baseGunScript : MonoBehaviour {
 
     public virtual void summonBullet()
     {
-        
-        if (Input.GetMouseButton(0) && Time.time > nextFire) // when ever mouse left mouse button is clicked down 
-        {
-            nextFire = Time.time + fireRate; // only displays new bullet when correct amount of time has passed
-            audioManager.instance.playSound(gunSound, transform.position);
-            Vector3 pos = Input.mousePosition; // obtain mousepostion
-            pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen
-            pos.z = transform.position.z;
+		Vector3 pos = new Vector3();
+		Vector3 rotation_to = new Vector3();
 
-            Quaternion q = Quaternion.FromToRotation(Vector3.up, pos - transform.position);
-            GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
-        }
+		if (Time.time > nextFire && (Input.GetMouseButton(0) || (!Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))))) {
+			if (Input.GetMouseButton(0)) {			
+				pos = Input.mousePosition; // obtain mousepostion
+				pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen
+				pos.z = transform.position.z;
+
+				rotation_to = pos - transform.position;
+			}
+			else {
+				if (Input.GetKey (KeyCode.J)) {
+					rotation_to = Vector3.left;
+				} 
+				if (Input.GetKey (KeyCode.L)) {
+					rotation_to += Vector3.right;
+				} 
+				if (Input.GetKey (KeyCode.I)) {
+					rotation_to += Vector3.up;
+				}
+				if (Input.GetKey (KeyCode.K)) {
+					rotation_to += Vector3.down;
+				}
+			}
+
+
+			nextFire = Time.time + fireRate; // only displays new bullet when correct amount of time has passed
+			audioManager.instance.playSound(gunSound, transform.position);
+			Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
+			GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
+		}
+
     }
 
     public abstract void specialFire(); // specialFire for secondaryfire
