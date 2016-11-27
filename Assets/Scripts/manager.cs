@@ -9,7 +9,7 @@ public class manager : MonoBehaviour {
     public AudioClip portalSound;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
-    private GameObject[] respawnLocs;
+    private Vector3[] respawnLocs;
     public GameObject pauseMenu;
 
     private boardManager board;
@@ -19,7 +19,7 @@ public class manager : MonoBehaviour {
     void Start () {
         board = GetComponent<boardManager>();
         board.setupScene(level);
-        respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
+        respawnLocs = board.spawnLocs; //list of all respawn locations
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         waveRemaining = 10;
 
@@ -53,7 +53,7 @@ public class manager : MonoBehaviour {
     {
 
         GameObject anEnemy = (GameObject)Instantiate(enemy); //spawn enemy
-        anEnemy.transform.position = respawnLocs[Random.Range(0,3)].transform.position;//move enemy position to one of the random respawn locations
+        anEnemy.transform.position = respawnLocs[Random.Range(0, 3)]; //move enemy position to one of the random respawn locations
         waveRemaining--; // decrement wave amount
         schedulerforEnemySpwn();
     }
@@ -77,7 +77,7 @@ public class manager : MonoBehaviour {
             AudioSource.PlayClipAtPoint(portalSound, Camera.main.transform.position, 10f);
 
             GameObject aDoor = (GameObject)Instantiate(door);
-            aDoor.transform.position = respawnLocs[Random.Range(0, 3)].transform.position;
+            aDoor.transform.position = respawnLocs[Random.Range(0, 3)];
         }
 
         else //if wave still has more respawn new enemy

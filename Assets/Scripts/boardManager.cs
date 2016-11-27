@@ -22,11 +22,13 @@ public class boardManager : MonoBehaviour {
     public int columns = 20;                                         
     public int rows = 20;                                            
     public Count wallCount = new Count(5, 9);                       // Lower and upper limit for our random number of walls per level
-    public GameObject exit;                                         // Prefab to spawn for exit
+    //public Count spawnCount = new Count(1, 4);                      // Lower and upper limit for our respawn locations
+    //public GameObject exit;                                       // Prefab to spawn for exit
     public GameObject[] floorTiles;                                 // Array of floor prefabs
     public GameObject[] wallTiles;                                  // Array of wall prefabs
     //public GameObject[] enemyTiles;                               // Array of enemy prefabs
     public GameObject[] outerWallTiles;                             // Array of outer tile prefabs
+    public Vector3[] spawnLocs;                                // Enemy respawn locations
 
     private Transform holder;                                       // Stores a reference to information about the transform column in the inspector
     private List<Vector3> gridPositions = new List<Vector3>();      // Locations to place tiles
@@ -85,6 +87,14 @@ public class boardManager : MonoBehaviour {
         initializeList();
         layoutObjectAtRandom(wallTiles, wallCount.minimum, wallCount.maximum); // create wall tiles
 
+        // set up enemy spawner
+        int spawnCount = 3;
+        spawnLocs = new Vector3[spawnCount];
+        //respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc");
+        for(int i = 0; i < spawnCount; ++i) {
+            spawnLocs[i] = randomPosition();
+        }
+        
         // uncomment below to instantiate enemies and the exit portal
         // which is currently managed by manager.cs
 
