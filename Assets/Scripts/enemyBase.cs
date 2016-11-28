@@ -3,6 +3,7 @@ using System.Collections;
 //Base class for all enemies 
 public class enemyBase : MonoBehaviour {
 
+    public ParticleSystem deathEffect;
     public float maxHP; //maxHP given to enemy in child
     public GameObject player; //player object, for ai purposes
     public AudioClip eClip;//random audioclip for death sounds//animation sounds etc.
@@ -40,6 +41,7 @@ public class enemyBase : MonoBehaviour {
         scoreChanger.scoreint += 20;
         GameObject aMoneyDrop = Instantiate(money);
         aMoneyDrop.transform.position = this.transform.position;
+        Destroy(Instantiate(deathEffect.gameObject,this.transform.position,this.transform.rotation),deathEffect.startLifetime);
         Destroy(gameObject);
     }
 

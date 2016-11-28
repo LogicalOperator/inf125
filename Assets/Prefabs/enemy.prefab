@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db621d456661e147bd0295ae45a1791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 198000010558282412, guid: f61cb877b1b47b6458f347a49d9ab4e2,
+    type: 2}
   maxHP: 0
   player: {fileID: 0}
   eClip: {fileID: 8300000, guid: ead25856399308445953bc88fd0b4617, type: 3}
