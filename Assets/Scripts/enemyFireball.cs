@@ -1,17 +1,22 @@
 using UnityEngine;
 using System.Collections;
 
-public class baseBullet : MonoBehaviour {
+public class enemyFireball : MonoBehaviour
+{
     controller player;
-    public float damage;
-    public float speed = 10f;
+    public float damage = 5;
+    public float speed = 5f;
     public int lifetimeBull = 10;
     // Use this for initialization
-    protected void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
-        damage = player.damage;
+    protected void Start()
+    {
         this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed); // add force to bullet to move forward
         Destroy(gameObject, lifetimeBull); //destory gameobject if it passes x amount of time
+    }
+
+    public void Update()
+    {
+        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
     }
 
     public virtual void bulletMovement()
@@ -21,10 +26,11 @@ public class baseBullet : MonoBehaviour {
 
     public virtual void OnCollisionEnter2D(Collision2D coll)
     {
-        if(coll.gameObject.tag == "Enemy")
+        if(coll.gameObject.tag == "Player")
         {
-           player.setResourceBar();//increase resource when bullet hit enemy
+            coll.gameObject.GetComponent<controller>().takeDamage(5f);
+            audioManager.instance.playSound2D("fire");
         }
-        Destroy(gameObject);//destory itself if it touch anything
+            Destroy(gameObject);//destory itself if it touch anything
     }
 }

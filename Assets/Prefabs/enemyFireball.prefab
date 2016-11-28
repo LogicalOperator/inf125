@@ -21,11 +21,11 @@ GameObject:
   - 4: {fileID: 4000013545863754}
   - 212: {fileID: 212000012623035634}
   - 50: {fileID: 50000010620449236}
-  - 114: {fileID: 114000013398046568}
   - 61: {fileID: 61000011085473290}
-  m_Layer: 8
-  m_Name: bullet 1
-  m_TagString: Bullet
+  - 114: {fileID: 114000010383472314}
+  m_Layer: 14
+  m_Name: enemyFireball
+  m_TagString: enemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1000012331428204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.072741, y: 5.545688, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.37}
---- !u!114 &114000013398046568
+--- !u!114 &114000010383472314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -82,11 +82,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012331428204}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e1f0e12c00f605468094a132b15edc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ca56d9f08741114fa5ef4b08241e6cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  speed: 10
   lifetimeBull: 10
+  fire: {fileID: 8300000, guid: 134dfbf331619434d943de79a4327870, type: 3}
 --- !u!212 &212000012623035634
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,7 +118,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1844204129
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 8c014560b399bc949b5eac2d9077cba1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6144f2d9b9a8c8c4b8dc46769dcb8169, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
