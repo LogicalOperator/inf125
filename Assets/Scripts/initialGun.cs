@@ -8,10 +8,11 @@ public class initialGun : baseGunScript {
     void Awake () {
         gunName = "Pistol"; //update gunname, dmg mod, firing rate and other things here
         fireRate =0.5f;
+        dmgMod = 3;
         gunType = "light";
         gunTypeValue = 5.5f;
         player = GameObject.FindGameObjectWithTag("Player");
-        libraryIndex = 0;
+        libraryIndex = 2;
     }
 	
 	// Update is called once per frame
@@ -62,7 +63,9 @@ public class initialGun : baseGunScript {
 				GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
 				go = Instantiate(bulletPrefab, transform.position - new Vector3(0.5f, 0, 0), q) as GameObject; // create clones
 				go = Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0, 0), q) as GameObject;
-			}
+                go = Instantiate(bulletPrefab, transform.position - new Vector3(0.5f, 0.5f, 0), q) as GameObject; // create clones
+                go = Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0.5f, 0), q) as GameObject;
+            }
 		}
 	}
 }
