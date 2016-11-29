@@ -8,6 +8,7 @@ public class scoreChanger : MonoBehaviour {
 
     void Awake()
     {
+        scoreint = PlayerPrefs.GetInt("score", 0);
         MainScore = GetComponent<Text>();
     }
 

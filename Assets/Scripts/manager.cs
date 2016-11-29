@@ -22,10 +22,6 @@ public class manager : MonoBehaviour {
         respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         waveRemaining = 10;
-        PlayerPrefs.DeleteKey("score");
-        PlayerPrefs.DeleteKey("gold");
-        PlayerPrefs.DeleteKey("winCondition");
-
     }
 	
 	// Update is called once per frame
