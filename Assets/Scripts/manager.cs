@@ -9,7 +9,11 @@ public class manager : MonoBehaviour {
     public AudioClip portalSound;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
-    private GameObject[] respawnLocs;
+    //private GameObject[] respawnLocs;
+
+    private Vector3[] spawnLocations;
+    public GameObject[] enemies;
+
     public GameObject pauseMenu;
 
     private boardManager board;
@@ -19,9 +23,14 @@ public class manager : MonoBehaviour {
     void Awake () {
         board = GetComponent<boardManager>();
         board.setupScene(level);
-        respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
+        //respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
+        spawnLocations = board.spawnLocs;
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         waveRemaining = 10;
+        // v REFACTOR
+        enemies = new GameObject[1];
+        enemies[0] = enemy; 
+        // ^ REFACTOR
         PlayerPrefs.DeleteKey("score");
         PlayerPrefs.DeleteKey("gold");
         PlayerPrefs.DeleteKey("winCondition");
@@ -43,7 +52,20 @@ public class manager : MonoBehaviour {
                 pauseMenu.SetActive(false);
             }
         }
+    }
 
+    // takes an index of an enemy and returns that enemy as an
+    // instantiated GameObject. If the index does not exist,
+    // returnes enemies[0]
+    GameObject setupEnemy(int index) {
+        GameObject enemy;
+        if (index > enemies.Length) {
+            enemy = (GameObject)Instantiate(enemies[0]);
+        }
+        else {
+            enemy = (GameObject)Instantiate(enemies[index]);
+        }
+        return enemy;
     }
 
     public void resumeGame() // resume button
@@ -52,11 +74,12 @@ public class manager : MonoBehaviour {
         pauseMenu.SetActive(false);
     }
 
+
+
     public void enemySpawner()
     {
-
-        GameObject anEnemy = (GameObject)Instantiate(enemy); //spawn enemy
-        anEnemy.transform.position = respawnLocs[Random.Range(0,3)].transform.position;//move enemy position to one of the random respawn locations
+        GameObject anEnemy = setupEnemy(0); //spawn enemy
+        anEnemy.transform.position = spawnLocations[Random.Range(0,3)];//move enemy position to one of the random respawn locations
         waveRemaining--; // decrement wave amount
         schedulerforEnemySpwn();
     }
@@ -66,25 +89,17 @@ public class manager : MonoBehaviour {
     {
         float spwnInNSeconds;
 
-        if(maxSecsStartSpawner > 1f)
-        {
+        if(maxSecsStartSpawner > 1f) {
             spwnInNSeconds = Random.Range(1f, maxSecsStartSpawner);//random time of 1 - 3 secs for next enemy
-        }
-        else
-        {
+        } else {
             spwnInNSeconds = 1f;
         }
 
-        if (waveRemaining <= 0) //if wave <= 0 create portal to enter next level
-        {
+        if (waveRemaining <= 0) { //if wave <= 0 create portal to enter next level
             AudioSource.PlayClipAtPoint(portalSound, Camera.main.transform.position, 10f);
-
             GameObject aDoor = (GameObject)Instantiate(door);
-            aDoor.transform.position = respawnLocs[Random.Range(0, 3)].transform.position;
-        }
-
-        else //if wave still has more respawn new enemy
-        {
+            aDoor.transform.position = spawnLocations[Random.Range(0, 3)];
+        } else { //if wave still has more respawn new enemy 
             Invoke("enemySpawner", spwnInNSeconds);
         }
     }
