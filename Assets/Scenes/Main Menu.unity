@@ -1747,6 +1747,7 @@ GameObject:
   - 222: {fileID: 882947646}
   - 114: {fileID: 882947645}
   - 114: {fileID: 882947644}
+  - 114: {fileID: 882947647}
   m_Layer: 5
   m_Name: Save/Exit
   m_TagString: Untagged
@@ -1823,6 +1824,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1552957189}
+        m_MethodName: onButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &882947645
@@ -1858,6 +1870,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 882947642}
+--- !u!114 &882947647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 882947642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1552957189}
+          m_MethodName: onButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &891951391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3509,31 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[1].group.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[2].group.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[0].group.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[3].group.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013982339608, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3509,6 +3576,41 @@ Prefab:
       propertyPath: mainTheme
       value: 
       objectReference: {fileID: 8300000, guid: adc03d4d79e3a514e8d94b0361919ea2, type: 3}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[1].groupID
+      value: hoverAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[1].group.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 44ed72fec6636ba4fb9f2b4552fb1f0f, type: 3}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[2].groupID
+      value: onClickAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[2].group.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e1012067802bf734aab4606c95520c1e, type: 3}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[0].group.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a61dc2cbef7a464c8960348b9d41eac, type: 3}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[3].groupID
+      value: fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013589028206, guid: 2915e0b3f0900444ab509f115e56d0d8,
+        type: 2}
+      propertyPath: soundGroups.Array.data[3].group.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 134dfbf331619434d943de79a4327870, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
   m_IsPrefabParent: 0
@@ -3591,6 +3693,7 @@ GameObject:
   - 222: {fileID: 1755013680}
   - 114: {fileID: 1755013679}
   - 114: {fileID: 1755013678}
+  - 114: {fileID: 1755013681}
   m_Layer: 5
   m_Name: Start_Game
   m_TagString: Untagged
@@ -3667,6 +3770,17 @@ MonoBehaviour:
           m_StringArgument: Pong
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1552957189}
+        m_MethodName: onButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1755013679
@@ -3702,6 +3816,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1755013676}
+--- !u!114 &1755013681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755013676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1552957189}
+          m_MethodName: onButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1839164817
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,6 +4103,7 @@ GameObject:
   - 114: {fileID: 2023419919}
   - 114: {fileID: 2023419918}
   - 114: {fileID: 2023419917}
+  - 114: {fileID: 2023419921}
   m_Layer: 5
   m_Name: Quit_btn
   m_TagString: Untagged
@@ -4046,6 +4191,17 @@ MonoBehaviour:
           m_StringArgument: Pong
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1552957189}
+        m_MethodName: onButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2023419919
@@ -4081,6 +4237,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2023419915}
+--- !u!114 &2023419921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2023419915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1552957189}
+          m_MethodName: onButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2025914282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,6 +4346,7 @@ GameObject:
   - 222: {fileID: 2048806566}
   - 114: {fileID: 2048806565}
   - 114: {fileID: 2048806564}
+  - 114: {fileID: 2048806568}
   m_Layer: 5
   m_Name: Setting_btn
   m_TagString: Untagged
@@ -4208,6 +4395,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1552957189}
         m_MethodName: OpenSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1552957189}
+        m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4271,6 +4469,36 @@ RectTransform:
   m_AnchoredPosition: {x: -7.9369965, y: -18.3}
   m_SizeDelta: {x: 212.7, y: 56.9}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2048806568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2048806563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1552957189}
+          m_MethodName: onButtonHover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &2103518858
 GameObject:
   m_ObjectHideFlags: 0

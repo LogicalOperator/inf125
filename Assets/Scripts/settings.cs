@@ -115,4 +115,14 @@ public class settings : MonoBehaviour {
     {
         SceneManager.LoadScene(2);
     }
+
+    public void onButtonHover()
+    {
+        audioManager.instance.playSound2D("hoverAudio");
+    }
+
+    public void onButtonClick()
+    {
+        audioManager.instance.playSound2D("onClickAudio");
+    }
 }
