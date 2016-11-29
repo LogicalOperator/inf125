@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class manager : MonoBehaviour {
     public GameObject enemy;
     public GameObject door;
+    public GameObject player;
     public AudioClip portalSound;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
@@ -25,6 +26,7 @@ public class manager : MonoBehaviour {
         board.setupScene(level);
         //respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
         spawnLocations = board.spawnLocs;
+        player = GameObject.Find("player"); // get the player
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         waveRemaining = 10;
         // v REFACTOR
@@ -79,9 +81,15 @@ public class manager : MonoBehaviour {
     public void enemySpawner()
     {
         GameObject anEnemy = setupEnemy(0); //spawn enemy
-        anEnemy.transform.position = spawnLocations[Random.Range(0,3)];//move enemy position to one of the random respawn locations
-        waveRemaining--; // decrement wave amount
-        schedulerforEnemySpwn();
+        Vector3 loc = spawnLocations[Random.Range(0, 3)];
+        int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
+        if ((player.transform.position - loc).sqrMagnitude >= unitRadius) {
+            anEnemy.transform.position = loc;   // move enemy to random spawn location
+            waveRemaining--;                    // decrement wave amount
+            schedulerforEnemySpwn();
+        } else {
+            return;
+        } 
     }
 
     //funciton to time when to call the next spawn of enemy
