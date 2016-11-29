@@ -1987,7 +1987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d973b68b3587543b573c3ddedcdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
+  enemies:
+  - {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   portalSound: {fileID: 8300000, guid: e291bfd96f1b2a94694160c50d3f8c39, type: 3}
   maxSecsStartSpawner: 5
