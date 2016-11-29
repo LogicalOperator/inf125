@@ -67,8 +67,23 @@ public class controller : MonoBehaviour
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
-                SceneManager.LoadScene(2);//gameOver Screen
+                SceneManager.LoadScene(3);//gameOver Screen
             }
+        }
+    }
+
+    public void takeDamage(float dmg)
+    {
+        hp -= dmg; //getEnemy dmg
+        float calculateHP = hp / maxHP;//calcualte percentage of fill for hpBar
+        setHealthBar(calculateHP);
+        if (hp <= 0)
+        {
+            PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+            PlayerPrefs.SetInt("gold", goldChanger.gold);
+            PlayerPrefs.SetInt("winCondition", 0);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(3);//gameOver Screen
         }
     }
 
@@ -192,12 +207,14 @@ public class controller : MonoBehaviour
         secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
         GameObject secondGun = Instantiate(secondaryGun); //create it
         secondGun.transform.position = gameObject.transform.position; //move it to player
+        secondGun.transform.position += new Vector3(0.1f, 0, 0);
         secondGun.transform.parent = gameObject.transform;
         secondGun.SetActive(false);//set to inactive
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
         updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
+        firstGun.transform.position += new Vector3(0.1f, 0, 0);
         firstGun.transform.parent = gameObject.transform;
     }
 }

@@ -8,11 +8,11 @@ public class gameOverScript : MonoBehaviour {
     int mainScore;
     public Text gameOver;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         getScore();
         score = GetComponent<Text>(); //get text object on canvas
         score.text = "Score: " + mainScore;//change depending on the scorechanger script function
-	}
+    }
 
 
     void getScore()

@@ -24,12 +24,19 @@ public class settings : MonoBehaviour {
         volumeSliders[1].value = audioManager.instance.musicVolumePercent;
         volumeSliders[2].value = audioManager.instance.sfxVolumePercent;
 
-        for(int i = 0; i < resolutionToggles.Length; i++)
+        if(resolutionToggles.Length == 0)
         {
-            resolutionToggles[i].isOn = i == activeScreenResolutionIndex;
-        }
 
-        setFullScreen(isFullscreen);
+        }
+        else
+        {
+            for (int i = 0; i < resolutionToggles.Length; i++)
+            {
+                resolutionToggles[i].isOn = i == activeScreenResolutionIndex;
+            }
+
+            setFullScreen(isFullscreen);
+        }
 
     }
 
@@ -106,6 +113,16 @@ public class settings : MonoBehaviour {
     }
     public void playGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
+    }
+
+    public void onButtonHover()
+    {
+        audioManager.instance.playSound2D("hoverAudio");
+    }
+
+    public void onButtonClick()
+    {
+        audioManager.instance.playSound2D("onClickAudio");
     }
 }
