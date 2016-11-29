@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class baseBullet : MonoBehaviour {
-    controller player;
+    public controller player;
     public float damage;
     public float speed = 10f;
     public int lifetimeBull = 10;

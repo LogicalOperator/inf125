@@ -1,26 +1,26 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
-public class stapleGun : baseGunScript
+public class bagOfHammers : baseGunScript
 {
 
     // Use this for initialization
     void Awake()
     {
-        gunName = "Staple Gun";
-        fireRate = 0.5f;
-        dmgMod = 1f;
-        gunType = "dark";
-        gunTypeValue = 3f;
+        gunName = "bagOfHammers"; //update gunname, dmg mod, firing rate and other things here
+        fireRate = 0.8f;
+        gunType = "light";
+        gunTypeValue = 5.5f;
         player = GameObject.FindGameObjectWithTag("Player");
-        libraryIndex = 1;
+        libraryIndex = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        summonBullet();
         specialFire();
+        summonBullet();
     }
 
     public override void specialFire()//speical fire for max resource
@@ -70,8 +70,7 @@ public class stapleGun : baseGunScript
 
                 Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
                 GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
-                go = Instantiate(bulletPrefab, transform.position - new Vector3(0.5f, 0, 0), q) as GameObject; // create clones
-                go = Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0, 0), q) as GameObject;
+                go.transform.localScale += new Vector3(1, 1, 1);
             }
         }
     }

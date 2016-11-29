@@ -27,14 +27,14 @@ public class initialGun : baseGunScript {
 		Vector3 pos = new Vector3();
 		Vector3 rotation_to = new Vector3();
 
-		if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))) {
+		if (Input.GetMouseButtonDown(1) || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))) {
 			if (player.GetComponent<controller>().currentLight < 100)//check if max light, if not play not full sound
 			{
 				audioManager.instance.playSound(emptyGunSound, transform.position);
 			}
 			else
 			{
-				if (Input.GetMouseButton (1)) {
+				if (Input.GetMouseButtonDown(1)) {
 					pos = Input.mousePosition; // obtain mousepostion
 					pos = Camera.main.ScreenToWorldPoint (pos); // obtain exact mouse position from main camera screen
 					pos.z = transform.position.z;
