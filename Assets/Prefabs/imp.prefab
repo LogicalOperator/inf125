@@ -21,10 +21,10 @@ GameObject:
   - 4: {fileID: 4000013190322808}
   - 212: {fileID: 212000013663611246}
   - 58: {fileID: 58000012034434534}
-  - 114: {fileID: 114000011899131546}
   - 50: {fileID: 50000010847310384}
+  - 114: {fileID: 114000010257937324}
   m_Layer: 12
-  m_Name: enemy
+  m_Name: imp
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.105
---- !u!114 &114000011899131546
+--- !u!114 &114000010257937324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -82,18 +82,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012181121988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1db621d456661e147bd0295ae45a1791, type: 3}
+  m_Script: {fileID: 11500000, guid: 872169cc57a8d204a98e84af07fb3b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deathEffect: {fileID: 198000010558282412, guid: f61cb877b1b47b6458f347a49d9ab4e2,
     type: 2}
   maxHP: 0
-  player: {fileID: 0}
+  player: {fileID: 1000013354267006, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
   eClip: {fileID: 8300000, guid: ead25856399308445953bc88fd0b4617, type: 3}
   currentHP: 0
   speed: 0
   dmg: 0
   money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
+  fireball: {fileID: 1000012331428204, guid: 58b0ca95fc4882d429c48e0661da8674, type: 2}
+  rotation_to: {x: 0, y: 0, z: 0}
+  fireRate: 0
+  playerDistance: 0
+  rotationDampening: 0
 --- !u!212 &212000013663611246
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,7 +128,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1844204129
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c257270139240ae4f98e6ac1137fba37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b5bbd1637c444546aae78d468d4ac93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

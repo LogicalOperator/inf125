@@ -12,7 +12,7 @@ public class gameOverScript : MonoBehaviour {
         getScore();
         score = GetComponent<Text>(); //get text object on canvas
         score.text = "Score: " + mainScore;//change depending on the scorechanger script function
-	}
+    }
 
 
     void getScore()

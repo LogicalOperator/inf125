@@ -5,9 +5,9 @@ public class enemyController : enemyBase {
 
     void Start()
     {
-        maxHP = 20f; //max hp of enemy
+        maxHP = 30f; //max hp of enemy
         currentHP = maxHP; //make currentHp = to max
-        dmg = 1;
+        dmg = 0.5f;
         speed = 2f;
     }
 

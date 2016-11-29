@@ -67,8 +67,23 @@ public class controller : MonoBehaviour
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
-                SceneManager.LoadScene(2);//gameOver Screen
+                SceneManager.LoadScene(3);//gameOver Screen
             }
+        }
+    }
+
+    public void takeDamage(float dmg)
+    {
+        hp -= dmg; //getEnemy dmg
+        float calculateHP = hp / maxHP;//calcualte percentage of fill for hpBar
+        setHealthBar(calculateHP);
+        if (hp <= 0)
+        {
+            PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+            PlayerPrefs.SetInt("gold", goldChanger.gold);
+            PlayerPrefs.SetInt("winCondition", 0);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene(3);//gameOver Screen
         }
     }
 
