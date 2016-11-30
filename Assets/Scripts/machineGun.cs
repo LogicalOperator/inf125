@@ -28,7 +28,7 @@ public class machineGun : baseGunScript {
 
 		if (Input.GetMouseButton(1) 
 		|| (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
-		|| (Input.GetButton("Jump") && Input.GetJoystickNames() != null)) {
+		|| (Input.GetKey("joystick button 5") && Input.GetJoystickNames() != null)) {
 				if (player.GetComponent<controller>().currentDark < 100)//check if max light, if not play not full sound
 				{
 					audioManager.instance.playSound(emptyGunSound, transform.position);
@@ -37,7 +37,7 @@ public class machineGun : baseGunScript {
 				{
 					if(Input.GetJoystickNames()[0] != null)
 					{
-						rotation_to = new Vector3(Input.GetAxis("Fire1"), Input.GetAxis("Fire2"), 0);
+						rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
 					}
 					else if (Input.GetMouseButton (1)) {
 						pos = Input.mousePosition; // obtain mousepostion

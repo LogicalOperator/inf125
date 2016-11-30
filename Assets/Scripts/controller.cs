@@ -194,7 +194,12 @@ public class controller : MonoBehaviour
 
     public void changeGun()
     {
-        if (Input.GetKeyDown(KeyCode.R) || Input.GetButtonDown("Submit")) // if R is pressed change the gun by deactivating current and activating the non current gun
+		for (int i = 0;i < 20; i++) {
+            if(Input.GetKeyDown("joystick button "+i)){
+                Debug.Log("joystick button "+i);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown("joystick button 1")) // if R is pressed change the gun by deactivating current and activating the non current gun
         {
             foreach (Transform child in transform)
             {
@@ -209,7 +214,6 @@ public class controller : MonoBehaviour
                     gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
                 }
             }
-
         }
     }
 
