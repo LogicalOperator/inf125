@@ -194,27 +194,87 @@ public class controller : MonoBehaviour
 
     public void changeGun()
     {
-		for (int i = 0;i < 20; i++) {
-            if(Input.GetKeyDown("joystick button "+i)){
-                Debug.Log("joystick button "+i);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown("joystick button 1")) // if R is pressed change the gun by deactivating current and activating the non current gun
-        {
-            foreach (Transform child in transform)
-            {
-                if (child.gameObject.activeSelf)
-                {
-                    child.gameObject.SetActive(false);
-                }
-                else
-                {
-                    child.gameObject.SetActive(true);
-                    updateGun(child.GetComponent<baseGunScript>());
-                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-                }
-            }
-        }
+		if(Input.GetKeyDown("joystick button 6") && gunType == "dark" && !Input.GetKey("joystick button 7"))
+		{
+			foreach (Transform child in transform)
+			{
+				if (child.gameObject.activeSelf)
+				{
+					child.gameObject.SetActive(false);
+				}
+				else
+				{
+					child.gameObject.SetActive(true);
+					updateGun(child.GetComponent<baseGunScript>());
+					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+				}
+			}
+		}
+		if(Input.GetKeyUp("joystick button 6") && gunType == "light" && !Input.GetKey("joystick button 7"))
+		{
+			foreach (Transform child in transform)
+			{
+				if (child.gameObject.activeSelf)
+				{
+					child.gameObject.SetActive(false);
+				}
+				else
+				{
+					child.gameObject.SetActive(true);
+					updateGun(child.GetComponent<baseGunScript>());
+					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+				}
+			}
+		}
+		if(Input.GetKeyDown("joystick button 7") && gunType == "light" && !Input.GetKey("joystick button 6"))
+		{
+			foreach (Transform child in transform)
+			{
+				if (child.gameObject.activeSelf)
+				{
+					child.gameObject.SetActive(false);
+				}
+				else
+				{
+					child.gameObject.SetActive(true);
+					updateGun(child.GetComponent<baseGunScript>());
+					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+				}
+			}
+		}
+		if(Input.GetKeyUp("joystick button 7") && gunType == "dark" && !Input.GetKey("joystick button 6"))
+		{
+			foreach (Transform child in transform)
+			{
+				if (child.gameObject.activeSelf)
+				{
+					child.gameObject.SetActive(false);
+				}
+				else
+				{
+					child.gameObject.SetActive(true);
+					updateGun(child.GetComponent<baseGunScript>());
+					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+				}
+			}
+		}
+	    if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown("joystick button 0") 
+		&& !Input.GetKey("joystick button 6") && !Input.GetKey("joystick button 7")) // if R is pressed change the gun by deactivating current and activating the non current gun
+		{
+			foreach (Transform child in transform)
+			{
+				if (child.gameObject.activeSelf)
+				{
+					child.gameObject.SetActive(false);
+				}
+				else
+				{
+					child.gameObject.SetActive(true);
+					updateGun(child.GetComponent<baseGunScript>());
+					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+				}
+			}
+		}	
     }
 
     public void resetBars()
