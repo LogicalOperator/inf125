@@ -37,7 +37,7 @@ public class gameOverScript : MonoBehaviour {
     {
 
         if (PlayerPrefs.GetInt("winCondition") == 1)
-        {3301
+        {
             fakeScoreKeeper = 1000;
             gameOver.text = "You Win!";
         }

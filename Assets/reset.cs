@@ -9,4 +9,5 @@ public class reset : MonoBehaviour {
         PlayerPrefs.DeleteKey("gold");
         PlayerPrefs.DeleteKey("winCondition");
     }
+    
 }
