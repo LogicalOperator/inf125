@@ -52,7 +52,7 @@ public class manager : MonoBehaviour {
     {
 
         GameObject anEnemy = (GameObject)Instantiate(enemy); //spawn enemy
-        anEnemy.transform.position = respawnLocs[Random.Range(0,3)].transform.position;//move enemy position to one of the random respawn locations
+        anEnemy.transform.position = respawnLocs[Random.Range(0, respawnLocs.Length)].transform.position;//move enemy position to one of the random respawn locations
         waveRemaining--; // decrement wave amount
         schedulerforEnemySpwn();
     }

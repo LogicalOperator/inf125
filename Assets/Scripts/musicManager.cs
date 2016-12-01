@@ -38,6 +38,11 @@ public class musicManager : MonoBehaviour
             clipToPlay = mainTheme;
         }
 
+        else
+        {
+            clipToPlay = mainTheme;
+        }
+
         if (clipToPlay != null)
         {
             audioManager.instance.playMusic(clipToPlay, 2);

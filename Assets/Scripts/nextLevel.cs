@@ -21,10 +21,17 @@ public class nextLevel : MonoBehaviour {
 
             PlayerPrefs.SetInt("score", scoreChanger.scoreint);
             PlayerPrefs.SetInt("gold", goldChanger.gold);
-            PlayerPrefs.SetInt("winCondition", 1);
             PlayerPrefs.Save();
+            if(SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+
             Destroy(gameObject);//destory portal 
-            SceneManager.LoadScene(3);
         }
     }
 
