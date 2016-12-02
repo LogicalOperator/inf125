@@ -24,9 +24,8 @@ public abstract class baseGunScript : MonoBehaviour {
 
 		if (Time.time > nextFire && (Input.GetMouseButton(0) 
 		|| (!Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
-		|| (Input.GetJoystickNames() != null) && Input.GetAxis("HorFire") != 0 && Input.GetAxis("VerFire") != 0)) {
-			if(Input.GetJoystickNames() != null)
-			if(Input.GetJoystickNames() != null)
+		|| (Input.GetJoystickNames().Length != 0) && Input.GetAxis("HorFire") != 0 && Input.GetAxis("VerFire") != 0)) {
+			if(Input.GetJoystickNames().Length != 0)
 			{
 				rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
 			}

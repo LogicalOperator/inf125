@@ -89,24 +89,22 @@ public class controller : MonoBehaviour
 
     public void rotation()
     {
-    /*    Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
-        mousePos.z = 5.23f;
-
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
-
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));*/
-		
-		if(Input.GetJoystickNames() != null)
+		if(Input.GetJoystickNames().Length != 0)
 		{
-			float angle = Mathf.Atan2(Input.GetAxis("Fire1"), Input.GetAxis("Fire2")) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+			float controller_angle = Mathf.Atan2(Input.GetAxis("Fire1"), Input.GetAxis("Fire2")) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
 		}
 		else
 		{
-			
+            Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
+            mousePos.z = 5.23f;
+
+            Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+            mousePos.x = mousePos.x - objectPos.x;
+            mousePos.y = mousePos.y - objectPos.y;
+
+            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 			if (Input.GetKey (KeyCode.J)) {
 				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
 			} 

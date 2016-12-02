@@ -29,14 +29,14 @@ public class initialGun : baseGunScript {
 
 		if (Input.GetMouseButton(1) 
 		|| (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
-		|| (Input.GetKey("joystick button 5") && Input.GetJoystickNames() != null)) {
+		|| (Input.GetKey("joystick button 5") && Input.GetJoystickNames().Length != 0)) {
 			if (player.GetComponent<controller>().currentLight < 100)//check if max light, if not play not full sound
 			{
 				audioManager.instance.playSound(emptyGunSound, transform.position);
 			}
 			else
 			{
-				if(Input.GetJoystickNames() != null)
+				if(Input.GetJoystickNames().Length != 0)
 				{
 					rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
 				}
