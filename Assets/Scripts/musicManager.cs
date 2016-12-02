@@ -33,7 +33,7 @@ public class musicManager : MonoBehaviour
         {
             clipToPlay = menuTheme;
         }
-        else if (sceneName == "mainGame")
+        else if (sceneName == "Ground Floor")
         {
             clipToPlay = mainTheme;
         }
