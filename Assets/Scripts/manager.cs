@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class manager : MonoBehaviour {
+    public bool spawner;
     public GameObject enemy;
     public GameObject door;
     public AudioClip portalSound;
@@ -18,10 +19,21 @@ public class manager : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         board = GetComponent<boardManager>();
-        board.setupScene(level);
-        respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
-        Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
-        waveRemaining = 10;
+        if (board == null)
+        {
+
+        }
+        else
+        {
+            board.setupScene(level);
+        }
+
+        if(spawner == true)
+        {
+            respawnLocs = GameObject.FindGameObjectsWithTag("SpawnLoc"); //list of all respawn locations
+            Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
+            waveRemaining = 10;
+        }
     }
 	
 	// Update is called once per frame

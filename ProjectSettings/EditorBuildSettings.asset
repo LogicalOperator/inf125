@@ -12,6 +12,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/mainGame.unity
   - enabled: 1
+    path: Assets/Scenes/gunStore.unity
+  - enabled: 1
     path: Assets/Scenes/level 2.unity
   - enabled: 1
     path: Assets/Scenes/gameOver.unity

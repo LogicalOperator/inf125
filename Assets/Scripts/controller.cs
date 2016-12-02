@@ -24,10 +24,12 @@ public class controller : MonoBehaviour
     public float currentDark;
     public float maxHP = 100;
     public float hp;
+    public GameObject[] gunInventory;
 
     // Use this for initialization
     void Start()
     {
+        gunInventory = new GameObject[2];
         obtainGuns();
         trail = GetComponent<TrailRenderer>();
         trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
@@ -100,7 +102,7 @@ public class controller : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    void updateGun(baseGunScript gun)
+    public void updateGun(baseGunScript gun)
     {
         gunType = gun.gunType; //update guns type and resource value of the gun
         resourceValue = gun.gunTypeValue;
@@ -210,11 +212,15 @@ public class controller : MonoBehaviour
         secondGun.transform.position += new Vector3(0.1f, 0, 0);
         secondGun.transform.parent = gameObject.transform;
         secondGun.SetActive(false);//set to inactive
+        gunInventory[1] = secondGun;
+
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
         updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
         firstGun.transform.position += new Vector3(0.1f, 0, 0);
         firstGun.transform.parent = gameObject.transform;
+        firstGun.SetActive(true);
+        gunInventory[0] = firstGun;
     }
 }

@@ -326,7 +326,7 @@ Transform:
   m_Children:
   - {fileID: 1589941350}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!212 &184960636
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2177,7 +2177,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &757632672
 Prefab:
   m_ObjectHideFlags: 0
@@ -2222,7 +2222,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &757632673 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4000013982339608, guid: 2915e0b3f0900444ab509f115e56d0d8,
+  m_PrefabParentObject: {fileID: 4000013010074184, guid: 2915e0b3f0900444ab509f115e56d0d8,
     type: 2}
   m_PrefabInternal: {fileID: 757632672}
 --- !u!1 &772185722
@@ -4032,6 +4032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d973b68b3587543b573c3ddedcdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: 1
   enemy: {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   portalSound: {fileID: 8300000, guid: e291bfd96f1b2a94694160c50d3f8c39, type: 3}
@@ -4221,7 +4222,7 @@ RectTransform:
   - {fileID: 1922123864}
   - {fileID: 1991956541}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
