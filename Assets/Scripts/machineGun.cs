@@ -20,7 +20,7 @@ public class machineGun : baseGunScript {
         specialFire();
 	}
 
-	public override void specialFire()//speical fire for max resource
+	public override void specialFire() // special fire for max resource
 	{
 
 		Vector3 pos = new Vector3();
@@ -28,7 +28,8 @@ public class machineGun : baseGunScript {
 
 		if (Input.GetMouseButton(1) 
 		|| (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
-		|| (Input.GetKey("joystick button 5") && Input.GetJoystickNames().Length != 0)) {
+		|| (Input.GetKey("joystick button 5") && Input.GetJoystickNames().Length != 0)) 
+        {
 				if (player.GetComponent<controller>().currentDark < 100)//check if max light, if not play not full sound
 				{
 					audioManager.instance.playSound(emptyGunSound, transform.position);
@@ -60,16 +61,14 @@ public class machineGun : baseGunScript {
 							rotation_to += Vector3.down;
 						}
 					}
-				}
+                    player.GetComponent<controller>().resetBars(); //reset both resources
+                    audioManager.instance.playSound(gunSound, transform.position);
 
-
-				player.GetComponent<controller>().resetBars(); //reset both resources
-				audioManager.instance.playSound(gunSound, transform.position);
-
-				Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
-				GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
-				go = Instantiate(bulletPrefab, transform.position - new Vector3(0.5f, 0, 0), q) as GameObject; // create clones
-				go = Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0, 0), q) as GameObject;
+                    Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
+                    GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
+                    go = Instantiate(bulletPrefab, transform.position - new Vector3(0.5f, 0, 0), q) as GameObject; // create clones
+                    go = Instantiate(bulletPrefab, transform.position + new Vector3(0.5f, 0, 0), q) as GameObject;
+                }
 			}
 		}
 	}

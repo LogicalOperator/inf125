@@ -22,13 +22,12 @@ public class boardManager : MonoBehaviour {
     public int columns = 20;                                         
     public int rows = 20;                                            
     public Count wallCount = new Count(5, 9);                       // Lower and upper limit for our random number of walls per level
-    //public Count spawnCount = new Count(1, 4);                      // Lower and upper limit for our respawn locations
     //public GameObject exit;                                       // Prefab to spawn for exit
     public GameObject[] floorTiles;                                 // Array of floor prefabs
     public GameObject[] wallTiles;                                  // Array of wall prefabs
-    public GameObject[] enemyTiles;                               // Array of enemy prefabs
+    public GameObject[] enemyTiles;                                 // Array of enemy prefabs
     public GameObject[] outerWallTiles;                             // Array of outer tile prefabs
-    public Vector3[] spawnLocs;                                // Enemy respawn locations
+    public Vector3[] spawnLocs;                                     // Enemy respawn locations
 
     private Transform holder;                                       // Stores a reference to information about the transform column in the inspector
     private List<Vector3> gridPositions = new List<Vector3>();      // Locations to place tiles
@@ -94,11 +93,12 @@ public class boardManager : MonoBehaviour {
         for(int i = 0; i < spawnCount; ++i) {
             spawnLocs[i] = randomPosition();
         }
-        
+
         // uncomment below to instantiate enemies and the exit portal
         // which is currently managed by manager.cs
 
-        int enemyCount = (int)Mathf.Log(level, 2f);
+        int enemyCount = 2 * level; // initial amount of enemies that will spawn at random
+                                    // places (not spawn locations)
         layoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
 
         //Instantiate(exit, new Vector3(columns - 1, rows - 1, 0f), Quaternion.identity);
