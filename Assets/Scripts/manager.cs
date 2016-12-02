@@ -30,8 +30,7 @@ public class manager : MonoBehaviour {
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         waveRemaining = 10;
         // v REFACTOR
-        enemies = new GameObject[1];
-        enemies[0] = enemy; 
+		enemies = board.enemyTiles;
         // ^ REFACTOR
         PlayerPrefs.DeleteKey("score");
         PlayerPrefs.DeleteKey("gold");
@@ -80,7 +79,7 @@ public class manager : MonoBehaviour {
 
     public void enemySpawner()
     {
-        GameObject anEnemy = setupEnemy(0); //spawn enemy
+		GameObject anEnemy = setupEnemy(Random.Range(0, enemies.Length));
         Vector3 loc = spawnLocations[Random.Range(0, 3)];
         int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
         if ((player.transform.position - loc).sqrMagnitude >= unitRadius) {
