@@ -89,9 +89,10 @@ public class controller : MonoBehaviour
 
     public void rotation()
     {
+		Debug.Log(Input.GetJoystickNames().Length);
 		if(Input.GetJoystickNames().Length != 0)
 		{
-			float controller_angle = Mathf.Atan2(Input.GetAxis("Fire1"), Input.GetAxis("Fire2")) * Mathf.Rad2Deg;
+			float controller_angle = Mathf.Atan2(Input.GetAxis("VerFire"), Input.GetAxis("HorFire")) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
 		}
 		else
