@@ -65,7 +65,7 @@ public class controller : MonoBehaviour
             setHealthBar(calculateHP);
             if(hp <= 0)
             {
-                PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+                PlayerPrefs.SetInt("score", scoreChanger.instance.getScore()); //save score,gold and winCondition
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
@@ -81,7 +81,7 @@ public class controller : MonoBehaviour
         setHealthBar(calculateHP);
         if (hp <= 0)
         {
-            PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+            PlayerPrefs.SetInt("score", scoreChanger.instance.getScore()); //save score,gold and winCondition
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.SetInt("winCondition", 0);
             PlayerPrefs.Save();
@@ -207,6 +207,7 @@ public class controller : MonoBehaviour
     public void obtainGuns()
     {
         secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
+
         GameObject secondGun = Instantiate(secondaryGun); //create it
         secondGun.transform.position = gameObject.transform.position; //move it to player
         secondGun.transform.position += new Vector3(0.1f, 0, 0);
@@ -216,11 +217,11 @@ public class controller : MonoBehaviour
 
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
-        updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
         firstGun.transform.position += new Vector3(0.1f, 0, 0);
         firstGun.transform.parent = gameObject.transform;
         firstGun.SetActive(true);
         gunInventory[0] = firstGun;
+        updateGun(firstGun.GetComponent<baseGunScript>());
     }
 }

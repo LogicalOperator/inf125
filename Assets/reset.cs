@@ -8,6 +8,8 @@ public class reset : MonoBehaviour {
         PlayerPrefs.DeleteKey("score");
         PlayerPrefs.DeleteKey("gold");
         PlayerPrefs.DeleteKey("winCondition");
+        PlayerPrefs.DeleteKey("primaryGunIndex");
+        PlayerPrefs.DeleteKey("secondaryGunIndex");
     }
     
 }

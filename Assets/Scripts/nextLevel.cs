@@ -3,23 +3,21 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class nextLevel : MonoBehaviour {
-    baseGunScript gun1;
-    baseGunScript gun2;
 
+    controller player;
     void OnCollisionEnter2D(Collision2D coll)
     {
-        gun1 = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>().currentGun.GetComponent<baseGunScript>();
-        gun2 = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>().secondaryGun.GetComponent<baseGunScript>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
 
         if (coll.gameObject.tag == "Player")
         {
-            if(gun1.libraryIndex != 0 && gun2.libraryIndex != 1)
+            if(player.gunInventory[0].GetComponent<baseGunScript>().libraryIndex != 0 || player.gunInventory[1].GetComponent<baseGunScript>().libraryIndex != 1)
             {
-                PlayerPrefs.SetInt("primaryGunIndex", gun1.libraryIndex);
-                PlayerPrefs.SetInt("secondaryGunIndex", gun2.libraryIndex);
+                PlayerPrefs.SetInt("primaryGunIndex", player.gunInventory[0].GetComponent<baseGunScript>().libraryIndex);
+                PlayerPrefs.SetInt("secondaryGunIndex", player.gunInventory[1].GetComponent<baseGunScript>().libraryIndex);
             }
 
-            PlayerPrefs.SetInt("score", scoreChanger.scoreint);
+            PlayerPrefs.SetInt("score", scoreChanger.instance.getScore());
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.Save();
             if(SceneManager.GetActiveScene().buildIndex == 4)
