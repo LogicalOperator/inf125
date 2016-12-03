@@ -113,7 +113,7 @@ public class settings : MonoBehaviour {
     }
     public void playGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Ground Floor");
     }
 
     public void onButtonHover()
