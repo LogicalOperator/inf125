@@ -118,6 +118,7 @@ public class settings : MonoBehaviour {
 
     public void onButtonHover()
     {
+
         audioManager.instance.playSound2D("hoverAudio");
     }
 
@@ -125,4 +126,5 @@ public class settings : MonoBehaviour {
     {
         audioManager.instance.playSound2D("onClickAudio");
     }
+
 }
