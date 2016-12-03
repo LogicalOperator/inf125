@@ -69,7 +69,7 @@ public class controller : MonoBehaviour
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
-                SceneManager.LoadScene(3);//gameOver Screen
+                SceneManager.LoadScene("gameOver");//gameOver Screen
             }
         }
     }
@@ -85,7 +85,7 @@ public class controller : MonoBehaviour
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.SetInt("winCondition", 0);
             PlayerPrefs.Save();
-            SceneManager.LoadScene(3);//gameOver Screen
+            SceneManager.LoadScene("gameOver");//gameOver Screen
         }
     }
 
