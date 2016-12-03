@@ -7,7 +7,7 @@ public class pistolBuyScript : buyableBase {
 	// Use this for initialization
 	void Start () {
         gunIndex = 2;
-        goldCost = 25;
+        goldCost = 10;
         gunType = "light";
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
         this.transform.GetChild(0).GetComponent<Text>().text = " " + goldCost;

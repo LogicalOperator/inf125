@@ -91,6 +91,12 @@ public class controller : MonoBehaviour
 
     public void rotation()
     {
+
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            //float controller_angle = Mathf.Atan2(Input.GetAxis("VerFire"), Input.GetAxis("HorFire")) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
+        }
             Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
             mousePos.z = 5.23f;
 
@@ -100,7 +106,39 @@ public class controller : MonoBehaviour
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-      
+            if (Input.GetKey(KeyCode.J))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
+            }
+            if (Input.GetKey(KeyCode.L))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            }
+            if (Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360));
+            }
+            if (Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            }
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
+            }
+            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+            }
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 225));
+            }
+            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 135));
+            }
+
     }
 
     public void updateGun(baseGunScript gun)

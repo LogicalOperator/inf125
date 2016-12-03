@@ -34,10 +34,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012650519462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5, w: 0.8660254}
   m_LocalPosition: {x: -11.231621, y: -5.843939, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   gunType: 
   dmgMod: 0
   gunName: 
-  gunImage: {fileID: 21300000, guid: b3638d1f5f297154f997551429f8a316, type: 3}
+  gunImage: {fileID: 21300000, guid: 9be63e215ba86e643b645415f2669f4b, type: 3}
   fireRate: 0
   libraryIndex: 0
 --- !u!212 &212000012403889174
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1844204129
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b3638d1f5f297154f997551429f8a316, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9be63e215ba86e643b645415f2669f4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

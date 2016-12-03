@@ -12,13 +12,14 @@ public class escMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("gold");
         PlayerPrefs.DeleteKey("winCondition");
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);//load scene 1(mainmenu)
+        SceneManager.LoadScene("Main Menu");//load scene 1(mainmenu)
     }
 
     public void openOptions()
     {
         if (soundOptions.gameObject.activeSelf)
         {
+            
             soundOptions.gameObject.SetActive(false);
         }
         else
