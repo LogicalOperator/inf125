@@ -197,7 +197,8 @@ MonoBehaviour:
     width: 1432.6324
     height: 930.9156
   selectedBlock: {fileID: 263439039}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 263439049}
   variables: []
   description: 
   stepPause: 0
@@ -537,7 +538,7 @@ MonoBehaviour:
   itemId: 14
   errorMessage: 
   indentLevel: 0
-  storyText: The humans that remained lived on in the demon slums, surviving as best
+  storyText: The humans that remained, lived on in the demon slums, surviving as best
     they could on the scraps that were left for them.
   description: 
   character: {fileID: 0}
@@ -571,7 +572,7 @@ MonoBehaviour:
   fadeTexture: {fileID: 0}
 --- !u!114 &263439051
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}
@@ -588,7 +589,7 @@ MonoBehaviour:
   delay: 0
 --- !u!114 &263439052
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}
@@ -611,7 +612,7 @@ MonoBehaviour:
   - {fileID: 263439051}
 --- !u!114 &263439053
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}
@@ -629,7 +630,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &263439054
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}
@@ -643,7 +644,7 @@ MonoBehaviour:
   keyCode: 27
 --- !u!114 &263439055
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}

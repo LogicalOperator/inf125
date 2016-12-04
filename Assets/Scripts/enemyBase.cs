@@ -11,6 +11,7 @@ public class enemyBase : MonoBehaviour {
     public float speed;//current speed enemy has
     public float dmg;
     public GameObject money;
+    public int level;
     //float timeIsUp = 50.0f;
     //float timeNow = 1.0f;
     public float Health//health function to quickly update hp and destory itself if it is 0;
@@ -38,7 +39,7 @@ public class enemyBase : MonoBehaviour {
 
     public virtual void destroySelf() //increment score and destory itself, can be overridden
     {
-        scoreChanger.instance.AddPoints(20);
+        scoreChanger.instance.AddPoints(level*Random.Range(10,20));
         GameObject aMoneyDrop = Instantiate(money);
         aMoneyDrop.transform.position = this.transform.position;
         Destroy(Instantiate(deathEffect.gameObject,this.transform.position,this.transform.rotation),deathEffect.startLifetime);
