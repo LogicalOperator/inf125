@@ -22,4 +22,12 @@ public class hammer : baseBullet {
     {
         transform.RotateAround(target.position, zAxis, speed);
     }
+
+    new public virtual void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Enemy")
+        {
+            player.setResourceBar();//increase resource when bullet hit enemy
+        }
+    }
 }

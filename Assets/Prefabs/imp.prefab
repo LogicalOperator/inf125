@@ -51,7 +51,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012181121988}
   m_UseAutoMass: 0
-  m_Mass: 300
+  m_Mass: 30
   m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   speed: 0
   dmg: 0
   money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
+  level: 0
   fireball: {fileID: 1000012331428204, guid: 58b0ca95fc4882d429c48e0661da8674, type: 2}
   rotation_to: {x: 0, y: 0, z: 0}
   fireRate: 0

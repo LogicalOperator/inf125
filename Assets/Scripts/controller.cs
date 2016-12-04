@@ -31,9 +31,6 @@ public class controller : MonoBehaviour
     {
         gunInventory = new GameObject[2];
         obtainGuns();
-        trail = GetComponent<TrailRenderer>();
-        trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
-        trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
         gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.GetComponent<baseGunScript>().gunImage); // update UI to display gun
         hp = maxHP;

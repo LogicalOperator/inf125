@@ -23,7 +23,7 @@ public class baseBullet : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Enemy")
         {
-           player.setResourceBar();//increase resource when bullet hit enemy
+            player.setResourceBar();//increase resource when bullet hit enemy
         }
         Destroy(gameObject);//destory itself if it touch anything
     }

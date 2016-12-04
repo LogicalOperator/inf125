@@ -51,7 +51,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012181121988}
   m_UseAutoMass: 0
-  m_Mass: 500
+  m_Mass: 50
   m_LinearDrag: 2
   m_AngularDrag: 1
   m_GravityScale: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   speed: 0
   dmg: 0
   money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
+  level: 0
 --- !u!212 &212000013663611246
 SpriteRenderer:
   m_ObjectHideFlags: 1

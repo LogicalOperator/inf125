@@ -3173,7 +3173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fed49af8c14014ca7c2515e1c469ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: d488611d9931d0c4396bfab35cac0854, type: 3}
   volumeSliders:
   - {fileID: 460491728}
   - {fileID: 183348726}
@@ -3415,7 +3414,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1689258661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.587017, y: 8.72141, z: -513.8972}
+  m_LocalPosition: {x: 41.587017, y: -45, z: -513.8972}
   m_LocalScale: {x: 5.2396417, y: 5.2396417, z: 5.2396417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:

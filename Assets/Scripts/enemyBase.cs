@@ -12,8 +12,7 @@ public class enemyBase : MonoBehaviour {
     public float dmg;
     public GameObject money;
     public int level;
-    //float timeIsUp = 50.0f;
-    //float timeNow = 1.0f;
+
     public float Health//health function to quickly update hp and destory itself if it is 0;
     {
         get
@@ -60,28 +59,14 @@ public class enemyBase : MonoBehaviour {
     {
         if (colli.gameObject.tag == "Bullet")
         {
+            float magnitude = 5500f;
+            var force = transform.position - colli.transform.position;
 
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
             audioManager.instance.playSound("Impact", player.transform.position);//play damage sound at audioListener position
-            //fixedKnockBack();
+            
         }
     }
-
-    //public virtual void fixedKnockBack()
-    //{
-    //    while (true)
-    //    {
-    //        if (timeNow >= timeIsUp)
-    //        {
-    //            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-    //            timeNow = 0;
-    //            Debug.Log("hi");
-    //            break;
-    //        }
-    //        if (timeNow < timeIsUp)
-    //        {
-    //            timeNow += Time.deltaTime;
-    //        }
-    //    }
-    //}
 }

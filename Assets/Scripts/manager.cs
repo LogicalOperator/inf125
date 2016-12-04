@@ -32,13 +32,11 @@ public class manager : MonoBehaviour {
             board.setupScene(level);
             spawnLocations = board.spawnLocs;
             player = GameObject.FindGameObjectWithTag("Player");
-            startSpawner(initialSpawn);
         }
 
         if(spawner == true)
         {
-            waveRemaining = waveMax;
-            Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
+            StartCoroutine(waitTimer());
         }
     }
 	
@@ -149,5 +147,14 @@ public class manager : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    IEnumerator waitTimer()
+    {
+        audioManager.instance.playSound2D("spawnTimer");
+        yield return new WaitForSeconds(3);
+        startSpawner(initialSpawn);
+        waveRemaining = waveMax;
+        Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
     }
 }

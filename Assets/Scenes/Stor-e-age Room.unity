@@ -665,6 +665,7 @@ GameObject:
   - 114: {fileID: 267954730}
   - 114: {fileID: 267954729}
   - 114: {fileID: 267954728}
+  - 95: {fileID: 267954732}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -707,7 +708,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1647537451}
           m_MethodName: onButtonHover
           m_Mode: 1
           m_Arguments:
@@ -771,7 +772,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647537451}
         m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:
@@ -817,6 +818,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 267954726}
+--- !u!95 &267954732
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 267954726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b533e09f41729f846ac3feefbc7806df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &294406735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,6 +1332,7 @@ GameObject:
   - 114: {fileID: 607253613}
   - 114: {fileID: 607253612}
   - 114: {fileID: 607253611}
+  - 95: {fileID: 607253615}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -1356,7 +1375,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1647537451}
           m_MethodName: onButtonHover
           m_Mode: 1
           m_Arguments:
@@ -1409,7 +1428,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647537454}
         m_MethodName: resumeGame
         m_Mode: 1
         m_Arguments:
@@ -1420,7 +1439,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647537451}
         m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1466,6 +1485,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 607253609}
+--- !u!95 &607253615
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607253609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b533e09f41729f846ac3feefbc7806df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &614970240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2216,7 @@ GameObject:
   - 114: {fileID: 858537108}
   - 114: {fileID: 858537107}
   - 114: {fileID: 858537106}
+  - 95: {fileID: 858537110}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2222,7 +2259,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1647537451}
           m_MethodName: onButtonHover
           m_Mode: 1
           m_Arguments:
@@ -2286,7 +2323,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647537451}
         m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:
@@ -2332,6 +2369,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 858537104}
+--- !u!95 &858537110
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858537104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b533e09f41729f846ac3feefbc7806df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &945491709
 GameObject:
   m_ObjectHideFlags: 0
@@ -4103,7 +4157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011810559868, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011810559868, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4805,13 +4859,13 @@ MonoBehaviour:
   wallCount:
     minimum: 5
     maximum: 9
-  exit: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   floorTiles:
   - {fileID: 1000011773335056, guid: 37ba27c761b9d4b91a93e0812b08f21f, type: 2}
   - {fileID: 1000012678540554, guid: dd9f620177b4f4bd899a4015f6833666, type: 2}
   wallTiles: []
   outerWallTiles:
   - {fileID: 1000011457244650, guid: f498c61f20770994ba632981f4ec9f7f, type: 2}
+  spawnLocs: []
 --- !u!114 &1647537453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4840,11 +4894,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: 0
-  enemy: {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
-  portalSound: {fileID: 8300000, guid: e291bfd96f1b2a94694160c50d3f8c39, type: 3}
   maxSecsStartSpawner: 5
+  waveMax: 0
+  initialSpawn: 0
+  enemies: []
   pauseMenu: {fileID: 1099312659}
+  player: {fileID: 0}
+  level: 0
 --- !u!1 &1659876738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4899,7 +4956,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1647537451}
           m_MethodName: onButtonHover
           m_Mode: 1
           m_Arguments:
@@ -4963,7 +5020,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1647537451}
         m_MethodName: onButtonClick
         m_Mode: 1
         m_Arguments:

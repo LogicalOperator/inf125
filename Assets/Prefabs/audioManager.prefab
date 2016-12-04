@@ -114,6 +114,9 @@ MonoBehaviour:
   - groupID: portal
     group:
     - {fileID: 8300000, guid: e291bfd96f1b2a94694160c50d3f8c39, type: 3}
+  - groupID: spawnTimer
+    group:
+    - {fileID: 8300000, guid: da72651e98b938041b5b0eb4a17e8d59, type: 3}
 --- !u!114 &114000012900329528
 MonoBehaviour:
   m_ObjectHideFlags: 1

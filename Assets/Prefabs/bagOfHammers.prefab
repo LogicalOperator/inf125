@@ -64,6 +64,8 @@ MonoBehaviour:
   gunImage: {fileID: 21300000, guid: a8ffc4fbf6304984da168c756b5dbaa8, type: 3}
   fireRate: 0
   libraryIndex: 0
+  specialPrefab: {fileID: 1000011705237276, guid: 62ae89e2f6495334989e639209f309c6,
+    type: 2}
 --- !u!212 &212000014268135946
 SpriteRenderer:
   m_ObjectHideFlags: 1
