@@ -4,8 +4,6 @@ using System.Collections;
 public class goldDrops : MonoBehaviour {
     Transform player;
     bool inside;
-    float radius = 5f;
-    float force = 100f;
     public int time;
     public int worth;
     public AudioClip goldClip;

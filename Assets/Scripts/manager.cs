@@ -91,7 +91,7 @@ public class manager : MonoBehaviour {
         }
         else
         {
-            return;
+            schedulerforEnemySpwn();
         }
     }
 

@@ -86,6 +86,13 @@ public class controller : MonoBehaviour
         }
     }
 
+    public void heal(float dmg)
+    {
+        hp += dmg; //getEnemy dmg
+        float calculateHP = hp / maxHP;//calcualte percentage of fill for hpBar
+        setHealthBar(calculateHP);
+    }
+
     public void rotation()
     {
 
@@ -156,6 +163,11 @@ public class controller : MonoBehaviour
 
     public void setHealthBar(float myHealth) // change hpBar depending on dmg
     {
+
+        if (myHealth > 1)
+        {
+           myHealth = 1;
+        }
         hpBar.transform.localScale = new Vector3(myHealth, hpBar.transform.localScale.y, hpBar.transform.localScale.z);
     }
 

@@ -94,6 +94,7 @@ MonoBehaviour:
   speed: 0
   dmg: 0
   money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
+  healthPack: {fileID: 1000012127988924, guid: b542ed1a6b7331d4b9e48b6666b31818, type: 2}
   level: 0
   fireball: {fileID: 1000012331428204, guid: 58b0ca95fc4882d429c48e0661da8674, type: 2}
   rotation_to: {x: 0, y: 0, z: 0}
