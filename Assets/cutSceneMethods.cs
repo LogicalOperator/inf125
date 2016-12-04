@@ -13,9 +13,9 @@ public class cutSceneMethods : MonoBehaviour {
         destroyedCity.gameObject.SetActive(true);
     }
 
-    public void goToMenu()
+    public void goToNextScene()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }

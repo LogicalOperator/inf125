@@ -115,12 +115,13 @@ GameObject:
   - 114: {fileID: 263439048}
   - 114: {fileID: 263439049}
   - 114: {fileID: 263439050}
-  - 114: {fileID: 263439043}
   - 114: {fileID: 263439052}
   - 114: {fileID: 263439051}
   - 114: {fileID: 263439054}
   - 114: {fileID: 263439053}
-  - 114: {fileID: 263439055}
+  - 114: {fileID: 263439056}
+  - 114: {fileID: 263439057}
+  - 114: {fileID: 263439043}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -164,6 +165,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 263439032}
   commandList:
+  - {fileID: 263439056}
   - {fileID: 263439036}
   - {fileID: 263439037}
   - {fileID: 263439038}
@@ -185,20 +187,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 1.0638428, y: 0}
+  scrollPos: {x: 2.1964722, y: -3.397766}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.91293484
+  zoom: 0.88293487
   scrollViewRect:
     serializedVersion: 2
     x: -351.06384
-    y: -350
-    width: 1432.6324
-    height: 930.9156
-  selectedBlock: {fileID: 263439039}
+    y: -363.77374
+    width: 1592.7416
+    height: 955.643
+  selectedBlock: {fileID: 263439052}
   selectedCommands:
-  - {fileID: 263439049}
+  - {fileID: 263439051}
   variables: []
   description: 
   stepPause: 0
@@ -291,8 +293,8 @@ MonoBehaviour:
   itemId: 3
   errorMessage: 
   indentLevel: 0
-  storyText: A new threat emerged from the depths of hell itself destroying what we
-    know of the world
+  storyText: A new threat emerged from the depths of hell, destroying what we know
+    of the world.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -317,8 +319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 328.55783
-    y: 108.52058
+    x: 321.98563
+    y: 36.226257
     width: 120
     height: 40
   itemId: 4
@@ -332,7 +334,6 @@ MonoBehaviour:
   - {fileID: 263439048}
   - {fileID: 263439049}
   - {fileID: 263439050}
-  - {fileID: 263439055}
   - {fileID: 263439053}
 --- !u!114 &263439040
 MonoBehaviour:
@@ -398,16 +399,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 263439031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 20
+  itemId: 27
   errorMessage: 
   indentLevel: 0
-  musicClip: {fileID: 8300000, guid: 09f2a1a60167fe34091abb479995c8ce, type: 3}
-  atTime: 0
-  loop: 1
-  fadeDuration: 1
+  soundClip: {fileID: 8300000, guid: 09f2a1a60167fe34091abb479995c8ce, type: 3}
+  volume: 1
+  waitUntilFinished: 0
 --- !u!114 &263439044
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -585,7 +585,7 @@ MonoBehaviour:
   errorMessage: 
   indentLevel: 0
   targetObject: {fileID: 879726203}
-  methodName: goToMenu
+  methodName: goToNextScene
   delay: 0
 --- !u!114 &263439052
 MonoBehaviour:
@@ -600,8 +600,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 498.03717
-    y: 117.91286
+    x: 512.1493
+    y: 108.628876
     width: 120
     height: 40
   itemId: 21
@@ -609,6 +609,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 263439054}
   commandList:
+  - {fileID: 263439057}
   - {fileID: 263439051}
 --- !u!114 &263439053
 MonoBehaviour:
@@ -642,7 +643,25 @@ MonoBehaviour:
   parentBlock: {fileID: 263439052}
   keyPressType: 0
   keyCode: 27
---- !u!114 &263439055
+--- !u!114 &263439056
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263439031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1902400ccc99b45d69ad01cb86b57d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 25
+  errorMessage: 
+  indentLevel: 0
+  musicClip: {fileID: 8300000, guid: 682f1da362a0d9f48afd3f6a2adbac34, type: 3}
+  atTime: 0
+  loop: 1
+  fadeDuration: 1
+--- !u!114 &263439057
 MonoBehaviour:
   m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
@@ -653,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359b09a7ba2e4af981f07c07f8af85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 24
+  itemId: 26
   errorMessage: 
   indentLevel: 0
 --- !u!1 &577698361
