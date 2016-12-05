@@ -1618,7 +1618,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.21107265, g: 0.22049211, b: 0.2352941, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -4083,7 +4083,7 @@ MonoBehaviour:
   spawner: 1
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   maxSecsStartSpawner: 5
-  waveMax: 30
+  waveMax: 20
   initialSpawn: 10
   enemies:
   - {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
