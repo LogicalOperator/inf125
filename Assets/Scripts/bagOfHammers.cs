@@ -71,7 +71,6 @@ public class bagOfHammers : baseGunScript
 
                 Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
                 GameObject go = Instantiate(specialPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
-                go.transform.localScale += new Vector3(2, 2, 0);
             }
         }
     }

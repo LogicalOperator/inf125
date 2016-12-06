@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunSound: {fileID: 8300000, guid: d689290fe2188a7488c1297352d1af93, type: 3}
   emptyGunSound: {fileID: 8300000, guid: 8f311847c749f7b40af0109f8519974b, type: 3}
-  bulletPrefab: {fileID: 1000011705237276, guid: 83d69ad6b596b47459d65237371fb321,
+  bulletPrefab: {fileID: 1000012603277120, guid: 83d69ad6b596b47459d65237371fb321,
     type: 2}
   player: {fileID: 1000013354267006, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
   gunTypeValue: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   gunImage: {fileID: 21300000, guid: a8ffc4fbf6304984da168c756b5dbaa8, type: 3}
   fireRate: 0
   libraryIndex: 0
-  specialPrefab: {fileID: 1000011705237276, guid: 62ae89e2f6495334989e639209f309c6,
+  specialPrefab: {fileID: 1000011530592080, guid: f0dde99e9ef68a64fb05609c88395864,
     type: 2}
 --- !u!212 &212000014268135946
 SpriteRenderer:
