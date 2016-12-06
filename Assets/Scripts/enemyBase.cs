@@ -11,8 +11,9 @@ public class enemyBase : MonoBehaviour {
     public float speed;//current speed enemy has
     public float dmg;
     public GameObject money;
-    //float timeIsUp = 50.0f;
-    //float timeNow = 1.0f;
+    public GameObject healthPack;
+    public int level;
+
     public float Health//health function to quickly update hp and destory itself if it is 0;
     {
         get
@@ -38,9 +39,18 @@ public class enemyBase : MonoBehaviour {
 
     public virtual void destroySelf() //increment score and destory itself, can be overridden
     {
-        scoreChanger.scoreint += 20;
-        GameObject aMoneyDrop = Instantiate(money);
-        aMoneyDrop.transform.position = this.transform.position;
+        scoreChanger.instance.AddPoints(level*Random.Range(10,20));
+        if(Random.Range(1,10) <= 2)
+        {
+            GameObject aHealthPack = Instantiate(healthPack);
+            aHealthPack.transform.position = this.transform.position;
+        }
+        else
+        {
+            GameObject aMoneyDrop = Instantiate(money);
+            aMoneyDrop.transform.position = this.transform.position;
+        }
+
         Destroy(Instantiate(deathEffect.gameObject,this.transform.position,this.transform.rotation),deathEffect.startLifetime);
         Destroy(gameObject);
     }
@@ -59,28 +69,14 @@ public class enemyBase : MonoBehaviour {
     {
         if (colli.gameObject.tag == "Bullet")
         {
+            float magnitude = 5500f;
+            var force = transform.position - colli.transform.position;
 
+            force.Normalize();
+            GetComponent<Rigidbody2D>().AddForce(force * magnitude);
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
             audioManager.instance.playSound("Impact", player.transform.position);//play damage sound at audioListener position
-            //fixedKnockBack();
+            
         }
     }
-
-    //public virtual void fixedKnockBack()
-    //{
-    //    while (true)
-    //    {
-    //        if (timeNow >= timeIsUp)
-    //        {
-    //            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-    //            timeNow = 0;
-    //            Debug.Log("hi");
-    //            break;
-    //        }
-    //        if (timeNow < timeIsUp)
-    //        {
-    //            timeNow += Time.deltaTime;
-    //        }
-    //    }
-    //}
 }

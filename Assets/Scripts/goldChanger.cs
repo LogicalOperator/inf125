@@ -8,6 +8,7 @@ public class goldChanger : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        gold = PlayerPrefs.GetInt("gold", 0);
         goldText = GetComponent<Text>();
 	}
 	

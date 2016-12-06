@@ -113,11 +113,12 @@ public class settings : MonoBehaviour {
     }
     public void playGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Ground Floor");
     }
 
     public void onButtonHover()
     {
+
         audioManager.instance.playSound2D("hoverAudio");
     }
 
@@ -125,4 +126,10 @@ public class settings : MonoBehaviour {
     {
         audioManager.instance.playSound2D("onClickAudio");
     }
+
+    public void goToWebsite()
+    {
+        Application.OpenURL("http://kireji.com/zd");
+    }
+
 }

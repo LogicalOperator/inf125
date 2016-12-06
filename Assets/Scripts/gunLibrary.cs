@@ -21,6 +21,12 @@ public class gunLibrary : MonoBehaviour {
             case 1:
                 gun = guns[1];
                 break;
+            case 2:
+                gun = guns[2];
+                break;
+            case 3:
+                gun = guns[3];
+                break;
         }
         return gun;
     }

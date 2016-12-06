@@ -10,6 +10,6 @@ public class backToMenu : MonoBehaviour {
         PlayerPrefs.DeleteKey("score");
         PlayerPrefs.DeleteKey("gold");
         PlayerPrefs.DeleteKey("winCondition");
-        SceneManager.LoadScene(1);//load scene 0(mainmenu)
+        SceneManager.LoadScene("Main Menu");//load scene 0(mainmenu)
     }
 }

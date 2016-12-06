@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 public class baseBullet : MonoBehaviour {
-    controller player;
+    public controller player;
     public float damage;
     public float speed = 10f;
     public int lifetimeBull = 10;
@@ -23,7 +23,7 @@ public class baseBullet : MonoBehaviour {
     {
         if(coll.gameObject.tag == "Enemy")
         {
-           player.setResourceBar();//increase resource when bullet hit enemy
+            player.setResourceBar();//increase resource when bullet hit enemy
         }
         Destroy(gameObject);//destory itself if it touch anything
     }

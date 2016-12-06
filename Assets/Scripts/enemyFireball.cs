@@ -16,7 +16,7 @@ public class enemyFireball : MonoBehaviour
 
     public void Update()
     {
-        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed);
+        bulletMovement();
     }
 
     public virtual void bulletMovement()

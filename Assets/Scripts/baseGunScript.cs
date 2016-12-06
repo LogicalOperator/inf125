@@ -22,18 +22,13 @@ public abstract class baseGunScript : MonoBehaviour {
 		Vector3 pos = new Vector3();
 		Vector3 rotation_to = new Vector3();
 
-		if (Time.time > nextFire && (Input.GetMouseButton(0) 
-		|| (!Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))) 
-		|| (Input.GetJoystickNames().Length != 0) && Input.GetAxis("HorFire") != 0 && Input.GetAxis("VerFire") != 0)) {
-			if(Input.GetJoystickNames().Length != 0)
-			{
-				rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
-			}
-			else if (Input.GetMouseButton(0)) {			
+		if (Time.time > nextFire && (Input.GetMouseButton(0) || (!Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))))) {
+			if (Input.GetMouseButton(0)) {			
 				pos = Input.mousePosition; // obtain mousepostion
 				pos = Camera.main.ScreenToWorldPoint(pos); // obtain exact mouse position from main camera screen
 				pos.z = transform.position.z;
-						rotation_to = pos - transform.position;
+
+				rotation_to = pos - transform.position;
 			}
 			else {
 				if (Input.GetKey (KeyCode.J)) {

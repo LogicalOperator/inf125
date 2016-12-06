@@ -17,6 +17,7 @@ public class impScript : enemyBase
         currentHP = maxHP; //make currentHp = to max
         dmg = 1f;
         speed = 2f;
+        level = PlayerPrefs.GetInt("level", 1);
     }
 
     void Update()

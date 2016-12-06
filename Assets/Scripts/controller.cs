@@ -24,14 +24,13 @@ public class controller : MonoBehaviour
     public float currentDark;
     public float maxHP = 100;
     public float hp;
+    public GameObject[] gunInventory;
 
     // Use this for initialization
     void Start()
     {
+        gunInventory = new GameObject[2];
         obtainGuns();
-        trail = GetComponent<TrailRenderer>();
-        trail.sortingLayerName = "foreground"; //trailer had layer problems had to set it correctly
-        trail.sortingOrder = 4;
         mainBody = GetComponent<Rigidbody2D>();
         gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(currentGun.GetComponent<baseGunScript>().gunImage); // update UI to display gun
         hp = maxHP;
@@ -63,11 +62,11 @@ public class controller : MonoBehaviour
             setHealthBar(calculateHP);
             if(hp <= 0)
             {
-                PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+                PlayerPrefs.SetInt("score", scoreChanger.instance.getScore()); //save score,gold and winCondition
                 PlayerPrefs.SetInt("gold", goldChanger.gold);
                 PlayerPrefs.SetInt("winCondition", 0);
                 PlayerPrefs.Save();
-                SceneManager.LoadScene(3);//gameOver Screen
+                SceneManager.LoadScene("gameOver");//gameOver Screen
             }
         }
     }
@@ -79,24 +78,29 @@ public class controller : MonoBehaviour
         setHealthBar(calculateHP);
         if (hp <= 0)
         {
-            PlayerPrefs.SetInt("score", scoreChanger.scoreint); //save score,gold and winCondition
+            PlayerPrefs.SetInt("score", scoreChanger.instance.getScore()); //save score,gold and winCondition
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.SetInt("winCondition", 0);
             PlayerPrefs.Save();
-            SceneManager.LoadScene(3);//gameOver Screen
+            SceneManager.LoadScene("gameOver");//gameOver Screen
         }
+    }
+
+    public void heal(float dmg)
+    {
+        hp += dmg; //getEnemy dmg
+        float calculateHP = hp / maxHP;//calcualte percentage of fill for hpBar
+        setHealthBar(calculateHP);
     }
 
     public void rotation()
     {
-		Debug.Log(Input.GetJoystickNames().Length);
-		if(Input.GetJoystickNames().Length != 0)
-		{
-			float controller_angle = Mathf.Atan2(Input.GetAxis("VerFire"), Input.GetAxis("HorFire")) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
-		}
-		else
-		{
+
+        if (Input.GetJoystickNames().Length != 0)
+        {
+            //float controller_angle = Mathf.Atan2(Input.GetAxis("VerFire"), Input.GetAxis("HorFire")) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
+        }
             Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
             mousePos.z = 5.23f;
 
@@ -106,34 +110,42 @@ public class controller : MonoBehaviour
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-			if (Input.GetKey (KeyCode.J)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
-			} 
-			if (Input.GetKey (KeyCode.L)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
-			} 
-			if (Input.GetKey (KeyCode.I)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360));
-			}
-			if (Input.GetKey (KeyCode.K)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
-			}
-			if (Input.GetKey (KeyCode.J) && Input.GetKey (KeyCode.I)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
-			} 
-			if (Input.GetKey (KeyCode.L) && Input.GetKey (KeyCode.I)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-			} 
-			if (Input.GetKey (KeyCode.J) && Input.GetKey (KeyCode.K)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 225));
-			}
-			if (Input.GetKey (KeyCode.L) && Input.GetKey (KeyCode.K)) {
-				transform.rotation = Quaternion.Euler(new Vector3(0, 0, 135));
-			}
-		}
+            if (Input.GetKey(KeyCode.J))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
+            }
+            if (Input.GetKey(KeyCode.L))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            }
+            if (Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360));
+            }
+            if (Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+            }
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
+            }
+            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.I))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+            }
+            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 225));
+            }
+            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.K))
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 135));
+            }
+
     }
 
-    void updateGun(baseGunScript gun)
+    public void updateGun(baseGunScript gun)
     {
         gunType = gun.gunType; //update guns type and resource value of the gun
         resourceValue = gun.gunTypeValue;
@@ -151,6 +163,11 @@ public class controller : MonoBehaviour
 
     public void setHealthBar(float myHealth) // change hpBar depending on dmg
     {
+
+        if (myHealth > 1)
+        {
+           myHealth = 1;
+        }
         hpBar.transform.localScale = new Vector3(myHealth, hpBar.transform.localScale.y, hpBar.transform.localScale.z);
     }
 
@@ -208,87 +225,104 @@ public class controller : MonoBehaviour
 
     public void changeGun()
     {
-		if(Input.GetKeyDown("joystick button 6") && gunType == "dark" && !Input.GetKey("joystick button 7"))
-		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.gameObject.SetActive(false);
-				}
-				else
-				{
-					child.gameObject.SetActive(true);
-					updateGun(child.GetComponent<baseGunScript>());
-					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-				}
-			}
-		}
-		if(Input.GetKeyUp("joystick button 6") && gunType == "light" && !Input.GetKey("joystick button 7"))
-		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.gameObject.SetActive(false);
-				}
-				else
-				{
-					child.gameObject.SetActive(true);
-					updateGun(child.GetComponent<baseGunScript>());
-					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-				}
-			}
-		}
-		if(Input.GetKeyDown("joystick button 7") && gunType == "light" && !Input.GetKey("joystick button 6"))
-		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.gameObject.SetActive(false);
-				}
-				else
-				{
-					child.gameObject.SetActive(true);
-					updateGun(child.GetComponent<baseGunScript>());
-					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-				}
-			}
-		}
-		if(Input.GetKeyUp("joystick button 7") && gunType == "dark" && !Input.GetKey("joystick button 6"))
-		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.gameObject.SetActive(false);
-				}
-				else
-				{
-					child.gameObject.SetActive(true);
-					updateGun(child.GetComponent<baseGunScript>());
-					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-				}
-			}
-		}
-	    if (Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown("joystick button 0") 
-		&& !Input.GetKey("joystick button 6") && !Input.GetKey("joystick button 7")) // if R is pressed change the gun by deactivating current and activating the non current gun
-		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.gameObject.SetActive(false);
-				}
-				else
-				{
-					child.gameObject.SetActive(true);
-					updateGun(child.GetComponent<baseGunScript>());
-					gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
-				}
-			}
-		}	
+
+        if (Input.GetKeyDown("joystick button 6") && gunType == "dark" && !Input.GetKey("joystick button 7"))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+        }
+        if (Input.GetKeyUp("joystick button 6") && gunType == "light" && !Input.GetKey("joystick button 7"))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+        }
+        if (Input.GetKeyDown("joystick button 7") && gunType == "light" && !Input.GetKey("joystick button 6"))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+        }
+        if (Input.GetKeyUp("joystick button 7") && gunType == "dark" && !Input.GetKey("joystick button 6"))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+        }
+        if (Input.GetKeyDown("joystick button 0") && (!Input.GetKey("joystick button 6") && !Input.GetKey("joystick button 7")))
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+        }
+            if (Input.GetKeyDown(KeyCode.R))// if R is pressed change the gun by deactivating current and activating the non current gun
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    child.gameObject.SetActive(false);
+                }
+                else
+                {
+                    child.gameObject.SetActive(true);
+                    updateGun(child.GetComponent<baseGunScript>());
+                    gunSelector.GetComponent<gunSelectorUI>().UpdateGunImage(child.GetComponent<baseGunScript>().gunImage);
+                }
+            }
+
+        }
     }
 
     public void resetBars()
@@ -302,16 +336,21 @@ public class controller : MonoBehaviour
     public void obtainGuns()
     {
         secondaryGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("secondaryGunIndex", 1)); //get secondary gun from savefile
+
         GameObject secondGun = Instantiate(secondaryGun); //create it
         secondGun.transform.position = gameObject.transform.position; //move it to player
         secondGun.transform.position += new Vector3(0.1f, 0, 0);
         secondGun.transform.parent = gameObject.transform;
         secondGun.SetActive(false);//set to inactive
+        gunInventory[1] = secondGun;
+
         currentGun = gunLibrary.instance.findGun(PlayerPrefs.GetInt("primaryGunIndex", 0));
         GameObject firstGun = Instantiate(currentGun);
-        updateGun(firstGun.GetComponent<baseGunScript>());
         firstGun.transform.position = gameObject.transform.position;
         firstGun.transform.position += new Vector3(0.1f, 0, 0);
         firstGun.transform.parent = gameObject.transform;
+        firstGun.SetActive(true);
+        gunInventory[0] = firstGun;
+        updateGun(firstGun.GetComponent<baseGunScript>());
     }
 }
