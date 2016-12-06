@@ -4780,8 +4780,8 @@ MonoBehaviour:
   wallTiles:
   - {fileID: 1000010359382034, guid: 14232d8bd1da54a43a0a9db23c6f2afe, type: 2}
   enemyTiles:
-  - {fileID: 1000012181121988, guid: c23220d3f0dce0145b70d64d7346d60a, type: 2}
-  - {fileID: 1000012181121988, guid: a3472b8df16a982449d3eb622952510d, type: 2}
+  - {fileID: 1000013895195214, guid: adcca23e126cab2459005cfb1d6c5b87, type: 2}
+  - {fileID: 1000013984472478, guid: 21216c1b07a0a2f44ba851871ed8bb00, type: 2}
   outerWallTiles:
   - {fileID: 1000011457244650, guid: 53ba55a230847b845852b7ee382f6b36, type: 2}
   spawnLocs: []

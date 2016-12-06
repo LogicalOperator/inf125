@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012181121988}
+  m_RootGameObject: {fileID: 1000013984472478}
   m_IsPrefabParent: 1
---- !u!1 &1000012181121988
+--- !u!1 &1000013984472478
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013190322808}
-  - 212: {fileID: 212000013663611246}
-  - 58: {fileID: 58000012034434534}
-  - 114: {fileID: 114000011899131546}
-  - 50: {fileID: 50000010847310384}
+  - 4: {fileID: 4000010529236802}
+  - 212: {fileID: 212000013891060964}
+  - 114: {fileID: 114000010772514154}
+  - 50: {fileID: 50000011357911604}
+  - 60: {fileID: 60000011884475482}
   m_Layer: 12
-  m_Name: enemyDarkness
+  m_Name: zombieDarkness
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000013190322808
+--- !u!4 &4000010529236802
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181121988}
+  m_GameObject: {fileID: 1000013984472478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.44, y: 2.21, z: -10}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 1.228, y: 0.641, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000010847310384
+--- !u!50 &50000011357911604
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181121988}
+  m_GameObject: {fileID: 1000013984472478}
   m_UseAutoMass: 0
   m_Mass: 50
   m_LinearDrag: 2
@@ -60,26 +60,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &58000012034434534
-CircleCollider2D:
+--- !u!60 &60000011884475482
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181121988}
+  m_GameObject: {fileID: 1000013984472478}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.105
---- !u!114 &114000011899131546
+  m_Points:
+    m_Paths:
+    - - {x: 0.2599926, y: 0.3633433}
+      - {x: 0.09666455, y: 0.35001475}
+      - {x: 0.119984984, y: 0.08343321}
+      - {x: -0.06661177, y: 0.07335079}
+      - {x: -0.03999996, y: 0.37000734}
+      - {x: -0.19, y: 0.39}
+      - {x: -0.19002259, y: 0.33001494}
+      - {x: -0.19668663, y: 0.18326467}
+      - {x: -0.22334337, y: -0.2733733}
+      - {x: -0.12669408, y: -0.36335832}
+      - {x: 0.004472971, y: -0.42596743}
+      - {x: 0.25, y: -0.33670157}
+      - {x: 0.29999995, y: -0.12343317}
+      - {x: 0.260015, y: 0.3033582}
+--- !u!114 &114000010772514154
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181121988}
+  m_GameObject: {fileID: 1000013984472478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1db621d456661e147bd0295ae45a1791, type: 3}
@@ -96,12 +110,12 @@ MonoBehaviour:
   money: {fileID: 1000012127988924, guid: 6fd0c88806620f6469e0644347c7c17d, type: 2}
   healthPack: {fileID: 1000012127988924, guid: 180644841f3afa64582aefce1b4ee91a, type: 2}
   level: 0
---- !u!212 &212000013663611246
+--- !u!212 &212000013891060964
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012181121988}
+  m_GameObject: {fileID: 1000013984472478}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -125,7 +139,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1844204129
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c257270139240ae4f98e6ac1137fba37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c8d3bd08ffd9c04fa94c450ca683665, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
