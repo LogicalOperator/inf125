@@ -7,7 +7,10 @@ public class musicManager : MonoBehaviour
 
     public AudioClip mainTheme;
     public AudioClip menuTheme;
+    public AudioClip hallwayTheme;
+    public AudioClip darknessTheme;
     public AudioClip creditsTheme;
+    public AudioClip gameOverTheme;
     string sceneName;
     // Use this for initialization
     void Start()
@@ -42,7 +45,10 @@ public class musicManager : MonoBehaviour
         {
             clipToPlay = creditsTheme;
         }
-
+        else if (sceneName == "gameOver")
+        {
+            clipToPlay = creditsTheme;
+        }
         else
         {
             clipToPlay = mainTheme;

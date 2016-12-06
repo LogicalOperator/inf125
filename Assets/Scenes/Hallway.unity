@@ -1453,7 +1453,7 @@ Prefab:
         type: 2}
       propertyPath: mainBody
       value: 
-      objectReference: {fileID: 918361239}
+      objectReference: {fileID: 0}
     - target: {fileID: 96000011461455708, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
         type: 2}
       propertyPath: m_Colors.m_Color[4].rgba
@@ -1511,6 +1511,30 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4000013271248600, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 129199288}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: lightBar
+      value: 
+      objectReference: {fileID: 1204905000}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: darkBar
+      value: 
+      objectReference: {fileID: 152712810}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: gunSelector
+      value: 
+      objectReference: {fileID: 2643318}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -1583,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df731e06fa7ec1e40bb38a9a698ea0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 918361237}
+  player: {fileID: 720775504}
 --- !u!114 &718747784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1656,6 +1680,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &720775504 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012316840898, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 470485865}
 --- !u!1 &754082277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2266,16 +2295,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 900840825}
---- !u!1 &918361237 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013354267006, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 470485865}
---- !u!50 &918361239 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50000011907004472, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 470485865}
 --- !u!1 &953597340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,7 +4065,6 @@ MonoBehaviour:
     minimum: 5
     maximum: 9
   floorTiles:
-  - {fileID: 1000011773335056, guid: 37ba27c761b9d4b91a93e0812b08f21f, type: 2}
   - {fileID: 1000012678540554, guid: dd9f620177b4f4bd899a4015f6833666, type: 2}
   wallTiles:
   - {fileID: 1000010359382034, guid: 8a45d4e9f8cd945a5bb8709cf0e3d3c6, type: 2}
@@ -4087,7 +4105,7 @@ MonoBehaviour:
   maxSecsStartSpawner: 5
   waveMax: 20
   initialSpawn: 10
-  player: {fileID: 918361237}
+  player: {fileID: 0}
   pauseMenu: {fileID: 1352404286}
   level: 2
 --- !u!4 &1589941350

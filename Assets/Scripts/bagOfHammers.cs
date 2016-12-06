@@ -12,7 +12,7 @@ public class bagOfHammers : baseGunScript
         gunName = "bagOfHammers"; //update gunname, dmg mod, firing rate and other things here
         fireRate = 0.8f;
         gunType = "light";
-        gunTypeValue = 5.5f;
+        gunTypeValue = 5f;
         player = GameObject.FindGameObjectWithTag("Player");
         libraryIndex = 0;
     }

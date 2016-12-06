@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010124871790, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
@@ -580,7 +580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df731e06fa7ec1e40bb38a9a698ea0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1213986720}
+  player: {fileID: 1484961959}
 --- !u!114 &218625587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +652,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &267954726
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +960,7 @@ MonoBehaviour:
   gunIndex: 0
   goldCost: 0
   gunType: 
-  player: {fileID: 1213986722}
+  player: {fileID: 0}
 --- !u!1 &318227175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,6 +1834,10 @@ Prefab:
       propertyPath: soundGroups.Array.data[1].group.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 134dfbf331619434d943de79a4327870, type: 3}
+    - target: {fileID: 4000013010074184, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
   m_IsPrefabParent: 0
@@ -2953,17 +2957,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1206177137}
---- !u!1 &1213986720 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013354267006, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1484961958}
---- !u!114 &1213986722 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000013207246036, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1484961958}
-  m_Script: {fileID: 11500000, guid: 4a4d1e89e82d3da4f8a52bb7ce38e70c, type: 3}
 --- !u!1 &1216292264
 GameObject:
   m_ObjectHideFlags: 0
@@ -4060,7 +4053,7 @@ Prefab:
         type: 2}
       propertyPath: mainBody
       value: 
-      objectReference: {fileID: 1484961959}
+      objectReference: {fileID: 0}
     - target: {fileID: 96000011461455708, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
         type: 2}
       propertyPath: m_Colors.m_Color[4].rgba
@@ -4118,18 +4111,53 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: gunSelector
+      value: 
+      objectReference: {fileID: 1260934386}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 111315720}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: lightBar
+      value: 
+      objectReference: {fileID: 183723645}
+    - target: {fileID: 114000012694068972, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+        type: 2}
+      propertyPath: darkBar
+      value: 
+      objectReference: {fileID: 1029575804}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 114000013669520174, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
     - {fileID: 114000011540277232, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
+    - {fileID: 60000012871110786, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
   m_IsPrefabParent: 0
---- !u!50 &1484961959 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50000011907004472, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
+--- !u!1 &1484961959 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012316840898, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
     type: 2}
   m_PrefabInternal: {fileID: 1484961958}
+--- !u!58 &1484961960
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484961959}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.18
 --- !u!1 &1497350049
 GameObject:
   m_ObjectHideFlags: 0

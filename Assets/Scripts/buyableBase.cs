@@ -29,7 +29,7 @@ public class buyableBase : MonoBehaviour {
                         GameObject firstGun = Instantiate(player.currentGun);
                         player.updateGun(firstGun.GetComponent<baseGunScript>());
                         firstGun.transform.position = player.transform.position;
-                        firstGun.transform.position += new Vector3(0.1f, 0, 0);
+                        firstGun.transform.position += new Vector3(0.3f, 0.2f, 0);
                         firstGun.transform.parent = player.transform;
                         player.gunInventory[0] = firstGun;
                         player.gunInventory[0].SetActive(true);
@@ -43,7 +43,7 @@ public class buyableBase : MonoBehaviour {
                         GameObject firstGun = Instantiate(player.secondaryGun);
                         player.updateGun(firstGun.GetComponent<baseGunScript>());
                         firstGun.transform.position = player.transform.position;
-                        firstGun.transform.position += new Vector3(0.1f, 0, 0);
+                        firstGun.transform.position += new Vector3(0.3f, 0.2f, 0);
                         firstGun.transform.parent = player.transform;
                         player.gunInventory[1] = firstGun;
                         player.gunInventory[1].SetActive(true);
@@ -58,7 +58,7 @@ public class buyableBase : MonoBehaviour {
                         player.secondaryGun = gunLibrary.instance.findGun(gunIndex);
                         GameObject secondGun = Instantiate(player.secondaryGun); //create it
                         secondGun.transform.position = player.transform.position; //move it to player
-                        secondGun.transform.position += new Vector3(0.1f, 0, 0);
+                        secondGun.transform.position += new Vector3(0.3f, 0.2f, 0);
                         secondGun.transform.parent = player.transform;
                         player.gunInventory[1] = secondGun;
                         player.gunInventory[1].SetActive(true);
@@ -71,7 +71,7 @@ public class buyableBase : MonoBehaviour {
                         player.currentGun = gunLibrary.instance.findGun(gunIndex);
                         GameObject secondGun = Instantiate(player.currentGun); //create it
                         secondGun.transform.position = player.transform.position; //move it to player
-                        secondGun.transform.position += new Vector3(0.1f, 0, 0);
+                        secondGun.transform.position += new Vector3(0.3f, 0.2f, 0);
                         secondGun.transform.parent = player.transform;
                         player.gunInventory[0] = secondGun;
                         player.gunInventory[0].SetActive(true);

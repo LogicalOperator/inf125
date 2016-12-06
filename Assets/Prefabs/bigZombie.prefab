@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000013984472478}
+  m_IsPrefabParent: 1
+--- !u!1 &1000013984472478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010529236802}
+  - 212: {fileID: 212000013891060964}
+  - 50: {fileID: 50000011357911604}
+  - 60: {fileID: 60000011884475482}
+  - 114: {fileID: 114000013393371312}
+  m_Layer: 12
+  m_Name: bigZombie
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010529236802
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013984472478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.228, y: 0.641, z: -10}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!50 &50000011357911604
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013984472478}
+  m_UseAutoMass: 0
+  m_Mass: 80
+  m_LinearDrag: 2
+  m_AngularDrag: 1
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!60 &60000011884475482
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013984472478}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 0.2599926, y: 0.3633433}
+      - {x: 0.09666455, y: 0.35001475}
+      - {x: 0.119984984, y: 0.08343321}
+      - {x: -0.06661177, y: 0.07335079}
+      - {x: -0.03999996, y: 0.37000734}
+      - {x: -0.19, y: 0.39}
+      - {x: -0.19002259, y: 0.33001494}
+      - {x: -0.19668663, y: 0.18326467}
+      - {x: -0.22334337, y: -0.2733733}
+      - {x: -0.12669408, y: -0.36335832}
+      - {x: 0.004472971, y: -0.42596743}
+      - {x: 0.25, y: -0.33670157}
+      - {x: 0.29999995, y: -0.12343317}
+      - {x: 0.260015, y: 0.3033582}
+--- !u!114 &114000013393371312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013984472478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa441760e264a04ab5223ad39ec4096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathEffect: {fileID: 198000010558282412, guid: f61cb877b1b47b6458f347a49d9ab4e2,
+    type: 2}
+  maxHP: 0
+  player: {fileID: 0}
+  eClip: {fileID: 8300000, guid: befcdb000c4701642947e4ca55cec2b0, type: 3}
+  currentHP: 0
+  speed: 0
+  dmg: 0
+  money: {fileID: 1000012127988924, guid: e392fd148264d534aaa2fb58f507eac2, type: 2}
+  healthPack: {fileID: 1000012127988924, guid: b542ed1a6b7331d4b9e48b6666b31818, type: 2}
+  level: 0
+--- !u!212 &212000013891060964
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013984472478}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedWireframeHidden: 1
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1844204129
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 22d7cf1bb1d7a024e8ff7e1fcf9d24a6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0

@@ -16,11 +16,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ground Floor.unity
   - enabled: 1
-    path: Assets/Scenes/Stor-e-age Room.unity
-  - enabled: 1
     path: Assets/Scenes/Hallway.unity
   - enabled: 1
-    path: Assets/Scenes/Power Outage.unity
+    path: Assets/Scenes/Stor-e-age Room.unity
+  - enabled: 1
+    path: Assets/Scenes/Broken Spotlight.unity
+  - enabled: 1
+    path: Assets/Scenes/What is Wrong with This Company.....unity
+  - enabled: 1
+    path: Assets/Scenes/BossBattle.unity
   - enabled: 1
     path: Assets/Scenes/gameOver.unity
   - enabled: 1

@@ -11,7 +11,6 @@ public class credits : MonoBehaviour {
 
     IEnumerator animationTimer()
     {
-        Debug.Log("hi");
         yield return new WaitForSeconds(35);
         SceneManager.LoadScene("gameOver");
 

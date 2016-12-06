@@ -141,4 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTheme: {fileID: 8300000, guid: 2ba8087d257912240aec861032587aeb, type: 3}
   menuTheme: {fileID: 8300000, guid: 2aa9533d748a69f429c1096123bdd248, type: 3}
+  hallwayTheme: {fileID: 8300000, guid: 4e6b77cf15e5a3e4bad2d6eeb4878a96, type: 3}
+  darknessTheme: {fileID: 8300000, guid: 85009d4214734ff4989dff24594f5989, type: 3}
   creditsTheme: {fileID: 8300000, guid: 131ac0f51b842b44285a465a484709a4, type: 3}
+  gameOverTheme: {fileID: 8300000, guid: 994a1110c7efab14a9a721321ad4a77e, type: 3}

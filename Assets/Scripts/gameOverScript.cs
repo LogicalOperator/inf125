@@ -4,20 +4,23 @@ using UnityEngine.UI;
 
 public class gameOverScript : MonoBehaviour {
     //script used to get the static score off other screen
+    bool newHigh = false;
     float pointAnimDurationSec = 2f;
     float pointAnimTimer = 0f;
     float currentScore = 0;
     float savedDisplayedScore = 0;
     float displayedScore = 0;
     float fakeScoreKeeper;
+    int highScore;
     int goldInt;
     public Text gameOver;
     public Text gold;
     public Text score;
     public Text totalScore;
+    public Text hiScoreText;
 	// Use this for initialization
 	void Awake () {
-
+        PlayerPrefs.GetInt("highscore", 1000);
         getScore();
         AddPoints(fakeScoreKeeper);
     }
@@ -31,6 +34,10 @@ public class gameOverScript : MonoBehaviour {
         // it will add a cumulating error
         displayedScore = Mathf.Lerp(savedDisplayedScore, currentScore, prcComplete);
         totalScore.text = "Total Score: " + (int)displayedScore;
+        if(newHigh == true)
+        {
+            hiScoreText.text = "High-Score: " + (int)displayedScore;
+        }
     }
 
     void getScore()
@@ -65,6 +72,16 @@ public class gameOverScript : MonoBehaviour {
         {
             goldInt = PlayerPrefs.GetInt("gold", 0);
             fakeScoreKeeper = 0 + goldInt;
+        }
+
+        if(fakeScoreKeeper > highScore)
+        {
+            newHigh = true;
+            PlayerPrefs.SetInt("highscore", (int)fakeScoreKeeper);
+        }
+        else
+        {
+            hiScoreText.text = "High-Score: " + highScore;
         }
     }
 

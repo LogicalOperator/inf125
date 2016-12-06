@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class manager : MonoBehaviour {
+    public bool bossLevel;
     public GameObject door;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
@@ -124,9 +125,16 @@ public class manager : MonoBehaviour {
 
         if (waveRemaining <= 0) //if wave <= 0 create portal to enter next level
         {
-            audioManager.instance.playSound2D("portal");
-            GameObject aDoor = (GameObject)Instantiate(door);
-            aDoor.transform.position = spawnLocations[Random.Range(0, spawnLocations.Length)];
+            if(bossLevel == true)
+            {
+
+            }
+            else
+            {
+                audioManager.instance.playSound2D("portal");
+                GameObject aDoor = (GameObject)Instantiate(door);
+                aDoor.transform.position = spawnLocations[Random.Range(0, spawnLocations.Length)];
+            }
         }
 
         else //if wave still has more respawn new enemy

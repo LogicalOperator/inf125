@@ -8,7 +8,7 @@ public class initialGun : baseGunScript {
     void Awake () {
         gunName = "Pistol"; //update gunname, dmg mod, firing rate and other things here
         fireRate =0.5f;
-        dmgMod = 3;
+        dmgMod = 5;
         gunType = "light";
         gunTypeValue = 5.5f;
         player = GameObject.FindGameObjectWithTag("Player");

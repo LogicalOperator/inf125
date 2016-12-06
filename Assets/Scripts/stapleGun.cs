@@ -11,7 +11,7 @@ public class stapleGun : baseGunScript
         fireRate = 0.5f;
         dmgMod = 1f;
         gunType = "dark";
-        gunTypeValue = 3f;
+        gunTypeValue = 5f;
         player = GameObject.FindGameObjectWithTag("Player");
         libraryIndex = 1;
     }

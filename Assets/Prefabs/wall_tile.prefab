@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000010560643492}
   - 212: {fileID: 212000010851928710}
   - 61: {fileID: 61000010012272840}
+  - 50: {fileID: 50000010534696330}
   m_Layer: 10
   m_Name: wall_tile
   m_TagString: Wall
@@ -41,6 +42,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &50000010534696330
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010359382034}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!61 &61000010012272840
 BoxCollider2D:
   m_ObjectHideFlags: 1

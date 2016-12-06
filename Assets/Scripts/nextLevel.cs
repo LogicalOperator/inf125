@@ -21,7 +21,7 @@ public class nextLevel : MonoBehaviour {
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.Save();
 
-            if(SceneManager.GetActiveScene().buildIndex == 7)
+            if(SceneManager.GetActiveScene().buildIndex == 9)
             {
                 PlayerPrefs.SetInt("winCondition", 1);
                 SceneManager.LoadScene("Credits");

@@ -7,7 +7,7 @@ public class machineGun : baseGunScript {
 	void Awake () {
         gunName = "Machine Gun";
         fireRate = 0.3f;
-        dmgMod = -5;
+        dmgMod = 3;
         gunType = "dark";
         gunTypeValue = 2.8f;
         player = GameObject.FindGameObjectWithTag("Player");

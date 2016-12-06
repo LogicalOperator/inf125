@@ -71,6 +71,14 @@ public class controller : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter2D(Collision2D obj)//detects collisions with obj as the obj it collided with
+    {
+        if (obj.gameObject.tag == "Wall") //if it crashes object with a tag enemy, kill itself move to Gameover scene
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        }
+    }
+
     public void takeDamage(float dmg)
     {
         hp -= dmg; //getEnemy dmg
