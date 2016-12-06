@@ -585,8 +585,7 @@ MonoBehaviour:
     width: 1240
     height: 901
   selectedBlock: {fileID: 900483233}
-  selectedCommands:
-  - {fileID: 900483239}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -1336,8 +1335,8 @@ MonoBehaviour:
   eventHandler: {fileID: 900483232}
   commandList:
   - {fileID: 900483240}
-  - {fileID: 900483236}
   - {fileID: 900483239}
+  - {fileID: 900483236}
 --- !u!114 &900483234
 MonoBehaviour:
   m_ObjectHideFlags: 2
