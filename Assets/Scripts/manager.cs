@@ -44,7 +44,7 @@ public class manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape)) //if esc is pressed pause game 
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 9")) //if esc is pressed pause game 
         {
             if(Time.timeScale == 1)
             {

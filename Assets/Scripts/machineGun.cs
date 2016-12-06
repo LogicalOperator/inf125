@@ -26,13 +26,16 @@ public class machineGun : baseGunScript {
 		Vector3 pos = new Vector3();
 		Vector3 rotation_to = new Vector3();
 
-		if (Input.GetMouseButtonDown(1) || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))) {
+		if (Input.GetMouseButtonDown(1) 
+		|| (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
+		|| (Input.GetKey("joystick button 5") && (Input.GetAxis("HorFire") != 0 || Input.GetAxis("VerFire") != 0) && (Input.GetJoystickNames() != null || Input.GetJoystickNames().Length != 0))) {
 			if (player.GetComponent<controller>().currentDark < 100)//check if max light, if not play not full sound
 			{
 				audioManager.instance.playSound(emptyGunSound, transform.position);
 			}
 			else
 			{
+				rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
 				if (Input.GetMouseButtonDown(1)) {
 					pos = Input.mousePosition; // obtain mousepostion
 					pos = Camera.main.ScreenToWorldPoint (pos); // obtain exact mouse position from main camera screen
@@ -40,19 +43,17 @@ public class machineGun : baseGunScript {
 
 					rotation_to = pos - transform.position;
 				}
-				else {
-					if (Input.GetKey (KeyCode.J)) {
-						rotation_to = Vector3.left;
-					} 
-					if (Input.GetKey (KeyCode.L)) {
-						rotation_to += Vector3.right;
-					} 
-					if (Input.GetKey (KeyCode.I)) {
-						rotation_to += Vector3.up;
-					}
-					if (Input.GetKey (KeyCode.K)) {
-						rotation_to += Vector3.down;
-					}
+				if (Input.GetKey (KeyCode.J)) {
+					rotation_to = Vector3.left;
+				} 
+				if (Input.GetKey (KeyCode.L)) {
+					rotation_to += Vector3.right;
+				} 
+				if (Input.GetKey (KeyCode.I)) {
+					rotation_to += Vector3.up;
+				}
+				if (Input.GetKey (KeyCode.K)) {
+					rotation_to += Vector3.down;
 				}
 
 				player.GetComponent<controller>().resetBars(); //reset both resources
