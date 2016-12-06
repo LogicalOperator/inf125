@@ -16,7 +16,7 @@ public class impScript : enemyBase
         maxHP = 10f; //max hp of enemy
         currentHP = maxHP; //make currentHp = to max
         dmg = 1f;
-        speed = 2f;
+        speed = 1f;
         level = PlayerPrefs.GetInt("level", 1);
     }
 
@@ -43,6 +43,8 @@ public class impScript : enemyBase
                 Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
                 GameObject afireball = Instantiate(fireball, transform.position, q) as GameObject; // create bullet as a new gameObject
             }
+            Vector2 mainCharPos = player.transform.position;
+            gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), mainCharPos, speed * Time.deltaTime);
         }
         else
         {
