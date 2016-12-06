@@ -23,7 +23,27 @@ public class enemyController : enemyBase {
 
     void Update()
     {
+        // LookAt 2D
+        // get the angle
+        Vector3 norTar = (GoalDestination - transform.position).normalized;
+        float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+        // rotate to angle
+        Quaternion rotation = new Quaternion();
+        rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+        transform.rotation = rotation;
         gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), GoalDestination, speed * Time.deltaTime);
+        sendRaycast();
+        //if (wander == true)
+        //{
+        //    Debug.Log("havent found yet");
+        //    gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), GoalDestination, speed * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    Debug.Log("found");
+        //    movement();
+        //}
+
     }
 
     IEnumerator NewHeading()

@@ -9,6 +9,9 @@ public class impScript : enemyBase
     public float playerDistance;
     public float rotationDampening;
     private float nextFire = 0.0f;
+
+    public bool wander = true;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -31,6 +34,7 @@ public class impScript : enemyBase
         if (playerDistance < 17f)
         {
             lookAtPlayer();
+            sendRaycast();
             if(Time.time > nextFire)
             {
                 Vector3 pos = new Vector3();
@@ -65,5 +69,34 @@ public class impScript : enemyBase
         rotation.eulerAngles = new Vector3(0, 0, angle - 90);
         transform.rotation = rotation;
 
+    }
+
+
+    public override void sendRaycast()
+    {
+        Vector3 startPosition = transform.position;
+        Vector3 target = Vector3.zero;
+
+        int angle = 45;
+
+        int startAngle = (int)(-angle * 0.5f);
+        int finishAngle = (int)(angle * 0.5f);
+
+        int inc = (int)(angle / 10);
+        RaycastHit hit;
+
+        for (int i = startAngle; i < finishAngle; i += inc)
+        {
+            target = (Quaternion.Euler(0, i, 0) * transform.forward).normalized * 5.0f;
+            if (Physics.Raycast(startPosition, target, out hit))
+            {
+                if (hit.collider.gameObject.tag == "Player")
+                {
+                    wander = false;
+                    Debug.Log("Player found");
+                }
+            }
+            Debug.DrawLine(startPosition, target, Color.green);
+        }
     }
 }

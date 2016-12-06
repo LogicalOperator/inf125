@@ -13,6 +13,7 @@ public class enemyBase : MonoBehaviour {
     public GameObject money;
     public GameObject healthPack;
     public int level;
+    public bool wander = true;
 
     public float Health//health function to quickly update hp and destory itself if it is 0;
     {
@@ -77,7 +78,34 @@ public class enemyBase : MonoBehaviour {
             GetComponent<Rigidbody2D>().AddForce(force * magnitude);
             takeDamage(colli.gameObject.GetComponent<baseBullet>().damage); //take damage of bullet movement
             audioManager.instance.playSound("Impact", player.transform.position);//play damage sound at audioListener position
-            
+        }
+    }
+
+    public virtual void sendRaycast()
+    {
+        Vector3 startPosition = transform.position;
+        Vector3 target = Vector3.zero;
+
+        int angle = 180;
+
+        int startAngle = (int)(-angle * 0.5f);
+        int finishAngle = (int)(angle * 0.5f);
+
+        int inc = (int)(angle / 10);
+        RaycastHit hit;
+
+        for(int i = startAngle; i < finishAngle; i += inc)
+        {
+            target = (Quaternion.Euler(0, i, 0) * transform.forward).normalized * 5.0f;
+            if(Physics.Raycast(startPosition, target, out hit))
+            {
+                if(hit.collider.gameObject.tag == "Player")
+                {
+                    wander = false;
+                    Debug.Log("Player found");
+                }
+            }
+            Debug.DrawLine(startPosition, target, Color.green);
         }
     }
     
