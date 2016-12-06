@@ -103,53 +103,52 @@ public class controller : MonoBehaviour
 
     public void rotation()
     {
-
-        if (Input.GetJoystickNames().Length != 0)
+        if (Input.GetJoystickNames() != null || Input.GetJoystickNames().Length != 0)
         {
-            //float controller_angle = Mathf.Atan2(Input.GetAxis("VerFire"), Input.GetAxis("HorFire")) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
+            float controller_angle = Mathf.Atan2(Input.GetAxis("HorFire"), Input.GetAxis("VerFire")) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, controller_angle));
         }
-            Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
-            mousePos.z = 5.23f;
+        Vector3 mousePos = Input.mousePosition; //find mouse position and rotate player accordingly
+        mousePos.z = 5.23f;
 
-            Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
-            mousePos.x = mousePos.x - objectPos.x;
-            mousePos.y = mousePos.y - objectPos.y;
+        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        mousePos.x = mousePos.x - objectPos.x;
+        mousePos.y = mousePos.y - objectPos.y;
 
-            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            if (Input.GetKey(KeyCode.J))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
-            }
-            if (Input.GetKey(KeyCode.L))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
-            }
-            if (Input.GetKey(KeyCode.I))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360));
-            }
-            if (Input.GetKey(KeyCode.K))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
-            }
-            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.I))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
-            }
-            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.I))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
-            }
-            if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.K))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 225));
-            }
-            if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.K))
-            {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 135));
-            }
+        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        if (Input.GetKey(KeyCode.J))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 270));
+        }
+        if (Input.GetKey(KeyCode.L))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+        }
+        if (Input.GetKey(KeyCode.I))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 360));
+        }
+        if (Input.GetKey(KeyCode.K))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
+        }
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.I))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 315));
+        }
+        if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.I))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 45));
+        }
+        if (Input.GetKey(KeyCode.J) && Input.GetKey(KeyCode.K))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 225));
+        }
+        if (Input.GetKey(KeyCode.L) && Input.GetKey(KeyCode.K))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 135));
+        }
 
     }
 
@@ -314,7 +313,7 @@ public class controller : MonoBehaviour
                 }
             }
         }
-            if (Input.GetKeyDown(KeyCode.R))// if R is pressed change the gun by deactivating current and activating the non current gun
+        if (Input.GetKeyDown(KeyCode.R))// if R is pressed change the gun by deactivating current and activating the non current gun
         {
             foreach (Transform child in transform)
             {

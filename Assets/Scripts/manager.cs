@@ -47,7 +47,7 @@ public class manager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape)) //if esc is pressed pause game 
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 9")) //if esc is pressed pause game 
         {
             if(Time.timeScale == 1)
             {
@@ -77,7 +77,8 @@ public class manager : MonoBehaviour {
         if (index > enemies.Length) {
             enemy = (GameObject)Instantiate(enemies[0]);
         }
-        else {
+        else
+        {
             enemy = (GameObject)Instantiate(enemies[index]);
         }
         return enemy;

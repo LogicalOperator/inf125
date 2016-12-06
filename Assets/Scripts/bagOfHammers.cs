@@ -4,7 +4,6 @@ using System;
 
 public class bagOfHammers : baseGunScript
 {
-    public GameObject specialPrefab;
 
     // Use this for initialization
     void Awake()
@@ -30,14 +29,16 @@ public class bagOfHammers : baseGunScript
         Vector3 pos = new Vector3();
         Vector3 rotation_to = new Vector3();
 
-        if (Input.GetMouseButtonDown(1) || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))))
-        {
+        if (Input.GetMouseButtonDown(1) 
+		|| (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
+		|| (Input.GetKey("joystick button 5") && (Input.GetAxis("HorFire") != 0 || Input.GetAxis("VerFire") != 0) && (Input.GetJoystickNames() != null || Input.GetJoystickNames().Length != 0))){
             if (player.GetComponent<controller>().currentLight < 100)//check if max light, if not play not full sound
             {
                 audioManager.instance.playSound(emptyGunSound, transform.position);
             }
             else
             {
+				rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
                 if (Input.GetMouseButtonDown(1))
                 {
                     pos = Input.mousePosition; // obtain mousepostion
@@ -66,11 +67,12 @@ public class bagOfHammers : baseGunScript
                     }
                 }
 
+
                 player.GetComponent<controller>().resetBars(); //reset both resources
                 audioManager.instance.playSound(gunSound, transform.position);
 
                 Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
-                GameObject go = Instantiate(specialPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
+                GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
             }
         }
     }

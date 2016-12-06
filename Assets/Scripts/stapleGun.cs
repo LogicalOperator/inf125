@@ -29,14 +29,17 @@ public class stapleGun : baseGunScript
         Vector3 pos = new Vector3();
         Vector3 rotation_to = new Vector3();
 
-        if (Input.GetMouseButtonDown(1) || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))))
+        if (Input.GetMouseButtonDown(1)
+        || (Input.GetKey(KeyCode.RightShift) && (Input.GetKey(KeyCode.J) || Input.GetKey(KeyCode.L) || Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K)))
+        || (Input.GetKey("joystick button 5") && (Input.GetAxis("HorFire") != 0 || Input.GetAxis("VerFire") != 0) && (Input.GetJoystickNames() != null || Input.GetJoystickNames().Length != 0)))
         {
-            if (player.GetComponent<controller>().currentDark < 100)//check if max light, if not play not full sound
+            if (player.GetComponent<controller>().currentDark < 100)//check if max dark, if not play not full sound
             {
                 audioManager.instance.playSound(emptyGunSound, transform.position);
             }
             else
             {
+                rotation_to = new Vector3(Input.GetAxis("HorFire"), Input.GetAxis("VerFire"), 0);
                 if (Input.GetMouseButtonDown(1))
                 {
                     pos = Input.mousePosition; // obtain mousepostion
