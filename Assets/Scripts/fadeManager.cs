@@ -9,5 +9,13 @@ public class fadeManager : MonoBehaviour {
 	void Awake () {
         fadingImage = GetComponent<Image>();
         fadingImage.CrossFadeAlpha(0, 2.5f, false);
+        StartCoroutine(Timer());
 	}
+
+    IEnumerator Timer()
+    {
+        fadingImage.CrossFadeAlpha(0, 2.5f, false);
+        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
+    }
 }

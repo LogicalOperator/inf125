@@ -1,17 +1,35 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class goldDrops : MonoBehaviour {
+    public Sprite gold1;
+    public Sprite gold2;
+    public Sprite gold3;
     Transform player;
     bool inside;
+    
     public int time;
     public int worth;
     public AudioClip goldClip;
 	// Use this for initialization
 	void Start () {
+
+        worth = Random.Range(1, 10);
+        if(worth <= 3)
+        {
+           GetComponent<SpriteRenderer>().sprite = gold1;
+        }
+        else if(worth >3 && worth<= 6)
+        {
+            GetComponent<SpriteRenderer>().sprite = gold2;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = gold3;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         time = 15;
-        worth = Random.Range(1, 10);
         DestroyObject(gameObject, time);
 	}
 
