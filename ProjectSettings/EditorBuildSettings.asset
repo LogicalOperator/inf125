@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hallway.unity
   - enabled: 1
+    path: Assets/Scenes/Power Outage.unity
+  - enabled: 1
     path: Assets/Scenes/gameOver.unity

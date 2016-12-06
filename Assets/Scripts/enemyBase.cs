@@ -43,7 +43,7 @@ public class enemyBase : MonoBehaviour {
         if(Random.Range(1,10) <= 2)
         {
             GameObject aHealthPack = Instantiate(healthPack);
-            healthPack.transform.position = this.transform.position;
+            aHealthPack.transform.position = this.transform.position;
         }
         else
         {
