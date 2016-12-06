@@ -23,6 +23,7 @@ public class nextLevel : MonoBehaviour {
 
             if(SceneManager.GetActiveScene().buildIndex == 7)
             {
+                PlayerPrefs.SetInt("winCondition", 1);
                 SceneManager.LoadScene("Credits");
             }
             else

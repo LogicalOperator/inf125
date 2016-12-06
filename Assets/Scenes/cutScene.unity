@@ -120,8 +120,9 @@ GameObject:
   - 114: {fileID: 263439054}
   - 114: {fileID: 263439053}
   - 114: {fileID: 263439056}
-  - 114: {fileID: 263439057}
   - 114: {fileID: 263439043}
+  - 114: {fileID: 263439057}
+  - 114: {fileID: 263439055}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -200,7 +201,7 @@ MonoBehaviour:
     height: 955.643
   selectedBlock: {fileID: 263439052}
   selectedCommands:
-  - {fileID: 263439051}
+  - {fileID: 263439055}
   variables: []
   description: 
   stepPause: 0
@@ -610,6 +611,7 @@ MonoBehaviour:
   eventHandler: {fileID: 263439054}
   commandList:
   - {fileID: 263439057}
+  - {fileID: 263439055}
   - {fileID: 263439051}
 --- !u!114 &263439053
 MonoBehaviour:
@@ -643,6 +645,24 @@ MonoBehaviour:
   parentBlock: {fileID: 263439052}
   keyPressType: 0
   keyCode: 27
+--- !u!114 &263439055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263439031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 29
+  errorMessage: 
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 2
+  durationOLD: 0
 --- !u!114 &263439056
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -663,7 +683,7 @@ MonoBehaviour:
   fadeDuration: 1
 --- !u!114 &263439057
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263439031}
@@ -672,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b359b09a7ba2e4af981f07c07f8af85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 26
+  itemId: 28
   errorMessage: 
   indentLevel: 0
 --- !u!1 &577698361

@@ -6,7 +6,10 @@ public class specialHammerBulletMovement : baseBullet {
     // Use this for initialization
     new void Start()
     {
-        base.Start();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<controller>();
+        damage = player.damage + 3;
+        this.GetComponent<Rigidbody2D>().AddForce(transform.up * speed); // add force to bullet to move forward
+        Destroy(gameObject, lifetimeBull); //destory gameobject if it passes x amount of time
     }
 
     // Update is called once per frame
