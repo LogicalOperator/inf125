@@ -139,5 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334857cf611d5ca4d97d679dd9924c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTheme: {fileID: 8300000, guid: adc03d4d79e3a514e8d94b0361919ea2, type: 3}
-  menuTheme: {fileID: 8300000, guid: 75055603deb47844d9be95e414b5f044, type: 3}
+  mainTheme: {fileID: 8300000, guid: 2ba8087d257912240aec861032587aeb, type: 3}
+  menuTheme: {fileID: 8300000, guid: 2aa9533d748a69f429c1096123bdd248, type: 3}
+  creditsTheme: {fileID: 8300000, guid: 131ac0f51b842b44285a465a484709a4, type: 3}

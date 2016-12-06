@@ -20,7 +20,15 @@ public class nextLevel : MonoBehaviour {
             PlayerPrefs.SetInt("score", scoreChanger.instance.getScore());
             PlayerPrefs.SetInt("gold", goldChanger.gold);
             PlayerPrefs.Save();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            if(SceneManager.GetActiveScene().buildIndex == 7)
+            {
+                SceneManager.LoadScene("Credits");
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
 
             Destroy(gameObject);//destory portal 
         }

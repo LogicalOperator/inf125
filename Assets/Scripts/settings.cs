@@ -132,4 +132,9 @@ public class settings : MonoBehaviour {
         Application.OpenURL("http://kireji.com/zd");
     }
 
+    public void goToCredits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }

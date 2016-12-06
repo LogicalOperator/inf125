@@ -97,12 +97,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000012127988924}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7f4f1a1e69861409d2a0135009df51, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d4aede234c4972428def8b32b8f3679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
   worth: 0
-  healthClip: {fileID: 8300000, guid: 46236e566c177bb4da83c4be999ed45d, type: 3}
+  healthClip: {fileID: 0}
 --- !u!212 &212000011919217682
 SpriteRenderer:
   m_ObjectHideFlags: 1

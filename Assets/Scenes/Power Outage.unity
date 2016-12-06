@@ -822,7 +822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013010074184, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
@@ -1025,7 +1025,7 @@ Transform:
   m_Children:
   - {fileID: 1828374979}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &561160789 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000013354267006, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
@@ -1973,7 +1973,7 @@ RectTransform:
   - {fileID: 185196949}
   - {fileID: 1065358148}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3574,7 +3574,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011810559868, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013207246036, guid: d2f3a2d0a2ea2bf408e8ab057440f1d1,
         type: 2}
@@ -4779,6 +4779,9 @@ MonoBehaviour:
   - {fileID: 1000011773335056, guid: 5b49bf9c1151fc24ca6c8296a75b0f2d, type: 2}
   wallTiles:
   - {fileID: 1000010359382034, guid: 14232d8bd1da54a43a0a9db23c6f2afe, type: 2}
+  enemyTiles:
+  - {fileID: 1000012181121988, guid: c23220d3f0dce0145b70d64d7346d60a, type: 2}
+  - {fileID: 1000012181121988, guid: a3472b8df16a982449d3eb622952510d, type: 2}
   outerWallTiles:
   - {fileID: 1000011457244650, guid: 53ba55a230847b845852b7ee382f6b36, type: 2}
   spawnLocs: []
@@ -4809,16 +4812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d973b68b3587543b573c3ddedcdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: 1
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   maxSecsStartSpawner: 5
   waveMax: 20
   initialSpawn: 5
-  enemies:
-  - {fileID: 1000012181121988, guid: a3472b8df16a982449d3eb622952510d, type: 2}
-  - {fileID: 1000012181121988, guid: c23220d3f0dce0145b70d64d7346d60a, type: 2}
-  pauseMenu: {fileID: 1411375067}
   player: {fileID: 0}
+  pauseMenu: {fileID: 1411375067}
   level: 3
 --- !u!1 &1946848787
 GameObject:

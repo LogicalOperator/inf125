@@ -33,11 +33,17 @@ public class manager : MonoBehaviour {
             board.setupScene(level);
             spawnLocations = board.spawnLocs;
             enemies = board.enemyTiles;
-            board.spawnInitialEnemies(level);
-            Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
+            StartCoroutine(timer());
         }
     }
 	
+    IEnumerator timer()
+    {
+        audioManager.instance.playSound2D("spawnTimer");
+        yield return new WaitForSeconds(3);
+        board.spawnInitialEnemies(level);
+        Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
+    }
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Escape)) //if esc is pressed pause game 

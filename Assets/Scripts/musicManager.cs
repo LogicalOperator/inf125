@@ -7,6 +7,7 @@ public class musicManager : MonoBehaviour
 
     public AudioClip mainTheme;
     public AudioClip menuTheme;
+    public AudioClip creditsTheme;
     string sceneName;
     // Use this for initialization
     void Start()
@@ -36,6 +37,10 @@ public class musicManager : MonoBehaviour
         else if (sceneName == "Ground Floor")
         {
             clipToPlay = mainTheme;
+        }
+        else if(sceneName == "Credits")
+        {
+            clipToPlay = creditsTheme;
         }
 
         else

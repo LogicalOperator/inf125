@@ -416,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashImg: {fileID: 1963442439}
   splashLogo: {fileID: 747231057}
-  loadLevel: Main Menu
+  loadLevel: cutScene
 --- !u!82 &1090909885
 AudioSource:
   m_ObjectHideFlags: 0
