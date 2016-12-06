@@ -101,6 +101,10 @@ public class boardManager : MonoBehaviour
 
         // set up enemy spawner
         int spawnCount = level;
+        if(level == 0 || level == 1)
+        {
+            spawnCount = 2; // so we have enough array indices when getting a random spawn for an enemy
+        }
         spawnLocs = new Vector3[spawnCount];
         for (int i = 0; i < spawnCount; ++i)
         {
@@ -114,7 +118,7 @@ public class boardManager : MonoBehaviour
 
     public void spawnInitialEnemies(int level)
     {
-        int enemyCount = 2 * level; // initial amount of enemies that will spawn at random
+        int enemyCount = 3 * level; // initial amount of enemies that will spawn at random
                                     // places (not spawn locations)
         layoutObjectAtRandom(enemyTiles, enemyCount, enemyCount);
     }

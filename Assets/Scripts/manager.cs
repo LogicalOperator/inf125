@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class manager : MonoBehaviour {
-    public bool spawner;
     public GameObject door;
     public float maxSecsStartSpawner = 3f;//max time it takes to spawn enemy
     public static int waveRemaining;
@@ -12,7 +11,7 @@ public class manager : MonoBehaviour {
     public int initialSpawn;
 
     private Vector3[] spawnLocations;
-    public GameObject[] enemies;
+    private GameObject[] enemies;
     public GameObject player;
 
     public GameObject pauseMenu;
@@ -29,15 +28,13 @@ public class manager : MonoBehaviour {
         else
         {
             PlayerPrefs.SetInt("level", level);
+            waveRemaining = waveMax;
+            player = GameObject.FindGameObjectWithTag("Player");
             board.setupScene(level);
             spawnLocations = board.spawnLocs;
-            player = GameObject.FindGameObjectWithTag("Player");
             enemies = board.enemyTiles;
-        }
-
-        if(spawner == true)
-        {
-            StartCoroutine(waitTimer());
+            board.spawnInitialEnemies(level);
+            Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
         }
     }
 	
@@ -81,11 +78,12 @@ public class manager : MonoBehaviour {
 
     public void enemySpawner()
     {
-        GameObject anEnemy = setupEnemy(Random.Range(0,enemies.Length)); //spawn enemy
-        Vector3 loc = spawnLocations[Random.Range(0, 3)];
+        int index = Random.Range(0, spawnLocations.Length);
+        Vector3 loc = spawnLocations[index];
         int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
         if ((player.transform.position - loc).sqrMagnitude >= unitRadius)
         {
+            GameObject anEnemy = setupEnemy(Random.Range(0, enemies.Length)); //spawn enemy
             anEnemy.transform.position = loc;   // move enemy to random spawn location
             waveRemaining--;                    // decrement wave amount
             schedulerforEnemySpwn();
@@ -122,39 +120,12 @@ public class manager : MonoBehaviour {
         {
             audioManager.instance.playSound2D("portal");
             GameObject aDoor = (GameObject)Instantiate(door);
-            aDoor.transform.position = spawnLocations[Random.Range(0, 3)];
+            aDoor.transform.position = spawnLocations[Random.Range(0, spawnLocations.Length)];
         }
 
         else //if wave still has more respawn new enemy
         {
             Invoke("enemySpawner", spwnInNSeconds);
         }
-    }
-
-    //void startSpawner(int index)
-    //{
-    //    Vector3 loc = spawnLocations[Random.Range(0, 3)];
-    //    int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
-    //    for(int i = 0; i < index; i++)
-    //    {
-    //        GameObject anEnemy = setupEnemy(Random.Range(0, enemies.Length));
-    //        if ((player.transform.position - loc).sqrMagnitude >= unitRadius)
-    //        {
-    //            anEnemy.transform.position = loc;   // move enemy to random spawn location
-    //        }
-    //        else
-    //        {
-    //            return;
-    //        }
-    //    }
-    //}
-
-    IEnumerator waitTimer()
-    {
-        audioManager.instance.playSound2D("spawnTimer");
-        yield return new WaitForSeconds(3);
-        board.spawnInitialEnemies(3);
-        waveRemaining = waveMax;
-        Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
     }
 }
