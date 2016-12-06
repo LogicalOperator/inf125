@@ -822,7 +822,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013010074184, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2915e0b3f0900444ab509f115e56d0d8, type: 2}
@@ -1042,7 +1042,7 @@ Transform:
   m_Children:
   - {fileID: 1828374979}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &607454483
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,6 +4845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d973b68b3587543b573c3ddedcdb0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossLevel: 0
   door: {fileID: 1000014226098268, guid: 09e2712adf2f8b1448434a5da8fd855b, type: 2}
   maxSecsStartSpawner: 5
   waveMax: 20
