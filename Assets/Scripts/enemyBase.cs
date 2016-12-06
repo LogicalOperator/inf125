@@ -80,25 +80,5 @@ public class enemyBase : MonoBehaviour {
             
         }
     }
-
-    // roam to a given point
-    public virtual void roam(Vector2 direction)
-    {
-        //Vector2 playerPosition = player.transform.position;
-        //Vector2 enemyPosition = transform.position;
-        //player = GameObject.FindGameObjectWithTag("Player"); //find main player
-        //if (!player)
-        //{
-        //    return;
-        //}
-        //Vector2 playerPosition = player.transform.position;
-        Vector2 pos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        Vector2 target = pos + direction;
-
-        //float distance = Vector2.Distance(playerPosition, enemyPosition);
-        //Vector2 direction = Random.insideUnitCircle * radius;
-        //target = target.normalized;
-        gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, speed * Time.deltaTime);
-    }
     
 }
