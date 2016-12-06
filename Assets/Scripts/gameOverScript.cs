@@ -20,7 +20,7 @@ public class gameOverScript : MonoBehaviour {
     public Text hiScoreText;
 	// Use this for initialization
 	void Awake () {
-        PlayerPrefs.GetInt("highscore", 1000);
+        highScore = PlayerPrefs.GetInt("highscore", 1000);
         getScore();
         AddPoints(fakeScoreKeeper);
     }
@@ -78,6 +78,7 @@ public class gameOverScript : MonoBehaviour {
         {
             newHigh = true;
             PlayerPrefs.SetInt("highscore", (int)fakeScoreKeeper);
+            PlayerPrefs.Save();
         }
         else
         {
