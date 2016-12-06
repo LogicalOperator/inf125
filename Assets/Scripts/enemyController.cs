@@ -5,6 +5,7 @@ public class enemyController : enemyBase {
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player"); //find main player
         maxHP = 30f; //max hp of enemy
         currentHP = maxHP; //make currentHp = to max
         dmg = 0.5f;
@@ -15,6 +16,30 @@ public class enemyController : enemyBase {
     void Update()
     {
         movement();//use default enemy movement
+    }
+
+    public override void movement()
+    {
+        lookAtPlayer();
+        if (player)
+        {
+            Vector2 mainCharPos = player.transform.position;//get player locations and movetowards it.
+            gameObject.transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), mainCharPos, speed * Time.deltaTime);
+        }
+
+    }
+
+    void lookAtPlayer()
+    {
+        // LookAt 2D
+        // get the angle
+        Vector3 norTar = (player.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+        // rotate to angle
+        Quaternion rotation = new Quaternion();
+        rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+        transform.rotation = rotation;
+
     }
 
 }
