@@ -76,10 +76,29 @@ public class manager : MonoBehaviour {
         return enemy;
     }
 
+    // returns true if enemy (from the Enemy layer) is on the current spawn location
+    // returns false if no enemy is on the spawn point location
+    // this is used so that we don't instantiate enemies on top of each other
+    bool isEnemyOnSpawner(Vector3 location)
+    {
+        int layerId = LayerMask.NameToLayer("enemy");
+        float radius = 2 * 2; // radius when checking if an enemy is nearby
+        // construct a bit mask for the enemy layer by setting
+        // the layer to look at to 1, while setting all other layer
+        // bits to 0
+        int mask = 1 << layerId;
+        // check for enemy objects near the spawn point
+        return Physics.CheckSphere(location, radius, mask);
+    }
+
     public void enemySpawner()
     {
-        int index = Random.Range(0, spawnLocations.Length);
-        Vector3 loc = spawnLocations[index];
+        Vector3 loc = spawnLocations[Random.Range(0, spawnLocations.Length)];
+        // check if enemy is already on top of the spawner
+        if(isEnemyOnSpawner(loc))
+        {
+            schedulerforEnemySpwn();
+        }
         int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
         if ((player.transform.position - loc).sqrMagnitude >= unitRadius)
         {

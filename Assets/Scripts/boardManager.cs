@@ -85,8 +85,13 @@ public class boardManager : MonoBehaviour
         int objCount = Random.Range(minimum, maximum + 1);
         for (int i = 0; i < objCount; i++)
         {
+            int index = 0;
             Vector3 rp = randomPosition(); // get random position from gridPosition
-            GameObject choice = tileArray[Random.Range(0, tileArray.Length)]; // choose random tile
+            if(tileArray.Length > 1)
+            {
+                index = Random.Range(0, tileArray.Length);
+            }
+            GameObject choice = tileArray[index]; // choose random tile
             Instantiate(choice, rp, Quaternion.identity);
         }
     }
