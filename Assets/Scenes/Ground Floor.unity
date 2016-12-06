@@ -3608,8 +3608,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
   - {fileID: 1000012181121988, guid: 016efd0311814f34fb1eb615dba2daa4, type: 2}
-  pauseMenu: {fileID: 1001837441}
   player: {fileID: 168450938}
+  pauseMenu: {fileID: 1001837441}
   level: 1
 --- !u!4 &1361734173
 Transform:
@@ -3661,6 +3661,9 @@ MonoBehaviour:
   - {fileID: 1000012678540554, guid: dd9f620177b4f4bd899a4015f6833666, type: 2}
   wallTiles:
   - {fileID: 1000010359382034, guid: 8a45d4e9f8cd945a5bb8709cf0e3d3c6, type: 2}
+  enemyTiles:
+  - {fileID: 1000012181121988, guid: 016efd0311814f34fb1eb615dba2daa4, type: 2}
+  - {fileID: 1000012181121988, guid: 7dbfad5190f17734c93111462c15a60c, type: 2}
   outerWallTiles:
   - {fileID: 1000011457244650, guid: f498c61f20770994ba632981f4ec9f7f, type: 2}
   spawnLocs: []

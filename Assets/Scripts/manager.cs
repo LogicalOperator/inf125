@@ -10,12 +10,12 @@ public class manager : MonoBehaviour {
     public static int waveRemaining;
     public int waveMax;
     public int initialSpawn;
+
     private Vector3[] spawnLocations;
     public GameObject[] enemies;
-    public GameObject pauseMenu;
     public GameObject player;
 
-
+    public GameObject pauseMenu;
     private boardManager board;
     public int level;
     
@@ -32,6 +32,7 @@ public class manager : MonoBehaviour {
             board.setupScene(level);
             spawnLocations = board.spawnLocs;
             player = GameObject.FindGameObjectWithTag("Player");
+            enemies = board.enemyTiles;
         }
 
         if(spawner == true)
@@ -58,24 +59,24 @@ public class manager : MonoBehaviour {
 
     }
 
-    GameObject setupEnemy(int index)
-    {
-        GameObject enemy;
-        if (index > enemies.Length)
-        {
-            enemy = (GameObject)Instantiate(enemies[0]);
-        }
-        else
-        {
-            enemy = (GameObject)Instantiate(enemies[index]);
-        }
-        return enemy;
-    }
-
     public void resumeGame() // resume button
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+    }
+
+    // takes an index of an enemy and returns that enemy as an
+    // instantiated GameObject. If the index does not exist,
+    // returns enemies[0]
+    GameObject setupEnemy(int index) {
+        GameObject enemy;
+        if (index > enemies.Length) {
+            enemy = (GameObject)Instantiate(enemies[0]);
+        }
+        else {
+            enemy = (GameObject)Instantiate(enemies[index]);
+        }
+        return enemy;
     }
 
     public void enemySpawner()
@@ -120,7 +121,6 @@ public class manager : MonoBehaviour {
         if (waveRemaining <= 0) //if wave <= 0 create portal to enter next level
         {
             audioManager.instance.playSound2D("portal");
-
             GameObject aDoor = (GameObject)Instantiate(door);
             aDoor.transform.position = spawnLocations[Random.Range(0, 3)];
         }
@@ -131,29 +131,29 @@ public class manager : MonoBehaviour {
         }
     }
 
-    void startSpawner(int index)
-    {
-        Vector3 loc = spawnLocations[Random.Range(0, 3)];
-        int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
-        for(int i = 0; i < index; i++)
-        {
-            GameObject anEnemy = setupEnemy(Random.Range(0, enemies.Length));
-            if ((player.transform.position - loc).sqrMagnitude >= unitRadius)
-            {
-                anEnemy.transform.position = loc;   // move enemy to random spawn location
-            }
-            else
-            {
-                return;
-            }
-        }
-    }
+    //void startSpawner(int index)
+    //{
+    //    Vector3 loc = spawnLocations[Random.Range(0, 3)];
+    //    int unitRadius = 5 * 5; // used for a 5 unit radius (circle)
+    //    for(int i = 0; i < index; i++)
+    //    {
+    //        GameObject anEnemy = setupEnemy(Random.Range(0, enemies.Length));
+    //        if ((player.transform.position - loc).sqrMagnitude >= unitRadius)
+    //        {
+    //            anEnemy.transform.position = loc;   // move enemy to random spawn location
+    //        }
+    //        else
+    //        {
+    //            return;
+    //        }
+    //    }
+    //}
 
     IEnumerator waitTimer()
     {
         audioManager.instance.playSound2D("spawnTimer");
         yield return new WaitForSeconds(3);
-        startSpawner(initialSpawn);
+        board.spawnInitialEnemies(3);
         waveRemaining = waveMax;
         Invoke("enemySpawner", maxSecsStartSpawner); //calls function enemy Spawner for x amount of seconds
     }
