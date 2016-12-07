@@ -9,6 +9,14 @@ public class credits : MonoBehaviour {
         StartCoroutine(animationTimer());
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("gameOver");
+        }
+    }
+
     IEnumerator animationTimer()
     {
         yield return new WaitForSeconds(35);

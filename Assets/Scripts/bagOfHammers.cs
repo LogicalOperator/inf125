@@ -4,6 +4,7 @@ using System;
 
 public class bagOfHammers : baseGunScript
 {
+    public GameObject specialPrefab;
 
     // Use this for initialization
     void Awake()
@@ -72,7 +73,7 @@ public class bagOfHammers : baseGunScript
                 audioManager.instance.playSound(gunSound, transform.position);
 
                 Quaternion q = Quaternion.FromToRotation(Vector3.up, rotation_to);
-                GameObject go = Instantiate(bulletPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
+                GameObject go = Instantiate(specialPrefab, transform.position, q) as GameObject; // create bullet as a new gameObject
             }
         }
     }

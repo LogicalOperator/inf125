@@ -16,7 +16,7 @@ public class reset : MonoBehaviour {
     }
 	
 	IEnumerator  timerCutscene(){
-		yield return new WaitForSeconds(120);
+		yield return new WaitForSeconds(80);
 		Destroy(audio.gameObject);
 		SceneManager.LoadScene("cutScene");
 	}

@@ -419,6 +419,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 44438648}
+--- !u!114 &49327018 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000012900329528, guid: 2915e0b3f0900444ab509f115e56d0d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1717445438}
+  m_Script: {fileID: 11500000, guid: e275ca7baeb53734cbb4e30556ade206, type: 3}
 --- !u!1 &53418968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,6 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16e94a24cd16b154685f42d70f99385c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audio: {fileID: 49327018}
 --- !u!4 &1552957188
 Transform:
   m_ObjectHideFlags: 0
